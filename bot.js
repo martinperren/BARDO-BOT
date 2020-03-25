@@ -22,15 +22,8 @@ console.log("Bot iniciado");
 
 music.start(client, {
 youtubeKey: process.env.YOUTUBE,
-
-  <command>: {
-    enabled: false,                    // True/False statement.
-    alt: ["name1","name2","name3"],    // Array of alt names (aliases).
-    help: "Help text.",                // String of help text.
-    name: "play"                       // Name of the command.
-    usage: "{{!}}", // Usage text. {{prefix}} will insert the bots prefix.
-    exclude: false                     // Excludes the command from the help command.
-  }
+botPrefix:"!"
+ 
 });
 
 
