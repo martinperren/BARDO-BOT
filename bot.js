@@ -21,7 +21,7 @@ console.log("Bot iniciado");
 
 
 music.start(client, {
-youtubeKey: "AIzaSyCxg7AQ1oqF5da_LGO-F1tAqRq4zzzHTAY",
+youtubeKey: "process.env.YOUTUBE",
 botPrefix:"!",
 botAdmins: ["211602677858172930"]
  
