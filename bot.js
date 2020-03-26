@@ -24,7 +24,7 @@ music.start(client, {
 youtubeKey: process.env.YOUTUBE,
 botPrefix:"!",
 botAdmins: ["211602677858172930"],
-bitRate: "250"
+bitRate: "120000" //default era 120000
  
 });
 
