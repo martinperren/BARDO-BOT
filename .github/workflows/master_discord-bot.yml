@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'discord-bot'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_683879bea51d4565ba23c0c0dc646fbc }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8ce0b9e5dff84edf8b382f8622cd5e63 }}
         package: .
