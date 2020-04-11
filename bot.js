@@ -371,7 +371,7 @@ O   |
  +----+
  |    |    wordHere
  O    |
-/|\\  |    numerOfLives
+/|\\   |    numerOfLives
       |    missC
       |
 =========  gameStatus
