@@ -333,7 +333,7 @@ client.on("message", async message => {
 
 const randomWord = require('random-spanish-words');
 const hangman = require("./hangman.js");
-const prefix = "!jugar"
+const prefix = "jugar"
 
 const figure = [`
  +---+
