@@ -379,7 +379,7 @@ O   |
  +----+
  |    |    wordHere
  O    |
-/|\\  |    numerOfLives
+/|\\   |    numerOfLives
 /     |    missC
       |
 =========  gameStatus
@@ -387,8 +387,8 @@ O   |
  +----+
  |    |    wordHere
  O    |
-/|\\  |    numerOfLives
-/ \\  |    missC
+/|\\   |    numerOfLives
+/ \\   |    missC
       |
 =========  gameStatus
 `];
