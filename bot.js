@@ -620,9 +620,9 @@ async function runGame(channel, game, players) {
 async function showResult(channel, game, selector) {
 	if (game.status === "won") {
 		if (selector) {
-			channel.send(`Ganaste. ${selector.username} la proxima vez elegi alguna mas difícil`);
+			channel.send(`Ganaron. ${selector.username} la proxima vez elegi alguna mas difícil!`);
 		} else {
-			channel.send("Ganaste!");
+			channel.send(`Ganaron, la palabra era ${game.word}!`);
 		}
 	} else if (game.status === "lost") {
 		if (selector) {
