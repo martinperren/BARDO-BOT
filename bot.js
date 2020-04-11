@@ -338,58 +338,58 @@ const prefix = "!jugar"
 const figure = [`
 +---+
 |   |      wordHere
-|
-|      numerOfLives
-|      missC
-|
+    |
+    |      numerOfLives
+    |      missC
+    |
 =========  gameStatus
 `, `
 +---+
 |   |      wordHere
 O   |
-|      numerOfLives
-|      missC
-|
+    |      numerOfLives
+    |      missC
+    |
 =========  gameStatus
 `, `
 +---+
 |   |      wordHere
 O   |
 |   |      numerOfLives
-|      missC
-|
+    |      missC
+    |
 =========  gameStatus
 `, `
-+---+
-|   |      wordHere
-O   |
-/|   |      numerOfLives
-|      missC
-|
+ +----+
+ |    |    wordHere
+ O    |
+/|    |    numerOfLives
+      |    missC
+      |
 =========  gameStatus
 `, `
-+---+
-|   |      wordHere
-O   |
-/|\\  |      numerOfLives
-|      missC
-|
+ +----+
+ |    |    wordHere
+ O    |
+/|\\  |    numerOfLives
+      |    missC
+      |
 =========  gameStatus
 `, `
-+---+
-|   |      wordHere
-O   |
-/|\\  |      numerOfLives
-/    |      missC
-|
+ +----+
+ |    |    wordHere
+ O    |
+/|\\  |    numerOfLives
+/     |    missC
+      |
 =========  gameStatus
 `, `
-+---+
-|   |      wordHere
-O   |
-/|\\  |      numerOfLives
-/ \\  |      missC
-|
+ +----+
+ |    |    wordHere
+ O    |
+/|\\  |    numerOfLives
+/ \\  |    missC
+      |
 =========  gameStatus
 `];
 
