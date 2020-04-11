@@ -545,7 +545,7 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 }
 
 async function startGame(channel, gameType) {
-	channel.send("start game joined");
+	console.log("startGame joined");
     const players = await gatherPlayers(channel);
     if (players.length == 0) {
         channel.send("Otra vez será... nadie entró a jugar :(");
@@ -581,6 +581,7 @@ async function startGame(channel, gameType) {
 }
 
 async function runGame(channel, game, players) {
+	console.log("runGame joined");
     const gameMessage = await showProgress(channel, game);
     const filter = ((m) =>
         players.cache.find((p) => (p.id == m.author.id)));
@@ -636,9 +637,10 @@ async function showResult(channel, game, selector) {
 
 client.on('message', async (msg) => {
      if (!msg.author.bot && msg.content.startsWith(prefix) && msg.channel.type === "text") {
-        
+        	
         const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
-        msg.channel.send(args);
+        	console.log("args 0: "+args[0]);
+        	console.log("args 1: "+args[1]);
         switch (args[0]) {
             case "start":
                    if (!runningGames.has(msg.guild)) {
