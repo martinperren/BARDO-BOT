@@ -651,6 +651,10 @@ client.on('message', async (msg) => {
                         case "custom":
                             gameType = "custom";
                             break;
+
+                        case "cancel":
+                        runningGames.delete(msg.channel.guild);
+                          msg.channel.send("Juego terminado.");  
                         default:
                         console.log("default case");
                             msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa !jugar modo");
