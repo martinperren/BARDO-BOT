@@ -545,6 +545,7 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 }
 
 async function startGame(channel, gameType) {
+	channel.send("start game joined");
     const players = await gatherPlayers(channel);
     if (players.length == 0) {
         channel.send("Otra vez será... nadie entró a jugar :(");
@@ -559,7 +560,7 @@ async function startGame(channel, gameType) {
     let selector;
     switch (gameType) {
         case "random":
-            // get a random word;
+           
             word = randomWord();
             break;
         case "custom":
