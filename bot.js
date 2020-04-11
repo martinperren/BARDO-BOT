@@ -641,11 +641,10 @@ client.on('message', async (msg) => {
         const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
         	console.log("args 0: "+args[0]);
         	console.log("args 1: "+args[1]);
-        switch (args[0]) {
-            case "start":
+       
                    if (!runningGames.has(msg.guild)) {
                     let gameType = "custom";
-                    if (args[1]) switch (args[1]) {
+                    if (args[0]) switch (args[0]) {
                         case "random":
                             gameType = "random";
                             break;
@@ -675,11 +674,8 @@ client.on('message', async (msg) => {
                 } else {
                     msg.reply("Ya hay un juego en curso.");
                 }
-                break;
-            case "help":
-                msg.channel.send({ embed: helpEmbed });
-                break;
-        }
+               
+           
     }
 });
 
