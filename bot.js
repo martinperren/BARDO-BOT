@@ -11,8 +11,8 @@ client.on("ready", () => {
 	console.log("Bot iniciado");
 
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
-		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-		.catch(console.error);
+	.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+	.catch(console.error);
 
 });
 
@@ -47,54 +47,54 @@ function horariosDeSfe(currentDay,flag) {
 
 	switch (currentDay) {
 		case 1: //lunes
-			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-			if (flag)
+		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+		if (flag)
 			return horariosAux(horarios);
 		else
-		return horarios.join(' - ');
-			break;
+			return horarios.join(' - ');
+		break;
 		case 2: //martes
-			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-			if (flag)
+		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+		if (flag)
 			return horariosAux(horarios);
 		else
-		return horarios.join(' - ');
-			break;
+			return horarios.join(' - ');
+		break;
 		case 3: //miercoles
-			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-			if (flag)
+		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+		if (flag)
 			return horariosAux(horarios);
 		else
-		return horarios.join(' - ');
-			break;
+			return horarios.join(' - ');
+		break;
 		case 4: //jueves
-			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-			if (flag)
+		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+		if (flag)
 			return horariosAux(horarios);
 		else
-		return horarios.join(' - ');
-			break;
+			return horarios.join(' - ');
+		break;
 		case 5: //viernes
-			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "18:45", "19:45", "21:05", "22:30"];
-			if (flag)
+		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "18:45", "19:45", "21:05", "22:30"];
+		if (flag)
 			return horariosAux(horarios);
 		else
-		return horarios.join(' - ');
-			break;
+			return horarios.join(' - ');
+		break;
 		case 6: //sabado
-			horarios = ["05:30", "10:10", "12:00", "14:00", "18:00", "19:15", "22:30"];
-			if (flag)
+		horarios = ["05:30", "10:10", "12:00", "14:00", "18:00", "19:15", "22:30"];
+		if (flag)
 			return horariosAux(horarios);
 		else
-		return horarios.join(' - ');
-			break;
+			return horarios.join(' - ');
+		break;
 		case 0: //domingo
-			horarios = ["08:30", "10:10", "13:30", "17:15", "20:30", "22:30", "23:45"];
-			if (flag)
+		horarios = ["08:30", "10:10", "13:30", "17:15", "20:30", "22:30", "23:45"];
+		if (flag)
 			return horariosAux(horarios);
 		else
-		return horarios.join(' - ');
-			break;
+			return horarios.join(' - ');
+		break;
 
 
 
@@ -115,54 +115,54 @@ function horariosDeSCC(currentDay, flag) {
 
 	switch (parseInt(dia())) {
 		case 1: //lunes
-			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-			if (flag)
-				return horariosAux(horarios);
-			else
+		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+		if (flag)
+			return horariosAux(horarios);
+		else
 			return horarios.join(' - ');
-			break;
+		break;
 		case 2: //martes
-			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-			if (flag)
-				return horariosAux(horarios);
-			else
+		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+		if (flag)
+			return horariosAux(horarios);
+		else
 			return horarios.join(' - ');
-			break;
+		break;
 		case 3: //miercoles
-			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-			if (flag)
-				return horariosAux(horarios);
-			else
+		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+		if (flag)
+			return horariosAux(horarios);
+		else
 			return horarios.join(' - ');
-			break;
+		break;
 		case 4: //jueves
-			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-			if (flag)
-				return horariosAux(horarios);
-			else
+		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+		if (flag)
+			return horariosAux(horarios);
+		else
 			return horarios.join(' - ');
-			break;
+		break;
 		case 5: //viernes
-			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18", "22:45"];
-			if (flag)
-				return horariosAux(horarios);
-			else
+		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18", "22:45"];
+		if (flag)
+			return horariosAux(horarios);
+		else
 			return horarios.join(' - ');
-			break;
+		break;
 		case 6: //sabado
-			horarios = ["07:30", "09:00", "12:33", "14:23", "15:55", "19:45", "21:18"];
-			if (flag)
-				return horariosAux(horarios);
-			else
+		horarios = ["07:30", "09:00", "12:33", "14:23", "15:55", "19:45", "21:18"];
+		if (flag)
+			return horariosAux(horarios);
+		else
 			return horarios.join(' - ');
-			break;
+		break;
 		case 0: //domingo
-			horarios = ["06:45", "11:00", "15:15", "19:00", "20:50", "22:30"];
-			if (flag)
-				return horariosAux(horarios);
-			else
+		horarios = ["06:45", "11:00", "15:15", "19:00", "20:50", "22:30"];
+		if (flag)
+			return horariosAux(horarios);
+		else
 			return horarios.join(' - ');
-			break;
+		break;
 
 
 
@@ -336,61 +336,61 @@ const hangman = require("./hangman.js");
 const prefix = "!jugar"
 
 const figure = [`
- +---+
- |   |      wordHere
-     |
-     |      numerOfLives
-     |      missC
-     |
- =========  gameStatus
++---+
+|   |      wordHere
+|
+|      numerOfLives
+|      missC
+|
+=========  gameStatus
 `, `
- +---+
- |   |      wordHere
- O   |
-     |      numerOfLives
-     |      missC
-     |
- =========  gameStatus
++---+
+|   |      wordHere
+O   |
+|      numerOfLives
+|      missC
+|
+=========  gameStatus
 `, `
- +---+
- |   |      wordHere
- O   |
- |   |      numerOfLives
-     |      missC
-     |
- =========  gameStatus
++---+
+|   |      wordHere
+O   |
+|   |      numerOfLives
+|      missC
+|
+=========  gameStatus
 `, `
- +---+
- |   |      wordHere
- O   |
++---+
+|   |      wordHere
+O   |
 /|   |      numerOfLives
-     |      missC
-     |
- =========  gameStatus
+|      missC
+|
+=========  gameStatus
 `, `
- +---+
- |   |      wordHere
- O   |
++---+
+|   |      wordHere
+O   |
 /|\\  |      numerOfLives
-     |      missC
-     |
- =========  gameStatus
+|      missC
+|
+=========  gameStatus
 `, `
- +---+
- |   |      wordHere
- O   |
++---+
+|   |      wordHere
+O   |
 /|\\  |      numerOfLives
 /    |      missC
-     |
- =========  gameStatus
+|
+=========  gameStatus
 `, `
- +---+
- |   |      wordHere
- O   |
++---+
+|   |      wordHere
+O   |
 /|\\  |      numerOfLives
 / \\  |      missC
-     |
- =========  gameStatus
+|
+=========  gameStatus
 `];
 
 
@@ -398,289 +398,290 @@ const figure = [`
 const runningGames = new Set();
 
 function gatherPlayersFromMessage(channel) {
-    return new Promise((resolve, reject) => {
-        let players = [];
-        const filter = (msg) => (msg.content.toLowerCase().includes("join") && !msg.author.bot);
-        const collector = channel.createMessageCollector(filter, { time: 10000 });
-        collector.on('collect', msg => {
-            players.push(msg.author);
-            msg.delete();
-        });
-        collector.on('end', async (collected) => {
-            resolve(players);
-        });
-    });
+	return new Promise((resolve, reject) => {
+		let players = [];
+		const filter = (msg) => (msg.content.toLowerCase().includes("join") && !msg.author.bot);
+		const collector = channel.createMessageCollector(filter, { time: 10000 });
+		collector.on('collect', msg => {
+			players.push(msg.author);
+			msg.delete();
+		});
+		collector.on('end', async (collected) => {
+			resolve(players);
+		});
+	});
 }
 
 async function gatherPlayersFromReaction(message, emoji) {
 
-    await message.react(emoji);
+	await message.react(emoji);
 
-    return new Promise(async (resolve, reject) => {
-        let players = [];
-        const filter = (r) => (r.emoji.name == emoji);
+	return new Promise(async (resolve, reject) => {
+		let players = [];
+		const filter = (r) => (r.emoji.name == emoji);
         //const filter = (r) => { return true; };
         await message.awaitReactions(filter, { time: 10000 })
-            .then(collected => {
-                collected.first().users.forEach((user) => {
-                    if (!user.bot) {
-                        players.push(user);
-                    }
-                });
-            })
-            .catch(err => reject(err));
+        .then(collected => {
+        	collected.first().users.forEach((user) => {
+        		if (!user.bot) {
+        			players.push(user);
+        		}
+        	});
+        })
+        .catch(err => reject(err));
 
         resolve(players);
     });
 }
 
 async function gatherPlayers(channel) {
-    const msg = await channel.send("Reacciona con 📒 para participar del juego! Tenes 10 segundos.");
-    let p1 = gatherPlayersFromMessage(channel);
-    let p2 = gatherPlayersFromReaction(msg, '📒');
-    let aPlayers = await Promise.all([p1, p2]);
-    msg.delete();
-    let players = [];
+	const msg = await channel.send("Reacciona con 📒 para participar del juego! Tenes 10 segundos.");
+	let p1 = gatherPlayersFromMessage(channel);
+	let p2 = gatherPlayersFromReaction(msg, '📒');
+	let aPlayers = await Promise.all([p1, p2]);
+	msg.delete();
+	let players = [];
     // join both arrays of players into one of unique players.
     aPlayers.forEach(ps => ps.forEach(p => {
-        if (!players.find(pOther => pOther.id == p.id)) {
-            players.push(p);
-        }
+    	if (!players.find(pOther => pOther.id == p.id)) {
+    		players.push(p);
+    	}
     }));
     return players;
 }
 
 async function getNextMessage(channel, maxTime) {
-    return await channel.awaitMessages((m) => !m.author.bot, { max: 1, time: maxTime, errors: ['time'] })
-        .catch((collected) => { throw collected });
+	return await channel.awaitMessages((m) => !m.author.bot, { max: 1, time: maxTime, errors: ['time'] })
+	.catch((collected) => { throw collected });
 }
 
 async function getWordFromPlayers(players, channel) {
-    let word;
-    let chosenOne;
-    while (!word && players.length > 1) {
-        let index = Math.floor((Math.random() * 1000) % players.length);
-        chosenOne = players[index];
-        players.splice(index, 1);
+	let word;
+	let chosenOne;
+	while (!word && players.length > 1) {
+		let index = Math.floor((Math.random() * 1000) % players.length);
+		chosenOne = players[index];
+		players.splice(index, 1);
 
-        const dm = await chosenOne.createDM();
+		const dm = await chosenOne.createDM();
 
-        await dm.send("Sos el jugador elegido! Responde con la palabra que elijas. Tenes 30 segundos. Recorda que NO podes participar en el juego.");
-        let finish = false;
-        let tries = 0;
-        let msgCollection;
-        while (!finish && tries < 3) {
-            try {
-                msgCollection = await getNextMessage(dm, 30000);
-            } catch (collected) {
-                await dm.send("Se terminó el tiempo, estas descalificado.");
-                await channel.send("El jugador elegido no respondió, eligiendo a otro.");
-                finish = true;
-                continue;
-            }
+		await dm.send("Sos el jugador elegido! Responde con la palabra que elijas. Tenes 30 segundos. Recorda que NO podes participar en el juego.");
+		let finish = false;
+		let tries = 0;
+		let msgCollection;
+		while (!finish && tries < 3) {
+			try {
+				msgCollection = await getNextMessage(dm, 30000);
+			} catch (collected) {
+				await dm.send("Se terminó el tiempo, estas descalificado.");
+				await channel.send("El jugador elegido no respondió, eligiendo a otro.");
+				finish = true;
+				continue;
+			}
 
-            const msg = msgCollection.first().content;
-            if (msg.match(/^[A-Za-zÀ-ú]{3,}$/)) {
-                word = msg.toLowerCase();
-                finish = true;
-                dm.send("Palabra aceptada, volviendo al servidor.");
-            } else {
-                await dm.send("Palabra invalida. No usar espacios, y que tenga al menos 3 letras.");
-                ++tries;
-                if (tries == 3) {
-                    await dm.send("Demasiadas palabras equivocadas. Estas descalificado.");
-                }
-            }
-        }
-    }
+			const msg = msgCollection.first().content;
+			if (msg.match(/^[A-Za-zÀ-ú]{3,}$/)) {
+				word = msg.toLowerCase();
+				finish = true;
+				dm.send("Palabra aceptada, volviendo al servidor.");
+			} else {
+				await dm.send("Palabra invalida. No usar espacios, y que tenga al menos 3 letras.");
+				++tries;
+				if (tries == 3) {
+					await dm.send("Demasiadas palabras equivocadas. Estas descalificado.");
+				}
+			}
+		}
+	}
 
-    if (!word && players.length <= 1) {
-        channel.send("No hay suficientes jugadores.");
-        return;
-    }
+	if (!word && players.length <= 1) {
+		channel.send("No hay suficientes jugadores.");
+		return;
+	}
 
-    return { word: word, selector: chosenOne }
+	return { word: word, selector: chosenOne }
 }
 
 async function showProgress(channel, game, gameMessage, gameOver) {
-    const figureStep = figure[6 - game.lives];
-    let progress = game.progress;
-    let lives = "";
-    for (let i = 0; i < 6; ++i) {
-        if (i < game.lives) {
-            lives += "❤️";
-        } else {
-            lives += "🖤";
-        }
-    }
-    let misses = "Errores: ";
-    for (let i = 0; i < game.misses.length; ++i) {
-        misses += (game.misses[i] + " ");
-    }
+	const figureStep = figure[6 - game.lives];
+	let progress = game.progress;
+	let lives = "";
+	for (let i = 0; i < 6; ++i) {
+		if (i < game.lives) {
+			lives += "❤️";
+		} else {
+			lives += "🖤";
+		}
+	}
+	let misses = "Errores: ";
+	for (let i = 0; i < game.misses.length; ++i) {
+		misses += (game.misses[i] + " ");
+	}
 
-    let screen = figureStep.replace(/wordHere/, progress)
-        .replace(/numerOfLives/, lives)
-        .replace(/missC/, misses);
+	let screen = figureStep.replace(/wordHere/, progress)
+	.replace(/numerOfLives/, lives)
+	.replace(/missC/, misses);
 
-    const embed = new Discord.RichEmbed();
-    if (gameOver) {
-        if (game.status === "won") {
-            embed.setColor("#00CC00");
-            screen = screen.replace(/gameStatus/, "Ganaste");
-        } else {
-            embed.setColor("#E50000");
-            screen = screen.replace(/gameStatus/, "Perdiste");
-        }
-    } else {
-        screen = screen.replace(/gameStatus/, " ");
-        embed.setColor("#FFD700");
-    }
-    embed.setDescription("```\n" + screen + "```");
+	const embed = new Discord.RichEmbed();
+	if (gameOver) {
+		if (game.status === "won") {
+			embed.setColor("#00CC00");
+			screen = screen.replace(/gameStatus/, "Ganaste");
+		} else {
+			embed.setColor("#E50000");
+			screen = screen.replace(/gameStatus/, "Perdiste");
+		}
+	} else {
+		screen = screen.replace(/gameStatus/, " ");
+		embed.setColor("#FFD700");
+	}
+	embed.setDescription("```\n" + screen + "```");
 
-    if (gameMessage) {
-        await gameMessage.edit({ embed: embed });
-    } else {
-        return await channel.send({ embed: embed });
-    }
+	if (gameMessage) {
+		await gameMessage.edit({ embed: embed });
+	} else {
+		return await channel.send({ embed: embed });
+	}
 }
 
 async function startGame(channel, gameType) {
 	console.log("startGame joined");
-    const players = await gatherPlayers(channel);
-    if (players.length == 0) {
-        channel.send("Otra vez será... nadie entró a jugar :(");
-        return;
-    }
-    if (gameType === "custom" && players.length < 2) {
-        channel.send("Para una partida custom debe haber al menos 2 jugadores");
-        return;
-    }
+	const players = await gatherPlayers(channel);
+	if (players.length == 0) {
+		channel.send("Otra vez será... nadie entró a jugar :(");
+		return;
+	}
+	if (gameType === "custom" && players.length < 2) {
+		channel.send("Para una partida custom debe haber al menos 2 jugadores");
+		return;
+	}
 
-    let word;
-    let selector;
-    switch (gameType) {
-        case "random":
-           
-            word = randomWord();
-            break;
-        case "custom":
-            await channel.send(players.length + " jugadores participando. Seleccionando a un jugador para elegir la palabra. Revisen sus mensajes privados!!");
-            let userSelection = await getWordFromPlayers(players, channel);
-            if (userSelection) {
-                word = userSelection.word;
-                selector = userSelection.selector;
-            } else {
-                return;
-            }
-            break;
-    }
+	let word;
+	let selector;
+	switch (gameType) {
+		case "random":
 
-    const game = new hangman(word);
+		word = randomWord();
+		break;
+		case "custom":
+		await channel.send(players.length + " jugadores participando. Seleccionando a un jugador para elegir la palabra. Revisen sus mensajes privados!!");
+		let userSelection = await getWordFromPlayers(players, channel);
+		if (userSelection) {
+			word = userSelection.word;
+			selector = userSelection.selector;
+		} else {
+			return;
+		}
+		break;
+	}
 
-    return { game, players, selector };
+	const game = new hangman(word);
+
+	return { game, players, selector };
 }
 
 async function runGame(channel, game, players) {
 	console.log("runGame joined");
-    const gameMessage = await showProgress(channel, game);
-    const filter = ((m) =>
-        players.find((p) => (p.id == m.author.id)));
+	const gameMessage = await showProgress(channel, game);
+	const filter = ((m) =>
+		players.find((p) => (p.id == m.author.id)));
 
     const collector = channel.createMessageCollector(filter, { time: 600000 }); // max of 15 minutes per game
 
     return new Promise((resolve, reject) => {
-        collector.on('collect', async (m) => {
-            const c = m.content.toLowerCase();
-            m.delete();
-            if (m.content.match(/^[A-Za-zÀ-ú]{2,}$/)) {
-                if (game.guessAll(c) == false) {
-                    players.splice(players.find(p => m.author.id == p.id), 1);
-                }
-            } else if (m.content.match(/^[A-Za-zÀ-ú]{1}$/)) {
-                game.guess(c);
-            } else {
-                return;
-            }
-            await showProgress(channel, game, gameMessage);
+    	collector.on('collect', async (m) => {
+    		const c = m.content.toLowerCase();
+    		m.delete();
+    		if (m.content.match(/^[A-Za-zÀ-ú]{2,}$/)) {
+    			if (game.guessAll(c) == false) {
+    				players.splice(players.find(p => m.author.id == p.id), 1);
+    			}
+    		} else if (m.content.match(/^[A-Za-zÀ-ú]{1}$/)) {
+    			game.guess(c);
+    		} else {
+    			return;
+    		}
+    		await showProgress(channel, game, gameMessage);
 
-            if (game.status !== "in progress") {
-                collector.stop();
-            } else if (players.length < 1) {
-                collector.stop();
-                game.status = "lost";
-            }
-        });
-        collector.on('end', async (collected) => {
-            await showProgress(channel, game, gameMessage, true);
-            resolve();
-        });
+    		if (game.status !== "in progress") {
+    			collector.stop();
+    		} else if (players.length < 1) {
+    			collector.stop();
+    			game.status = "lost";
+    		}
+    	});
+    	collector.on('end', async (collected) => {
+    		await showProgress(channel, game, gameMessage, true);
+    		resolve();
+    	});
     });
 }
 
 async function showResult(channel, game, selector) {
-    if (game.status === "won") {
-        if (selector) {
-            channel.send(`Ganaste. ${selector.username} la proxima vez elegi alguna mas difícil`);
-        } else {
-            channel.send("Ganaste!");
-        }
-    } else if (game.status === "lost") {
-        if (selector) {
-            channel.send(`${selector.username} ha ganado!!. La palabra era ${game.word}.`);
-        } else {
-            channel.send(`Perdieron, la palabra era ${game.word}.`);
-        }
-    } else {
-        channel.send("El juego terminó, limite de tiempo excedido.");
-    }
+	if (game.status === "won") {
+		if (selector) {
+			channel.send(`Ganaste. ${selector.username} la proxima vez elegi alguna mas difícil`);
+		} else {
+			channel.send("Ganaste!");
+		}
+	} else if (game.status === "lost") {
+		if (selector) {
+			channel.send(`${selector.username} ha ganado!!. La palabra era ${game.word}.`);
+		} else {
+			channel.send(`Perdieron, la palabra era ${game.word}.`);
+		}
+	} else {
+		channel.send("El juego terminó, limite de tiempo excedido.");
+	}
 }
 
 client.on('message', async (msg) => {
-     if (!msg.author.bot && msg.content.startsWith(prefix) && msg.channel.type === "text") {
-        	
-        const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
-        	console.log("args 0: "+args[0]);
-        	console.log("args 1: "+args[1]);
-       
-                   if (!runningGames.has(msg.guild)) {
-                    let gameType = "custom";
-                    if (args[0]) switch (args[0]) {
-                        case "random":
-                            gameType = "random";
-                            break;
-                        case "custom":
-                            gameType = "custom";
-                            break;
+	if (!msg.author.bot && msg.content.startsWith(prefix) && msg.channel.type === "text") {
 
-                        case "cancel":
-                        runningGames.delete(msg.channel.guild);
-                          msg.channel.send("Juego terminado.");  
-                        default:
-                        console.log("default case");
-                            msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar modo");
-                            return;
-                    
- }
+		const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
+		console.log("args 0: "+args[0]);
+		console.log("args 1: "+args[1]);
 
-                    runningGames.add(msg.channel.guild);
+		if(args[0]=="cancel"){
+			runningGames.delete(msg.channel.guild);
+			msg.channel.send("Juego terminado.");  
+		}
 
-                    let game, players, selector;
-                    const gameInfo = await startGame(msg.channel, gameType);
-                    if (gameInfo) {
-                        game = gameInfo.game;
-                        players = gameInfo.players;
-                        selector = gameInfo.selector;
-                        await runGame(msg.channel, game, players);
-                        await showResult(msg.channel, game, selector);
-                    }
+		if (!runningGames.has(msg.guild)) {
+			let gameType = "custom";
+			if (args[0]) switch (args[0]) {
+				case "random":
+				gameType = "random";
+				break;
+				case "custom":
+				gameType = "custom";
+				break;      
+				default:
+				console.log("default case");
+				msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar modo");
+				return;
 
-                    runningGames.delete(msg.channel.guild);
-                } else {
-                    msg.reply("Ya hay un juego en curso.");
-                }
-               
-           
-    }
+			}
+
+			runningGames.add(msg.channel.guild);
+
+			let game, players, selector;
+			const gameInfo = await startGame(msg.channel, gameType);
+			if (gameInfo) {
+				game = gameInfo.game;
+				players = gameInfo.players;
+				selector = gameInfo.selector;
+				await runGame(msg.channel, game, players);
+				await showResult(msg.channel, game, selector);
+			}
+
+			runningGames.delete(msg.channel.guild);
+		} else {
+			msg.reply("Ya hay un juego en curso.");
+		}
+
+
+	}
 });
 
 
