@@ -333,7 +333,7 @@ client.on("message", async message => {
 
 const randomWord = require('random-spanish-words');
 const hangman = require("./hangman.js");
-
+const prefix = "!jugar"
 
 const figure = [`
  +---+
@@ -634,13 +634,13 @@ async function showResult(channel, game, selector) {
 }
 
 client.on('message', async (msg) => {
-    if (msg.content.startsWith("jugar")) {
+     if (!msg.author.bot && msg.content.startsWith(prefix) && msg.channel.type === "text") {
         
         const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
         msg.channel.send(args);
         switch (args[0]) {
             case "start":
-               
+                   if (!runningGames.has(msg.guild)) {
                     let gameType = "custom";
                     if (args[1]) switch (args[1]) {
                         case "random":
@@ -653,6 +653,7 @@ client.on('message', async (msg) => {
                             msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa !jugar modo");
                             return;
                     
+ }
 
                     runningGames.add(msg.channel.guild);
 
