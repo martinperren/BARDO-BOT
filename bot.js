@@ -333,7 +333,7 @@ client.on("message", async message => {
 
 const randomWord = require('random-spanish-words');
 const hangman = require("./hangman.js");
-const prefix = "jugar"
+const prefix = "!jugar"
 
 const figure = [`
  +---+
@@ -657,7 +657,7 @@ client.on('message', async (msg) => {
                           msg.channel.send("Juego terminado.");  
                         default:
                         console.log("default case");
-                            msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa !jugar modo");
+                            msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar modo");
                             return;
                     
  }
