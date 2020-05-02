@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
-var dia, flag,selector,players,turno = "",auxiliar=0;
+var dia, flag,selector,players,turno = "",auxiliar=0,jugadores;
 
 
 
@@ -509,7 +509,7 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let elector = "";
 	let lives = "";
 
-turno = players[auxiliar].username;
+turno = jugadores[auxiliar].username;
 auxiliar++;
 
 	for (let i = 0; i < 6; ++i) {
@@ -556,6 +556,7 @@ auxiliar++;
 
 async function startGame(channel, gameType) {
 	const players = await gatherPlayers(channel);
+	jugadores = players;
 	if (players.length == 0) {
 		channel.send("Otra vez será... nadie entró a jugar :(");
 		return;
