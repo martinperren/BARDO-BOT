@@ -509,8 +509,13 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let elector = "";
 	let lives = "";
 
-turno = jugadores[auxiliar].username;
-auxiliar++;
+
+if(auxiliar = jugadores.size){
+	auxiliar = 0;
+	turno = jugadores[auxiliar].username;
+auxiliar++
+}
+
 
 	for (let i = 0; i < 6; ++i) {
 		if (i < game.lives) {
