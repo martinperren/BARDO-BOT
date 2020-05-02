@@ -339,7 +339,7 @@ const prefix = "!jugar"
 const figure = [`
 +---+      Elector: choosen
 |   |      wordHere
-    |      Le toca a: turnoA
+    |      Le toca a: ```diff - turnoA -```
     |      numerOfLives
     |      missC
     |
