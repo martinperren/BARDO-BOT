@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
 var dia, flag;
-
+var selector;
 
 
 
@@ -565,7 +565,7 @@ async function startGame(channel, gameType) {
 	}
 
 	let word;
-	let selector;
+	
 	switch (gameType) {
 		case "random":
 
