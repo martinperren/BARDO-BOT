@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
-var dia, flag,selector,players;
+var dia, flag,selector,players,turno = "";
 
 
 
@@ -339,7 +339,7 @@ const prefix = "!jugar"
 const figure = [`
 +---+      Elector: choosen
 |   |      wordHere
-    |      Le toca a: turno
+    |      Le toca a: turnoA
     |      numerOfLives
     |      missC
     |
@@ -347,7 +347,7 @@ const figure = [`
 `, `
 +---+      Elector: choosen
 |   |      wordHere
-O   |      Le toca a: turno
+O   |      Le toca a: turnoA
     |      numerOfLives
     |      missC
     |
@@ -355,7 +355,7 @@ O   |      Le toca a: turno
 `, `
 +---+      Elector: choosen
 |   |      wordHere
-O   |      Le toca a: turno
+O   |      Le toca a: turnoA
 |   |      numerOfLives
     |      missC
     |
@@ -363,7 +363,7 @@ O   |      Le toca a: turno
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |    Le toca a: turno
+ O    |    Le toca a: turnoA
 /|    |    numerOfLives
       |    missC
       |
@@ -371,7 +371,7 @@ O   |      Le toca a: turno
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |    Le toca a: turno
+ O    |    Le toca a: turnoA
 /|\\   |    numerOfLives
       |    missC
       |
@@ -379,7 +379,7 @@ O   |      Le toca a: turno
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |    Le toca a: turno
+ O    |    Le toca a: turnoA
 /|\\   |    numerOfLives
 /     |    missC
       |
@@ -387,7 +387,7 @@ O   |      Le toca a: turno
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |    Le toca a: turno
+ O    |    Le toca a: turnoA
 /|\\   |    numerOfLives
 / \\   |    missC
       |     
@@ -507,8 +507,11 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	const figureStep = figure[6 - game.lives];
 	let progress = game.progress;
 	let elector = "";
-	let turno = "";
 	let lives = "";
+
+turno = players[i].username;
+i++;
+
 	for (let i = 0; i < 6; ++i) {
 		if (i < game.lives) {
 			lives += "❤️";
@@ -519,18 +522,15 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let misses = "Errores: ";
 	for (let i = 0; i < game.misses.length; ++i) {
 		misses += (game.misses[i] + " ");
+
 	}
 
 	let screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
 	.replace(/missC/, misses)
 .replace(/choosen/, selector.username)
-.replace(/turno/, turno);
+.replace(/turnoA/, turno);
 
-
-for (var i = 0; i < players.length; i++) {
- turno = players.get(i).username;
-}
 
 	const embed = new Discord.RichEmbed();
 	if (gameOver) {
@@ -555,7 +555,6 @@ for (var i = 0; i < players.length; i++) {
 }
 
 async function startGame(channel, gameType) {
-	console.log("startGame joined");
 	const players = await gatherPlayers(channel);
 	if (players.length == 0) {
 		channel.send("Otra vez será... nadie entró a jugar :(");
@@ -572,6 +571,7 @@ async function startGame(channel, gameType) {
 		case "random":
 
 		word = randomWord();
+		selector = "Bot";
 		break;
 		case "custom":
 		await channel.send(players.length + " jugadores participando. Seleccionando a un jugador para elegir la palabra. Revisen sus mensajes privados!!");
@@ -591,7 +591,6 @@ async function startGame(channel, gameType) {
 }
 
 async function runGame(channel, game, players) {
-	console.log("runGame joined");
 	const gameMessage = await showProgress(channel, game);
 	const filter = ((m) =>
 		players.find((p) => (p.id == m.author.id)));
@@ -649,8 +648,7 @@ client.on('message', async (msg) => {
 	if (!msg.author.bot && msg.content.startsWith(prefix) && msg.channel.type === "text") {
 
 		const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
-		console.log("args 0: "+args[0]);
-		console.log("args 1: "+args[1]);
+
 
 		if(args[0]=="cancel"){
 			runningGames.delete(msg.channel.guild);
