@@ -339,7 +339,7 @@ const prefix = "!jugar"
 const figure = [`
 +---+      Elector: choosen
 |   |      wordHere
-    |
+    |      Le toca a: turno
     |      numerOfLives
     |      missC
     |
@@ -347,7 +347,7 @@ const figure = [`
 `, `
 +---+      Elector: choosen
 |   |      wordHere
-O   |
+O   |      Le toca a: turno
     |      numerOfLives
     |      missC
     |
@@ -355,7 +355,7 @@ O   |
 `, `
 +---+      Elector: choosen
 |   |      wordHere
-O   |
+O   |      Le toca a: turno
 |   |      numerOfLives
     |      missC
     |
@@ -363,7 +363,7 @@ O   |
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |
+ O    |    Le toca a: turno
 /|    |    numerOfLives
       |    missC
       |
@@ -371,7 +371,7 @@ O   |
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |
+ O    |    Le toca a: turno
 /|\\   |    numerOfLives
       |    missC
       |
@@ -379,7 +379,7 @@ O   |
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |
+ O    |    Le toca a: turno
 /|\\   |    numerOfLives
 /     |    missC
       |
@@ -387,10 +387,10 @@ O   |
 `, `
  +----+    Elector: choosen
  |    |    wordHere
- O    |
+ O    |    Le toca a: turno
 /|\\   |    numerOfLives
 / \\   |    missC
-      |
+      |     
 =========  gameStatus
 `];
 
