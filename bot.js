@@ -1,8 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
-var dia, flag;
-var selector;
+var dia, flag,selector,players;
+
+
 
 
 
@@ -399,7 +400,7 @@ const runningGames = new Set();
 
 function gatherPlayersFromMessage(channel) {
 	return new Promise((resolve, reject) => {
-		let players = [];
+		players = [];
 		const filter = (msg) => (msg.content.toLowerCase().includes("join") && !msg.author.bot);
 		const collector = channel.createMessageCollector(filter, { time: 10000 });
 		collector.on('collect', msg => {
