@@ -510,7 +510,7 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let lives = "";
 
 
-if(auxiliar == jugadores.size){
+if(auxiliar == jugadores.length){
 	auxiliar = 0;
 }
 turno = jugadores[auxiliar].username;
