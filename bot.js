@@ -528,7 +528,7 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 .replace(/turno/, turno);
 
 
-for (var i = 0; i < players.length(); i++) {
+for (var i = 0; i < players.length; i++) {
  turno = players.get(i).username;
 }
 
