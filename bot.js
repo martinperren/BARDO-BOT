@@ -561,7 +561,6 @@ auxiliar++;
 
 async function startGame(channel, gameType) {
 	const players = await gatherPlayers(channel);
-	jugadores = players;
 	if (players.length == 0) {
 		channel.send("Otra vez será... nadie entró a jugar :(");
 		return;
@@ -683,6 +682,7 @@ client.on('message', async (msg) => {
 			if (gameInfo) {
 				game = gameInfo.game;
 				players = gameInfo.players;
+				jugadores = players;
 				selector = gameInfo.selector;
 				await runGame(msg.channel, game, players);
 				await showResult(msg.channel, game, selector);
