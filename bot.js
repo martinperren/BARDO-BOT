@@ -514,7 +514,7 @@ if(auxiliar == jugadores.size){
 	auxiliar = 0;
 }
 turno = jugadores[auxiliar].username;
-auxiliar++
+auxiliar++;
 
 
 	for (let i = 0; i < 6; ++i) {
