@@ -336,7 +336,7 @@ const hangman = require("./hangman.js");
 const prefix = "!jugar"
 
 const figure = [`
-+---+
++---+      Elector: choosen
 |   |      wordHere
     |
     |      numerOfLives
@@ -344,7 +344,7 @@ const figure = [`
     |
 =========  gameStatus
 `, `
-+---+
++---+      Elector: choosen
 |   |      wordHere
 O   |
     |      numerOfLives
@@ -352,7 +352,7 @@ O   |
     |
 =========  gameStatus
 `, `
-+---+
++---+      Elector: choosen
 |   |      wordHere
 O   |
 |   |      numerOfLives
@@ -360,7 +360,7 @@ O   |
     |
 =========  gameStatus
 `, `
- +----+
+ +----+    Elector: choosen
  |    |    wordHere
  O    |
 /|    |    numerOfLives
@@ -368,7 +368,7 @@ O   |
       |
 =========  gameStatus
 `, `
- +----+
+ +----+    Elector: choosen
  |    |    wordHere
  O    |
 /|\\   |    numerOfLives
@@ -376,7 +376,7 @@ O   |
       |
 =========  gameStatus
 `, `
- +----+
+ +----+    Elector: choosen
  |    |    wordHere
  O    |
 /|\\   |    numerOfLives
@@ -384,7 +384,7 @@ O   |
       |
 =========  gameStatus
 `, `
- +----+
+ +----+    Elector: choosen
  |    |    wordHere
  O    |
 /|\\   |    numerOfLives
@@ -505,6 +505,8 @@ async function getWordFromPlayers(players, channel) {
 async function showProgress(channel, game, gameMessage, gameOver) {
 	const figureStep = figure[6 - game.lives];
 	let progress = game.progress;
+	let elector = "";
+	let turno = "";
 	let lives = "";
 	for (let i = 0; i < 6; ++i) {
 		if (i < game.lives) {
@@ -520,7 +522,14 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 
 	let screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
-	.replace(/missC/, misses);
+	.replace(/missC/, misses)
+.replace(/choosen/, selector.username)
+.replace(/turno/, turno);
+
+
+for (var i = 0; i < players.length(); i++) {
+ turno = players.get(i).username;
+}
 
 	const embed = new Discord.RichEmbed();
 	if (gameOver) {
