@@ -536,11 +536,7 @@ auxiliar++;
 
 	}
 
-	let screen = figureStep.replace(/wordHere/, progress)
-	.replace(/numerOfLives/, lives)
-	.replace(/missC/, misses)
-.replace(/turnoA/, turno)
-.replace(/choosen/, selector.username);
+	
 
 if(typeof selector === 'undefined') {
        let screen = figureStep.replace(/wordHere/, progress)
