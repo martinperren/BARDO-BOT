@@ -538,12 +538,24 @@ auxiliar++;
 	let screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
 	.replace(/missC/, misses)
-.replace(/turnoA/, turno);
+.replace(/turnoA/, turno)
+.replace(/choosen/, selector.username);
 
 if(typeof selector === 'undefined') {
-       figureStep.replace(/choosen/, "Bot");
+       let screen = figureStep.replace(/wordHere/, progress)
+	.replace(/numerOfLives/, lives)
+	.replace(/missC/, misses)
+.replace(/turnoA/, turno)
+.replace(/choosen/, "Bot");
     }else{
-    	 figureStep.replace(/choosen/, selector.username);
+    	let screen = figureStep.replace(/wordHere/, progress)
+	.replace(/numerOfLives/, lives)
+	.replace(/missC/, misses)
+.replace(/turnoA/, turno)
+.replace(/choosen/, selector.username);
+
+
+
     }
 
 
