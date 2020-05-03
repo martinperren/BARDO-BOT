@@ -339,58 +339,58 @@ const prefix = "!jugar"
 const figure = [`
 +---+      Elector: choosen
 |   |      wordHere
-    |      Le toca a: turnoA
-    |      numerOfLives
-    |      missC
-    |
+|      Le toca a: turnoA
+|      numerOfLives
+|      missC
+|
 =========  gameStatus
 `, `
 +---+      Elector: choosen
 |   |      wordHere
 O   |      Le toca a: turnoA
-    |      numerOfLives
-    |      missC
-    |
+|      numerOfLives
+|      missC
+|
 =========  gameStatus
 `, `
 +---+      Elector: choosen
 |   |      wordHere
 O   |      Le toca a: turnoA
 |   |      numerOfLives
-    |      missC
-    |
+|      missC
+|
 =========  gameStatus
 `, `
- +----+    Elector: choosen
- |    |    wordHere
- O    |    Le toca a: turnoA
++----+    Elector: choosen
+|    |    wordHere
+O    |    Le toca a: turnoA
 /|    |    numerOfLives
-      |    missC
-      |
+|    missC
+|
 =========  gameStatus
 `, `
- +----+    Elector: choosen
- |    |    wordHere
- O    |    Le toca a: turnoA
++----+    Elector: choosen
+|    |    wordHere
+O    |    Le toca a: turnoA
 /|\\   |    numerOfLives
-      |    missC
-      |
+|    missC
+|
 =========  gameStatus
 `, `
- +----+    Elector: choosen
- |    |    wordHere
- O    |    Le toca a: turnoA
++----+    Elector: choosen
+|    |    wordHere
+O    |    Le toca a: turnoA
 /|\\   |    numerOfLives
 /     |    missC
-      |
+|
 =========  gameStatus
 `, `
- +----+    Elector: choosen
- |    |    wordHere
- O    |    Le toca a: turnoA
++----+    Elector: choosen
+|    |    wordHere
+O    |    Le toca a: turnoA
 /|\\   |    numerOfLives
 / \\   |    missC
-      |     
+|     
 =========  gameStatus
 `];
 
@@ -510,11 +510,11 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let lives = "";
 
 
-if(auxiliar == jugadores.length){
-	auxiliar = 0;
-}
-turno = jugadores[auxiliar].username;
-auxiliar++;
+	if(auxiliar == jugadores.length){
+		auxiliar = 0;
+	}
+	turno = jugadores[auxiliar].username;
+	auxiliar++;
 
 
 	for (let i = 0; i < 6; ++i) {
@@ -533,8 +533,8 @@ auxiliar++;
 	let screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
 	.replace(/missC/, misses)
-.replace(/choosen/, selector.username)
-.replace(/turnoA/, turno);
+	.replace(/choosen/, selector.username)
+	.replace(/turnoA/, turno);
 
 
 	const embed = new Discord.RichEmbed();
@@ -660,45 +660,46 @@ client.on('message', async (msg) => {
 			msg.channel.send("Juego terminado.");  
 		}else{
 
-if (!runningGames.has(msg.guild)) {
-			let gameType = "custom";
-			if (args[0]) switch (args[0]) {
-				case "random":
-				gameType = "random";
-				break;
-				case "custom":
-				gameType = "custom";
-				break;      
-				case "help":
-				msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar 'modo'");
-				return;
+			if (!runningGames.has(msg.guild)) {
+				let gameType = "custom";
+				if (args[0]) switch (args[0]) {
+					case "random":
+					gameType = "random";
+					break;
+					case "custom":
+					gameType = "custom";
+					break;      
+					case "help":
+					msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar 'modo'");
+					return;
+
+				}
 
 			}
-			
-		}
-
-		
-
-			runningGames.add(msg.channel.guild);
-
-			let game, players, selector;
-			const gameInfo = await startGame(msg.channel, gameType);
-			if (gameInfo) {
-				game = gameInfo.game;
-				players = gameInfo.players;
-				jugadores = players;
-				selector = gameInfo.selector;
-				await runGame(msg.channel, game, players);
-				await showResult(msg.channel, game, selector);
-			}
-
-			runningGames.delete(msg.channel.guild);
-		} else {
-			msg.reply("Ya hay un juego en curso.");
 		}
 
 
+
+		runningGames.add(msg.channel.guild);
+
+		let game, players, selector;
+		const gameInfo = await startGame(msg.channel, gameType);
+		if (gameInfo) {
+			game = gameInfo.game;
+			players = gameInfo.players;
+			jugadores = players;
+			selector = gameInfo.selector;
+			await runGame(msg.channel, game, players);
+			await showResult(msg.channel, game, selector);
+		}
+
+		runningGames.delete(msg.channel.guild);
+	} else {
+		msg.reply("Ya hay un juego en curso.");
 	}
+
+
+}
 });
 
 
