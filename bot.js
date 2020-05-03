@@ -514,9 +514,13 @@ if(auxiliar == jugadores.length || auxiliar > jugadores.length){
 	auxiliar = 0;
 }
 
+if(!jugadores.length==0){
 turno = jugadores[auxiliar].username;
-
 auxiliar++;
+}
+
+
+
 
 
 	for (let i = 0; i < 6; ++i) {
