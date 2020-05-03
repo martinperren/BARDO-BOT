@@ -514,7 +514,12 @@ console.log(jugadores);
 if(auxiliar == jugadores.length){
 	auxiliar = 0;
 }
+
+if(typeof turno === 'undefined') {
+
+	}
 turno = jugadores[auxiliar].username;
+
 auxiliar++;
 
 
@@ -577,7 +582,7 @@ async function startGame(channel, gameType) {
 		case "random":
 
 		word = randomWord();
-		selector = "Bot";
+		selector.username = "Bot";
 		break;
 		case "custom":
 		await channel.send(players.length + " jugadores participando. Seleccionando a un jugador para elegir la palabra. Revisen sus mensajes privados!!");
