@@ -538,12 +538,13 @@ auxiliar++;
 	let screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
 	.replace(/missC/, misses)
-.replace(/choosen/, selector.username)
 .replace(/turnoA/, turno);
 
 if(typeof selector.username === 'undefined') {
        figureStep.replace(/choosen/, "Bot");
-    } 
+    }else{
+    	 figureStep.replace(/choosen/, selector.username);
+    }
 
 
 	const embed = new Discord.RichEmbed();
