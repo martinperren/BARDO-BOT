@@ -536,7 +536,7 @@ auxiliar++;
 
 	}
 
-	
+	let screen;
 
 if(typeof selector === 'undefined') {
        let screen = figureStep.replace(/wordHere/, progress)
