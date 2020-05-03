@@ -655,7 +655,7 @@ client.on('message', async (msg) => {
 		const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
 
 
-		if(args[0]=="cancel"){
+		if(args[0]=="stop"){
 			runningGames.delete(msg.channel.guild);
 			msg.channel.send("Juego terminado.");  
 		}else{
@@ -669,7 +669,7 @@ client.on('message', async (msg) => {
 				gameType = "custom";
 				break;      
 				case "help":
-				msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar 'modo'");
+				msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar modo. !jugar stop para parar un juego");
 				return;
 
 			}
