@@ -538,14 +538,14 @@ auxiliar++;
 
 	let screen;
 
-if(typeof selector === 'undefined') {
-       let screen = figureStep.replace(/wordHere/, progress)
+if(typeof selector == 'undefined') {
+       screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
 	.replace(/missC/, misses)
 .replace(/turnoA/, turno)
 .replace(/choosen/, "Bot");
     }else{
-    	let screen = figureStep.replace(/wordHere/, progress)
+    	screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
 	.replace(/missC/, misses)
 .replace(/turnoA/, turno)
