@@ -509,6 +509,7 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let elector = "";
 	let lives = "";
 
+console.log(jugadores);
 
 if(auxiliar == jugadores.length){
 	auxiliar = 0;
