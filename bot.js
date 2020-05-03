@@ -540,7 +540,7 @@ auxiliar++;
 	.replace(/missC/, misses)
 .replace(/turnoA/, turno);
 
-if(typeof selector.username === 'undefined') {
+if(typeof selector === 'undefined') {
        figureStep.replace(/choosen/, "Bot");
     }else{
     	 figureStep.replace(/choosen/, selector.username);
