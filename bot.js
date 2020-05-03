@@ -516,7 +516,7 @@ if(auxiliar == jugadores.length || auxiliar > jugadores.length){
 }
 
 
-
+console.log("Auxiliar: "+auxiliar);
 turno = jugadores[auxiliar].username;
 
 auxiliar++;
