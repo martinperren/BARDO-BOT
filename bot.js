@@ -339,7 +339,7 @@ const prefix = "!jugar"
 const figure = [`
 +---+      Elector: choosen
 |   |      wordHere
-    |      Le toca a: ```diff - turnoA -```
+    |      Le toca a: turnoA
     |      numerOfLives
     |      missC
     |
@@ -655,10 +655,6 @@ client.on('message', async (msg) => {
 		const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
 
 
-		if(args[0]=="cancel"){
-			runningGames.delete(msg.channel.guild);
-			msg.channel.send("Juego terminado.");  
-		}
 
 		if (!runningGames.has(msg.guild)) {
 			let gameType = "custom";
@@ -668,7 +664,10 @@ client.on('message', async (msg) => {
 				break;
 				case "custom":
 				gameType = "custom";
-				break;      
+				break; 
+				case "cancel":
+				runningGames.delete(msg.channel.guild);
+				break;     
 				case "help":
 				msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar 'modo'");
 				return;
