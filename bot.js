@@ -516,6 +516,7 @@ if(auxiliar == jugadores.length){
 }
 
 
+
 turno = jugadores[auxiliar].username;
 
 auxiliar++;
@@ -539,6 +540,10 @@ auxiliar++;
 	.replace(/missC/, misses)
 .replace(/choosen/, selector.username)
 .replace(/turnoA/, turno);
+
+if(typeof selector.username === 'undefined') {
+       figureStep.replace(/choosen/, "Bot");
+    } 
 
 
 	const embed = new Discord.RichEmbed();
@@ -580,7 +585,6 @@ async function startGame(channel, gameType) {
 		case "random":
 
 		word = randomWord();
-		let screen = figureStep.replace(/wordHere/, "Bot");
 		break;
 		case "custom":
 		await channel.send(players.length + " jugadores participando. Seleccionando a un jugador para elegir la palabra. Revisen sus mensajes privados!!");
