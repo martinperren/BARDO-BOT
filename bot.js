@@ -511,7 +511,7 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 
 console.log(jugadores);
 
-if(auxiliar == jugadores.length){
+if(auxiliar == jugadores.length || auxiliar > jugadores.length){
 	auxiliar = 0;
 }
 
