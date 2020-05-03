@@ -703,7 +703,7 @@ client.on('message', async (msg) => {
 			if (gameInfo) {
 				game = gameInfo.game;
 				players = gameInfo.players;
-				const jugadores = players;
+				jugadores = gameInfo.players;
 				selector = gameInfo.selector;
 				await runGame(msg.channel, game, players);
 				await showResult(msg.channel, game, selector);
