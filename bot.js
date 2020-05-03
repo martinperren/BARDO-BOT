@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
-var dia, flag,selector,players,turno = "",auxiliar=0,jugadores;
+var dia, flag,selector,players,turno = "",auxiliar=0;
+const jugadores;
 
 
 
@@ -517,7 +518,7 @@ if(auxiliar == jugadores.length || auxiliar > jugadores.length){
 
 
 console.log("Auxiliar: "+auxiliar);
-//turno = jugadores[auxiliar].username;
+turno = jugadores[auxiliar].username;
 
 auxiliar++;
 
