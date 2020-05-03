@@ -669,7 +669,7 @@ client.on('message', async (msg) => {
 				gameType = "custom";
 				break;      
 				case "help":
-				msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar modo. !jugar stop para parar un juego");
+				msg.channel.send("Usa !jugar (modo), podes elegir entre el modo de juego \"custom\" o \"random\". !jugar stop para parar un juego");
 				return;
 
 			}
