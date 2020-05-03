@@ -507,7 +507,6 @@ async function getWordFromPlayers(players, channel) {
 async function showProgress(channel, game, gameMessage, gameOver) {
 	const figureStep = figure[6 - game.lives];
 	let progress = game.progress;
-	let elector = "";
 	let lives = "";
 
 if(auxiliar == jugadores.length || auxiliar > jugadores.length){
@@ -518,9 +517,6 @@ if(!jugadores.length==0){
 turno = jugadores[auxiliar].username;
 auxiliar++;
 }
-
-
-
 
 
 	for (let i = 0; i < 6; ++i) {
@@ -538,7 +534,7 @@ auxiliar++;
 
 	let screen;
 
-if(typeof selector == 'undefined') {
+if(typeof selector == 'undefined' || selector == null) {
        screen = figureStep.replace(/wordHere/, progress)
 	.replace(/numerOfLives/, lives)
 	.replace(/missC/, misses)
@@ -694,7 +690,8 @@ client.on('message', async (msg) => {
 
 			runningGames.add(msg.channel.guild);
 
-			let game, players, selector;
+			let game, players;
+			selector = null;
 			const gameInfo = await startGame(msg.channel, gameType);
 			if (gameInfo) {
 				game = gameInfo.game;
