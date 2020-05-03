@@ -510,14 +510,10 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let elector = "";
 	let lives = "";
 
-console.log(jugadores);
-
 if(auxiliar == jugadores.length || auxiliar > jugadores.length){
 	auxiliar = 0;
 }
 
-
-console.log("Auxiliar: "+auxiliar);
 turno = jugadores[auxiliar].username;
 
 auxiliar++;
