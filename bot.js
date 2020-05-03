@@ -655,8 +655,12 @@ client.on('message', async (msg) => {
 		const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
 
 
+		if(args[0]=="cancel"){
+			runningGames.delete(msg.channel.guild);
+			msg.channel.send("Juego terminado.");  
+		}else{
 
-		if (!runningGames.has(msg.guild)) {
+if (!runningGames.has(msg.guild)) {
 			let gameType = "custom";
 			if (args[0]) switch (args[0]) {
 				case "random":
@@ -664,15 +668,16 @@ client.on('message', async (msg) => {
 				break;
 				case "custom":
 				gameType = "custom";
-				break; 
-				case "cancel":
-				runningGames.delete(msg.channel.guild);
-				break;     
+				break;      
 				case "help":
 				msg.channel.send("Podes elegir entre el modo de juego \"custom\" o \"random\". Usa jugar 'modo'");
 				return;
 
 			}
+			
+		}
+
+		
 
 			runningGames.add(msg.channel.guild);
 
