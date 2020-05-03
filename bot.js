@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
 var dia, flag,selector,players,turno = "",auxiliar=0;
-const jugadores;
+
 
 
 
@@ -703,7 +703,7 @@ client.on('message', async (msg) => {
 			if (gameInfo) {
 				game = gameInfo.game;
 				players = gameInfo.players;
-				jugadores = players;
+				const jugadores = players;
 				selector = gameInfo.selector;
 				await runGame(msg.channel, game, players);
 				await showResult(msg.channel, game, selector);
