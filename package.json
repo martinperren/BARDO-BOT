@@ -12,7 +12,9 @@
     "node-rest-client": "^3.1.0",
     "node-opus": "0.3.3",
     "ffmpeg": "0.0.4",
-     "random-spanish-words":"2.0.0"
+     "random-spanish-words":"2.0.0",
+     "node-csgo":"1.5.14",
+     "twisted":"1.24.0"
 
   }
 }

@@ -1,7 +1,13 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
+const csgo = require('node-csgo');
+const lol = require('twisted');
+
 var dia, flag,selector,players,turno = "",auxiliar=0;
+
+
+
 
 
 
@@ -209,6 +215,25 @@ function horariosAux(array) {
 
 
 client.on("message", async message => {
+
+
+
+
+	if (message.content.startsWith("!tft")) {
+		import { TftApi, Constants } from 'twisted'
+ 
+		const api = new TftApi()
+		 
+		export async function matchListTft () {
+		  const {
+			response: {
+			  puuid 
+			}
+		  } = await api.Summoner.getByName('AKA Wonder', Constants.Regions.EU_EAST)
+		  return api.Match.list(puuid, Constants.TftRegions.EUROPE)
+		}
+	}
+
 
 
 
