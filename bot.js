@@ -223,7 +223,7 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!l")) {
 
-		if (message.content.startsWith('!lol test')){
+		
 			// Its just a test
 			var username = "Twober";
 			var regionID = "las1";
