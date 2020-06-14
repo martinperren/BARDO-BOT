@@ -228,7 +228,7 @@ client.on("message", async message => {
 			var username = "Twober";
 			var regionID = "las2";
 	  
-			let data = await pyke.summoner.getBySummonerName(username, regionID);
+			let data = pyke.summoner.getBySummonerName(username, regionID);
 
 
 			pyke.summoner.getBySummonerName(username, regionID).then(data => {
