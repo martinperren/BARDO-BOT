@@ -225,10 +225,13 @@ client.on("message", async message => {
 	if (message.content.startsWith("!l")) {
 
 		
+
+		
+		
 		var username = "Twober";
 		var regionID = "la2";
 		try {
-		let data = await pyke.summoner.getBySummonerName(username, regionID);
+		let data = await pyke.summoner.getLeagueById(username, regionID);
 		/*
 		 data = { 
 		  id: 79858287,
@@ -238,7 +241,12 @@ client.on("message", async message => {
 		  name: 'SP Jason' 
 		 }
 		*/
-		console.log(data);
+		console.log("User: "+data[0].summonerName);
+		console.log("LP SOLO: "+data[0].leaguePoints);
+		console.log("ELO SOLO: "+data[0].tier + data[0].rank);
+		console.log("LP FLEX: "+data[1].leaguePoints);
+		console.log("ELO FLEX: "+data[1].tier + data[1].rank);
+
 	} catch (err) {
 		console.log(err);
 		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
