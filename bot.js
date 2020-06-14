@@ -231,7 +231,12 @@ client.on("message", async message => {
 		var username = "Twober";
 		var regionID = "la2";
 		try {
-		let data = await pyke.league.getAllLeaguePositionsForSummoner(username, regionID);
+		let sumid = await pyke.summoner.getBySummonerName(username, regionID);
+	
+
+
+		try {
+		let data = await pyke.league.getAllLeaguePositionsForSummoner(sumid, regionID);
 		/*
 		 data = { 
 		  id: 79858287,
@@ -250,6 +255,17 @@ client.on("message", async message => {
 	} catch (err) {
 		console.log(err);
 		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+		
+		
+	  }
+
+
+
+
+		console.log(data);
+	} catch (err) {
+		console.log(err);
+		
 		
 		
 	  }
