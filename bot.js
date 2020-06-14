@@ -232,6 +232,9 @@ client.on("message", async message => {
 		  } = await api.Summoner.getByName('AKA Wonder', Constants.Regions.EU_EAST)
 		  return api.Match.list(puuid, Constants.TftRegions.EUROPE)
 		}
+
+console.log(matchListTft ());
+
 	}
 
 
