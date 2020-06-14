@@ -240,6 +240,7 @@ client.on("message", async message => {
 		*/
 		console.log(data);
 	} catch (err) {
+		console.log(err);
 		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
 		
 		
