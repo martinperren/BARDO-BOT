@@ -231,7 +231,7 @@ client.on("message", async message => {
 		var username = "Twober";
 		var regionID = "la2";
 		try {
-		let data = await pyke.league.getLeagueById(username, regionID);
+		let data = await pyke.league.getAllLeaguePositionsForSummoner(username, regionID);
 		/*
 		 data = { 
 		  id: 79858287,
