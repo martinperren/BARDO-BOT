@@ -1,7 +1,23 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
-const lol = require('twisted');
+
+
+
+import { TftApi, Constants } from require('twisted');
+ 
+const api = new TftApi()
+ 
+export async function matchListTft () {
+  const {
+	response: {
+	  puuid 
+	}
+  } = await api.Summoner.getByName('AKA Wonder', Constants.Regions.EU_EAST)
+  return api.Match.list(puuid, Constants.TftRegions.EUROPE)
+}
+
+
 
 var dia, flag,selector,players,turno = "",auxiliar=0;
 
@@ -219,18 +235,7 @@ client.on("message", async message => {
 
 
 	if (message.content.startsWith("!tft")) {
-		import { TftApi, Constants } from 'twisted'
- 
-		const api = new TftApi()
-		 
-		export async function matchListTft () {
-		  const {
-			response: {
-			  puuid 
-			}
-		  } = await api.Summoner.getByName('AKA Wonder', Constants.Regions.EU_EAST)
-		  return api.Match.list(puuid, Constants.TftRegions.EUROPE)
-		}
+	
 
 console.log(matchListTft ());
 
