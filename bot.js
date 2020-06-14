@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
+const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
+const {Pyke} = require('pyke');
 var dia, flag,selector,players,turno = "",auxiliar=0;
 
 
@@ -216,6 +218,30 @@ client.on("message", async message => {
 	if (message.content.startsWith("!web")) {
 		message.channel.send("www.elnortesa.com.ar");
 		console.log("web");
+	}
+
+
+	if (message.content.startsWith("!l")) {
+
+		if (message.content.startsWith('!lol test')){
+			// Its just a test
+			var username = "Twober";
+			var regionID = "las1";
+	  
+			let data = await pyke.summoner.getBySummonerName(username, regionID);
+			/*
+			 data = { 
+			  id: 79858287,
+			  accountId: 224542288,
+			  summonerLevel: 119,
+			  profileIconId: 3348,
+			  name: 'SP Jason' 
+			 }
+			*/
+			message.channel.send("User: " +data.name+ ' Level: ' + data.summonerLevel );
+ 
+
+
 	}
 
 

@@ -13,7 +13,7 @@
     "node-opus": "0.3.3",
     "ffmpeg": "0.0.4",
      "random-spanish-words":"2.0.0",
-     "twisted":"1.24.0"
+     "pyke":"3.1.1"
 
   }
 }
