@@ -226,9 +226,17 @@ client.on("message", async message => {
 		
 			// Its just a test
 			var username = "Twober";
-			var regionID = "las1";
+			var regionID = "las2";
 	  
 			let data = await pyke.summoner.getBySummonerName(username, regionID);
+
+
+			pyke.summoner.getBySummonerName(username, regionID).then(data => {
+				console.log(`Summoner Name is : ${data.name}, and level is : ${data.summonerLevel}`);
+			  }).catch(console.error);
+
+
+			console.log(data);
 			/*
 			 data = { 
 			  id: 79858287,
@@ -238,7 +246,7 @@ client.on("message", async message => {
 			  name: 'SP Jason' 
 			 }
 			*/
-			message.channel.send("User: " +data.name+ ' Level: ' + data.summonerLevel );
+			
  
 
 
