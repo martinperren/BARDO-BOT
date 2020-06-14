@@ -221,12 +221,13 @@ client.on("message", async message => {
 	}
 
 
+
 	if (message.content.startsWith("!l")) {
 
 		
 		var username = "SP Jason";
 		var regionID = "euw1";
-  
+		try {
 		let data = await pyke.summoner.getBySummonerName(username, regionID);
 		/*
 		 data = { 
@@ -238,12 +239,15 @@ client.on("message", async message => {
 		 }
 		*/
 		console.log(data);
+	} catch (err) {
+		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+		
+		
+	  }
+
+}
+
 	
-			
- 
-
-
-	}
 
 
 
