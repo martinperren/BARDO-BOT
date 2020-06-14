@@ -225,8 +225,8 @@ client.on("message", async message => {
 	if (message.content.startsWith("!l")) {
 
 		
-		var username = "SP Jason";
-		var regionID = "euw1";
+		var username = "Twober";
+		var regionID = "las1";
 		try {
 		let data = await pyke.summoner.getBySummonerName(username, regionID);
 		/*
