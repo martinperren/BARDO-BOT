@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
-const csgo = require('node-csgo');
 const lol = require('twisted');
 
 var dia, flag,selector,players,turno = "",auxiliar=0;
