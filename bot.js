@@ -224,28 +224,21 @@ client.on("message", async message => {
 	if (message.content.startsWith("!l")) {
 
 		
-			// Its just a test
-			var username = "Twober";
-			var regionID = "las1";
-	  
-			let data = pyke.summoner.getBySummonerName(username, regionID);
-
-
-			pyke.summoner.getBySummonerName(username, regionID).then(data => {
-				console.log(`Summoner Name is : ${data.name}, and level is : ${data.summonerLevel}`);
-			  }).catch(console.error);
-
-
-			console.log(data);
-			/*
-			 data = { 
-			  id: 79858287,
-			  accountId: 224542288,
-			  summonerLevel: 119,
-			  profileIconId: 3348,
-			  name: 'SP Jason' 
-			 }
-			*/
+		var username = "SP Jason";
+		var regionID = "euw1";
+  
+		let data = await pyke.summoner.getBySummonerName(username, regionID);
+		/*
+		 data = { 
+		  id: 79858287,
+		  accountId: 224542288,
+		  summonerLevel: 119,
+		  profileIconId: 3348,
+		  name: 'SP Jason' 
+		 }
+		*/
+		console.log(data);
+	
 			
  
 
