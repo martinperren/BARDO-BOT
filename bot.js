@@ -212,7 +212,7 @@ function horariosAux(array) {
 
 client.on("message", async message => {
 
-	const argsM = message.content.split(' ');
+	const args = message.content.slice(1).trim().split(/ +/g);
 
 
 	if (message.content.startsWith("!web")) {
