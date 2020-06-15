@@ -231,7 +231,7 @@ client.on("message", async message => {
 
 
 
-let args = message.content.substring(PREFIX.length).split(" ");
+let args = message.content.substring(4).split(" ");
 const username = args.splice(0, 1);
 
 
