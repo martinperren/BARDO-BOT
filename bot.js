@@ -231,7 +231,7 @@ client.on("message", async message => {
 		var username = "Twober";
 		var regionID = "la2";
 		try {
-		sumid = await pyke.summoner.getBySummonerName(username, regionID);
+		sum = await pyke.summoner.getBySummonerName(username, regionID);
 	
 	} catch (err) {
 		console.log(err);
@@ -244,7 +244,8 @@ client.on("message", async message => {
 
 
 		try {
-		let data = await pyke.league.getAllLeaguePositionsForSummoner(sumid.id, regionID);
+			console.log("SUMMMMM ID: "+sum.id);
+		let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
 		/*
 		 data = { 
 		  id: 79858287,
