@@ -224,12 +224,6 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!elo")) {
 
-		
-	
-	
-
-
-
 
 let args = message.content.substring(1).split(" ");
 console.log(args);
@@ -268,9 +262,13 @@ console.log(username);
 
 
 
-		*/
+			console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
+		console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
+		console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
+		console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
+		console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
 		
-
+*/
 
 		message.channel.send(
 		"\nUSER: "+data.all.RANKED_FLEX_SR.summonerName+
@@ -280,11 +278,7 @@ console.log(username);
 		);
 
 	
-		console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
-		console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
-		console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
-		console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
-		console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
+	
 
 
 
@@ -297,6 +291,70 @@ console.log(username);
 	  }
 
 }
+
+
+if (message.content.startsWith("!m")) {
+
+
+
+
+	let args = message.content.substring(1).split(" ");
+	console.log(args);
+	args.splice(0, 1);
+	const username = args.join(" ");
+	
+	
+	console.log(username);
+	
+			  var sum;
+			var regionID = "la2";
+			try {
+			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+		
+		} catch (err) {
+			console.log(err);
+			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+			
+			
+		  }
+	
+		
+	
+	
+			try {
+				console.log("SUMMMMM ID: "+sum.id);
+			let data = await pyke.league.getCurrentGameInfoBySummoner(sum.id, regionID);
+			/*
+			 data = { 
+			  id: 79858287,
+			  accountId: 224542288,
+			  summonerLevel: 119,
+			  profileIconId: 3348,
+			  name: 'SP Jason' 
+			 }
+	
+	
+	
+				console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
+			console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
+			console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
+			console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
+			console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
+			
+	*/
+	
+	
+			console.log(data);
+		} catch (err) {
+			console.log(err);
+			
+			
+			
+		  }
+
+}
+
+
 
 	
 
