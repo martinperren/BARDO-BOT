@@ -233,7 +233,7 @@ client.on("message", async message => {
 
 let args = message.content.substring(1).split(" ");
 console.log(args);
-args.splice(1, 1);
+args.splice(0, 1);
 const username = args.join(" ");
 
 
