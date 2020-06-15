@@ -225,10 +225,8 @@ client.on("message", async message => {
 	if (message.content.startsWith("!elo")) {
 
 		
-
-		const username = args.join(" ");
-		message.delete().catch(O_o => {
-		});
+		var username = args.join(" ");
+	
 
 console.log(username);
 
