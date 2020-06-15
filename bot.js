@@ -26,7 +26,7 @@ function getChampName(id) {
 }
 
 function getLastVersion() {
-	request('https://ddragon.leagueoflegends.com/api/versions.json', function (error, response, body) {
+	request('http://ddragon.leagueoflegends.com/api/versions.json', function (error, response, body) {
   
 	  let version = JSON.parse(body);
 	  console.log("VERSION: "+version)
