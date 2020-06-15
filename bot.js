@@ -453,7 +453,7 @@ async function getPlayerId(summonerName) {
 	var regionID = "la2";
 	try {
 	sum = await pyke.summoner.getBySummonerName(String(summonerName), regionID);
-
+console.log("SUM IN FUCTION"+sum);
 } catch (err) {
 	console.log(err);
 	// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
