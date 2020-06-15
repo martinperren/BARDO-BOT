@@ -212,7 +212,7 @@ function horariosAux(array) {
 
 client.on("message", async message => {
 
-	const args = message.content.slice(1).trim().split(/ +/g);
+	
 
 
 	if (message.content.startsWith("!web")) {
@@ -225,16 +225,19 @@ client.on("message", async message => {
 	if (message.content.startsWith("!elo")) {
 
 		
-		var username = args.slice(0).join(" ");
 	
+	
+
+
+
+
+let args = message.content.substring(PREFIX.length).split(" ");
+const username = args.splice(0, 1);
+
 
 console.log(username);
 
       	var sum;
-
-		
-		
-	
 		var regionID = "la2";
 		try {
 		sum = await pyke.summoner.getBySummonerName(String(username), regionID);
