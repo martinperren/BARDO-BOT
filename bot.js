@@ -263,9 +263,9 @@ client.on("message", async message => {
 	
 		console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
 		console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
-		console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data[0].rank);
+		console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
 		console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
-		console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data[1].rank);
+		console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
 
 
 
