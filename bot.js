@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
 const {Pyke} = require('pyke');
+import champions from 'lol-champions'
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag,selector,players,turno = "",auxiliar=0;
 
@@ -342,7 +343,17 @@ if (message.content.startsWith("!m")) {
 	message.channel.send("PLAYERS\n");
 	for(var i = 0; i < data.participants.length;i++){
 	
-		message.channel.send(data.participants[i].summonerName);
+		for(var champ in champions) {
+			if(data.participants[i].championId==champ.key){
+				champName = champ.id;
+				console.log(champ.id);
+				break; 
+			}
+			
+		}
+
+
+		message.channel.send(data.participants[i].summonerName+champ.id);
         players.push(data.participants[i].summonerName);
   }
 
