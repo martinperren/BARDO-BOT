@@ -8,7 +8,7 @@ var dia, flag,selector,players,turno = "",auxiliar=0;
 
 
 function getChampName(id) {
-  request('http://ddragon.leagueoflegends.com/cdn/' + getLastVersion + '/data/de_DE/champion.json', function (error, response, body) {
+  request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
 
 	let list = JSON.parse(body);
 	
