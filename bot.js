@@ -377,9 +377,15 @@ if (message.content.startsWith("!m")) {
 	for(var i = 0; i < data.participants.length;i++){
 		
 		
-		var champName = getChampName(data.participants[i].championId);
-	console.log(champName);
+		
+
+	getChampName(data.participants[i].championId, function(response){
 		message.channel.send(data.participants[i].summonerName +" "+ champName);
+			console.log(response);
+		})
+
+
+		
         players.push(data.participants[i].summonerName);
   }
 
