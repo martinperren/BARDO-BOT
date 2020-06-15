@@ -225,7 +225,7 @@ client.on("message", async message => {
 	if (message.content.startsWith("!elo")) {
 
 		
-		var username = args.join(" ");
+		var username = args.slice(0).join(" ");
 	
 
 console.log(username);
