@@ -255,7 +255,7 @@ client.on("message", async message => {
 		  name: 'SP Jason' 
 		 }
 		*/
-		console.log("User: "+data[0].summonerName);
+		console.log("User: "+username);
 		console.log("LP SOLO: "+data[0].leaguePoints);
 		console.log("ELO SOLO: "+data[0].tier + data[0].rank);
 		console.log("LP FLEX: "+data[1].leaguePoints);
