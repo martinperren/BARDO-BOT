@@ -331,10 +331,24 @@ if (message.content.startsWith("!m")) {
 	
 
 
-	if(data.statuscode==404){
-		message.channel.send(username+" no está en ninguna partida.");
+	if(data.error.statuscode==404){
+		message.channel.send(username+" no está en partida.");
 	
 	}
+
+
+	var players = new Array();
+
+	message.channel.send("PLAYERS\n");
+	for(var i = 0; i < data.participants.length;i++){
+	
+		message.channel.send(data.participants[i].summonerName);
+        players.push(data.participants[i].summonerName);
+  }
+
+
+  
+	
 	
 	
 			console.log(data);
