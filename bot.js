@@ -451,7 +451,7 @@ async function getPlayerId(summonerName) {
 	var sum;
 	var regionID = "la2";
 	try {
-	sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+	sum = await pyke.summoner.getBySummonerName(String(summonerName), regionID);
 
 } catch (err) {
 	console.log(err);
