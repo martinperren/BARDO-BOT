@@ -222,13 +222,18 @@ client.on("message", async message => {
 
 
 
-	if (message.content.startsWith("!l")) {
+	if (message.content.startsWith("!elo")) {
 
-		var sumid;
+		
+
+		const username = args.join(" ");
+		message.delete().catch(O_o => {
+		});
+      	var sum;
 
 		
 		
-		var username = "Twober";
+	
 		var regionID = "la2";
 		try {
 		sum = await pyke.summoner.getBySummonerName(username, regionID);
@@ -263,8 +268,8 @@ client.on("message", async message => {
 
 		message.channel.send(
 		"\nUSER: "+data.all.RANKED_FLEX_SR.summonerName+
-		"\nELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank+ data.all.RANKED_FLEX_SR.leaguePoints + "PL"+
-		"\nELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank+data.all.RANKED_SOLO_5x5.leaguePoints+" PL"
+		"\nELO SOLO: "+data.all.RANKED_FLEX_SR.tier +" "+ data.all.RANKED_FLEX_SR.rank+ data.all.RANKED_FLEX_SR.leaguePoints + "PL"+
+		"\nELO FLEX: "+data.all.RANKED_SOLO_5x5.tier +" "+ data.all.RANKED_SOLO_5x5.rank+data.all.RANKED_SOLO_5x5.leaguePoints+" PL"
 		
 		);
 
