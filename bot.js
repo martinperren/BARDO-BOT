@@ -22,7 +22,7 @@ function getChampName(id,callback) {
 		
 		console.log("FOR: "+championList[i].id)
 		
-		callback(championList[i].id);
+		return callback(championList[i].id);
 		
 		
       }
