@@ -240,6 +240,9 @@ client.on("message", async message => {
 		
 	  }
 
+	  await sleep(1000);
+
+
 		try {
 		let data = await pyke.league.getAllLeaguePositionsForSummoner(sumid, regionID);
 		/*
