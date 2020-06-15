@@ -311,8 +311,8 @@ if (message.content.startsWith("!m")) {
 	
 	
 			try {
-				
-			let data = await pyke.spectator.getCurrentGameInfoBySummoner(getPlayerId(username).id, regionID);
+				var id = getPlayerId(username).id;
+			let data = await pyke.spectator.getCurrentGameInfoBySummoner(id, regionID);
 			/*
 			 data = { 
 			  id: 79858287,
