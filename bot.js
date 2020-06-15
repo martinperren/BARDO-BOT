@@ -18,10 +18,13 @@ function getChampName(id) {
     for (var i in championList) {
 
       if (championList[i].key == id) {
-	  
-		return championList[i].id;
+		
 		
 		console.log("FOR: "+championList[i].id)
+		
+		return championList[i].id;
+		
+		
       }
 
       //console.log(championList[i].id + " | " + championList[i].key);
