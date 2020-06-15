@@ -372,19 +372,21 @@ if (message.content.startsWith("!m")) {
 
 
 	var players = new Array();
+	var playerName;
+var champion;
+	message.channel.send("Partida de "+ username);
 
-	message.channel.send("PLAYERS\n");
 	for(var i = 0; i < data.participants.length;i++){
 	
-		var playerName = data.participants[i].summonerName;
+		playerName = data.participants[i].summonerName;
 
 	getChampName(data.participants[i].championId, function(response){
 		
-		message.channel.send(playerName +" "+ response);
-			console.log(response);
+		//message.channel.send(playerName +" "+ response);
+		champion = response;
 		})
 
-
+		message.channel.send(playerName +" "+ champion);
 		
         players.push(data.participants[i].summonerName);
   }
