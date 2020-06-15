@@ -233,7 +233,12 @@ client.on("message", async message => {
 		try {
 		let sumid = await pyke.summoner.getBySummonerName(username, regionID);
 	
-
+	} catch (err) {
+		console.log(err);
+		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+		
+		
+	  }
 
 		try {
 		let data = await pyke.league.getAllLeaguePositionsForSummoner(sumid, regionID);
@@ -252,12 +257,7 @@ client.on("message", async message => {
 		console.log("LP FLEX: "+data[1].leaguePoints);
 		console.log("ELO FLEX: "+data[1].tier + data[1].rank);
 
-	} catch (err) {
-		console.log(err);
-		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-		
-		
-	  }
+	
 
 
 
