@@ -11,8 +11,7 @@ function getChampName(id) {
   request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
 
 	let list = JSON.parse(body);
-	
-	console.log("CHAMPS: "+list);
+
 
     let championList = list.data;
 
@@ -22,7 +21,7 @@ function getChampName(id) {
 	  
 		return championList[i].id;
 		
-		//console.log("FOR: "+championList[i].id)
+		console.log("FOR: "+championList[i].id)
       }
 
       //console.log(championList[i].id + " | " + championList[i].key);
@@ -373,8 +372,9 @@ if (message.content.startsWith("!m")) {
 
 	message.channel.send("PLAYERS\n");
 	for(var i = 0; i < data.participants.length;i++){
+		var champName = getChampName(data.participants[i].championId);
 	
-		message.channel.send(data.participants[i].summonerName +" "+ getChampName(data.participants[i].championId));
+		message.channel.send(data.participants[i].summonerName +" "+ champName);
         players.push(data.participants[i].summonerName);
   }
 
