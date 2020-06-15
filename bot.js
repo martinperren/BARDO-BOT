@@ -323,7 +323,7 @@ if (message.content.startsWith("!m")) {
 	
 			try {
 				console.log("SUMMMMM ID: "+sum.id);
-			let data = await pyke.league.getCurrentGameInfoBySummoner(sum.id, regionID);
+			let data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 			/*
 			 data = { 
 			  id: 79858287,
