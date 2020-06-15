@@ -380,7 +380,7 @@ if (message.content.startsWith("!m")) {
 
 	getChampName(data.participants[i].championId, function(response){
 		
-		message.channel.send(playerName +" "+ champName);
+		message.channel.send(playerName +" "+ response);
 			console.log(response);
 		})
 
