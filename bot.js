@@ -270,6 +270,7 @@ console.log(username);
 		
 */
 
+
 		message.channel.send(
 		"\nUSER: "+data.all.RANKED_FLEX_SR.summonerName+
 		"\nELO SOLO: "+data.all.RANKED_FLEX_SR.tier +" "+ data.all.RANKED_FLEX_SR.rank+" "+ data.all.RANKED_FLEX_SR.leaguePoints + "PL"+
@@ -327,24 +328,13 @@ if (message.content.startsWith("!m")) {
 				
 				console.log("SUMMMMM ID: "+sum.id);
 			let data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			/*
-			 data = { 
-			  id: 79858287,
-			  accountId: 224542288,
-			  summonerLevel: 119,
-			  profileIconId: 3348,
-			  name: 'SP Jason' 
-			 }
 	
+
+
+	if(data.statuscode==404){
+		message.channel.send(username+" no está en ninguna partida.");
 	
-	
-				console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
-			console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
-			console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
-			console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
-			console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
-			
-	*/
+	}
 	
 	
 			console.log(data);
