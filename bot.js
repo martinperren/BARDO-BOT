@@ -240,11 +240,11 @@ client.on("message", async message => {
 		
 	  }
 
-	  await new Promise(resolve => setTimeout(resolve, 5000));
+	
 
 
 		try {
-		let data = await pyke.league.getAllLeaguePositionsForSummoner(sumid, regionID);
+		let data = await pyke.league.getAllLeaguePositionsForSummoner( String(sumid), regionID);
 		/*
 		 data = { 
 		  id: 79858287,
