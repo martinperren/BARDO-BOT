@@ -254,12 +254,15 @@ client.on("message", async message => {
 		  profileIconId: 3348,
 		  name: 'SP Jason' 
 		 }
-		*/
-		console.log("User: "+username);
+
+console.log("User: "+username);
 		console.log("LP SOLO: "+data[0].leaguePoints);
 		console.log("ELO SOLO: "+data[0].tier + data[0].rank);
 		console.log("LP FLEX: "+data[1].leaguePoints);
 		console.log("ELO FLEX: "+data[1].tier + data[1].rank);
+
+		*/
+		
 
 	
 
