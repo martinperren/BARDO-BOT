@@ -260,6 +260,17 @@ client.on("message", async message => {
 		*/
 		
 
+
+		message.channel.send(
+			`
+		"\nUSER: "+data.all.RANKED_FLEX_SR.summonerName+
+		"\nLP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints+
+		"\nELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank+
+		"\nLP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints+
+		"\nELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank
+		`
+		);
+
 	
 		console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
 		console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
