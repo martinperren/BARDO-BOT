@@ -255,17 +255,17 @@ client.on("message", async message => {
 		  name: 'SP Jason' 
 		 }
 
-console.log("User: "+username);
-		console.log("LP SOLO: "+data[0].leaguePoints);
-		console.log("ELO SOLO: "+data[0].tier + data[0].rank);
-		console.log("LP FLEX: "+data[1].leaguePoints);
-		console.log("ELO FLEX: "+data[1].tier + data[1].rank);
+
 
 		*/
 		
 
 	
-
+		console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
+		console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
+		console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data[0].rank);
+		console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
+		console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data[1].rank);
 
 
 
