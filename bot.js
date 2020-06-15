@@ -249,7 +249,7 @@ console.log(username);
 
 
 		try {
-			console.log("SUMMMMM ID: "+sum.id);
+			//console.log("SUMMMMM ID: "+sum.id);
 		let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
 		/*
 		 data = { 
@@ -282,7 +282,7 @@ console.log(username);
 
 
 
-		console.log(data);
+		//console.log(data);
 	} catch (err) {
 		console.log(err);
 		
@@ -308,10 +308,11 @@ if (message.content.startsWith("!m")) {
 	args.splice(0, 1);
 	const username = args.join(" ");
 	
-	
+	console.log(username);
 	
 			try {
 				var id = getPlayerId(username).id;
+				console.log("SUMMMMM ID: "+id);
 			let data = await pyke.spectator.getCurrentGameInfoBySummoner(id, regionID);
 			/*
 			 data = { 
