@@ -7,7 +7,7 @@ const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag,selector,players,turno = "",auxiliar=0;
 
 
-function getChampName(id) {
+function getChampName(id,callback) {
   request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
 
 	let list = JSON.parse(body);
