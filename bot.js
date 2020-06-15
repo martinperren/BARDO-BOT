@@ -2,12 +2,40 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
 const {Pyke} = require('pyke');
-const champions = require('lol-champions');
-const champsjson = require('./node_modules/lol-champions/champions.json')
+var request = require('request');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag,selector,players,turno = "",auxiliar=0;
 
 
+function getChampName(id) {
+  request('http://ddragon.leagueoflegends.com/cdn/' + getLastVersion + '/data/de_DE/champion.json', function (error, response, body) {
+
+    let list = JSON.parse(body);
+    let championList = list.data;
+
+    for (var i in championList) {
+
+      if (championList[i].key == id) {
+        console.log(championList[i].id)
+      }
+
+      //console.log(championList[i].id + " | " + championList[i].key);
+    }
+
+  });
+}
+
+function getLastVersion() {
+	request('https://ddragon.leagueoflegends.com/api/versions.json', function (error, response, body) {
+  
+	  let version = JSON.parse(body);
+	  console.log("VERSION: "+version)
+	  return version[0];
+  
+	  }
+  
+	});
+  }
 
 
 
@@ -344,17 +372,7 @@ if (message.content.startsWith("!m")) {
 	message.channel.send("PLAYERS\n");
 	for(var i = 0; i < data.participants.length;i++){
 	
-		for(var champ in champsjson) {
-			if(data.participants[i].championId==champ.key){
-				champName = champ.id;
-				console.log(champ.id);
-				break; 
-			}
-			
-		}
-
-
-		message.channel.send(data.participants[i].summonerName+champ.id);
+		message.channel.send(data.participants[i].summonerName+getChampName(data.participants[i].championId));
         players.push(data.participants[i].summonerName);
   }
 
