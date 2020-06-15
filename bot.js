@@ -300,20 +300,33 @@ if (message.content.includes("huevo")) {
 
 if (message.content.startsWith("!m")) {
 
-
-
-
+	
 	let args = message.content.substring(1).split(" ");
 	console.log(args);
 	args.splice(0, 1);
 	const username = args.join(" ");
 	
+	
 	console.log(username);
 	
+			  var sum;
+			var regionID = "la2";
 			try {
-				var id = getPlayerId(username).id;
-				console.log("SUMMMMM ID: "+id);
-			let data = await pyke.spectator.getCurrentGameInfoBySummoner(id, regionID);
+			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+		
+		} catch (err) {
+			console.log(err);
+			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+			
+			
+		  }
+
+
+
+			try {
+				
+				console.log("SUMMMMM ID: "+sum.id);
+			let data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 			/*
 			 data = { 
 			  id: 79858287,
@@ -445,7 +458,7 @@ music.start(client, {
 //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   
 
 
-
+/*
 async function getPlayerId(summonerName) {
 	
 
@@ -464,7 +477,7 @@ console.log("SUM IN FUCTION"+sum);
   return sum;
 
 }
-
+*/
 
 
 
