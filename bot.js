@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
 const {Pyke} = require('pyke');
 const champions = require('lol-champions');
-import champsjson from ('./node_modules/lol-champions/champions.json')
+const champsjson = require('./node_modules/lol-champions/champions.json')
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag,selector,players,turno = "",auxiliar=0;
 
