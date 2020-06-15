@@ -229,6 +229,9 @@ client.on("message", async message => {
 		const username = args.join(" ");
 		message.delete().catch(O_o => {
 		});
+
+console.log(username);
+
       	var sum;
 
 		
@@ -236,7 +239,7 @@ client.on("message", async message => {
 	
 		var regionID = "la2";
 		try {
-		sum = await pyke.summoner.getBySummonerName(username, regionID);
+		sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 	
 	} catch (err) {
 		console.log(err);
