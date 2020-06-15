@@ -19,7 +19,7 @@ function getChampName(id) {
     for (var i in championList) {
 
       if (championList[i].key == id) {
-        console.log(championList[i].id)
+        console.log("FOR: "+championList[i].id)
       }
 
       //console.log(championList[i].id + " | " + championList[i].key);
@@ -250,7 +250,7 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!web")) {
 		message.channel.send("www.elnortesa.com.ar");
-		console.log("web");
+		
 	}
 
 
@@ -259,12 +259,12 @@ client.on("message", async message => {
 
 
 let args = message.content.substring(1).split(" ");
-console.log(args);
+
 args.splice(0, 1);
 const username = args.join(" ");
 
 
-console.log(username);
+
 
       	var sum;
 		var regionID = "la2";
@@ -336,12 +336,9 @@ if (message.content.startsWith("!m")) {
 
 	
 	let args = message.content.substring(1).split(" ");
-	console.log(args);
 	args.splice(0, 1);
 	const username = args.join(" ");
-	
-	
-	console.log(username);
+
 	
 			  var sum;
 			var regionID = "la2";
@@ -359,7 +356,6 @@ if (message.content.startsWith("!m")) {
 
 			try {
 				
-				console.log("SUMMMMM ID: "+sum.id);
 			let data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 	
 
@@ -380,11 +376,10 @@ if (message.content.startsWith("!m")) {
   }
 
 
-  
-	
-	
-	
-			console.log(data);
+
+
+//  console.log(data);
+
 		} catch (err) {
 			console.log(err);
 			
