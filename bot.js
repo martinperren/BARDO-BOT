@@ -224,14 +224,14 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!l")) {
 
-		
+		var sumid;
 
 		
 		
 		var username = "Twober";
 		var regionID = "la2";
 		try {
-		let sumid = await pyke.summoner.getBySummonerName(username, regionID);
+		sumid = await pyke.summoner.getBySummonerName(username, regionID);
 	
 	} catch (err) {
 		console.log(err);
