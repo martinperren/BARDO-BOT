@@ -262,13 +262,10 @@ client.on("message", async message => {
 
 
 		message.channel.send(
-			`
 		"\nUSER: "+data.all.RANKED_FLEX_SR.summonerName+
-		"\nLP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints+
-		"\nELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank+
-		"\nLP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints+
-		"\nELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank
-		`
+		"\nELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank+ data.all.RANKED_FLEX_SR.leaguePoints + "PL"+
+		"\nELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank+data.all.RANKED_SOLO_5x5.leaguePoints+" PL"
+		
 		);
 
 	
