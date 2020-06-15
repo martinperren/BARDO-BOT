@@ -331,7 +331,7 @@ if (message.content.startsWith("!m")) {
 	
 
 
-	if(data.error.statuscode==404){
+	if(data.statuscode==404){
 		message.channel.send(username+" no está en partida.");
 	
 	}
