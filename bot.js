@@ -240,7 +240,7 @@ client.on("message", async message => {
 		
 	  }
 
-	  await sleep(1000);
+	  await new Promise(resolve => setTimeout(resolve, 5000));
 
 
 		try {
