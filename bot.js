@@ -10,7 +10,10 @@ var dia, flag,selector,players,turno = "",auxiliar=0;
 function getChampName(id) {
   request('http://ddragon.leagueoflegends.com/cdn/' + getLastVersion + '/data/de_DE/champion.json', function (error, response, body) {
 
-    let list = JSON.parse(body);
+	let list = JSON.parse(body);
+	
+	console.log("CHAMPS: "+list);
+
     let championList = list.data;
 
     for (var i in championList) {
@@ -372,7 +375,7 @@ if (message.content.startsWith("!m")) {
 	message.channel.send("PLAYERS\n");
 	for(var i = 0; i < data.participants.length;i++){
 	
-		message.channel.send(data.participants[i].summonerName+getChampName(data.participants[i].championId));
+		message.channel.send(data.participants[i].summonerName +" "+ getChampName(data.participants[i].championId));
         players.push(data.participants[i].summonerName);
   }
 
