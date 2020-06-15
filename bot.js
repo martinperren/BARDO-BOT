@@ -32,7 +32,7 @@ function getLastVersion() {
 	  console.log("VERSION: "+version)
 	  return version[0];
   
-	  }
+	  
   
 	});
   }
