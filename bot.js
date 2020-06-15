@@ -445,7 +445,7 @@ music.start(client, {
 
 
 
-function getPlayerId(summonerName) {
+async function getPlayerId(summonerName) {
 	
 
 	var sum;
