@@ -244,7 +244,7 @@ client.on("message", async message => {
 
 
 		try {
-		let data = await pyke.league.getAllLeaguePositionsForSummoner( String(sumid), regionID);
+		let data = await pyke.league.getAllLeaguePositionsForSummoner(sumid.id, regionID);
 		/*
 		 data = { 
 		  id: 79858287,
