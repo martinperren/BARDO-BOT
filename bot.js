@@ -293,6 +293,11 @@ console.log(username);
 }
 
 
+if (message.content.includes("huevo")) {
+	message.react("537716624296378399");
+}
+
+
 if (message.content.startsWith("!m")) {
 
 
@@ -304,26 +309,10 @@ if (message.content.startsWith("!m")) {
 	const username = args.join(" ");
 	
 	
-	console.log(username);
-	
-			  var sum;
-			var regionID = "la2";
-			try {
-			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
-		
-		} catch (err) {
-			console.log(err);
-			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-			
-			
-		  }
-	
-		
-	
 	
 			try {
 				console.log("SUMMMMM ID: "+sum.id);
-			let data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+			let data = await pyke.spectator.getCurrentGameInfoBySummoner(getPlayerId(username), regionID);
 			/*
 			 data = { 
 			  id: 79858287,
@@ -456,21 +445,49 @@ music.start(client, {
 
 
 
+function getPlayerId(summonerName) {
+	
 
-client.on("message", async message => {
-	const args = message.content.slice(1).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
-	const argsM = message.content.split(' ');
+	var sum;
+	var regionID = "la2";
+	try {
+	sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+
+} catch (err) {
+	console.log(err);
+	// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+	
+	
+  }
+
+  return sum;
+
+}
 
 
 
-	if (message.content.includes("huevo")) {
-		message.react("537716624296378399");
-	}
 
 
 
-});
+function gatherPlayersFromMessage(channel) {
+	return new Promise((resolve, reject) => {
+		players = [];
+		const filter = (msg) => (msg.content.toLowerCase().includes("join") && !msg.author.bot);
+		const collector = channel.createMessageCollector(filter, { time: 10000 });
+		collector.on('collect', msg => {
+			players.push(msg.author);
+			msg.delete();
+		});
+		collector.on('end', async (collected) => {
+			resolve(players);
+		});
+	});
+}
+
+
+
+
+
 
 
 const randomWord = require('random-spanish-words');
