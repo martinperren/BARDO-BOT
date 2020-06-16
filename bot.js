@@ -357,7 +357,7 @@ client.on("message", async message => {
 		
 				try {
 		
-					data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+					data =  pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 				} catch (err) {
 					console.log(err);
 		
