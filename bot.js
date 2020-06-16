@@ -384,20 +384,24 @@ if (message.content.startsWith("!m")) {
 	//message.channel.send("Partida de "+ username);
 
 	
-	
-	for(i = 0; i < data.participants.length;i++){
+
+	const j = 10;
+	for (let i = 0; i < j; i++) {
 		playerName = data.participants[i].summonerName;
-console.log(playerName);
-
-console.log(playerName +" "+ getChampName(data.participants[i].championId, function(response){
+		console.log(playerName);
 		
+			getChampName(data.participants[i].championId, function(response){
+				
+				console.log(playerName +" "+ response);
+				//message.channel.send(playerName +" "+ response);	
+				})
 		
-	//message.channel.send(playerName +" "+ response);	
-	}));
-
-		players.push(data.participants[i].summonerName);
-
+				players.push(data.participants[i].summonerName);
 	}
+
+
+	
+
 		
         
   
