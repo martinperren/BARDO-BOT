@@ -360,15 +360,6 @@ if (message.content.startsWith("!m")) {
 
 
 
-	try {
-		
-	data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-} catch (err) {
-	console.log(err);
-	
-	
-	
-  }
 
 
 	if(data.statuscode==404){
@@ -389,6 +380,16 @@ if (message.content.startsWith("!m")) {
 		
 
 	getChampName(data.participants[i].championId, function(response){
+		
+	try {
+		
+		data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+	} catch (err) {
+		console.log(err);
+		
+		
+		
+	  }
 		playerName = data.participants[i].summonerName;
 console.log(playerName);
 		console.log(playerName +" "+ response);
