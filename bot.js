@@ -1,50 +1,84 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const music = require('discord.js-musicbot-addon');
-const {Pyke} = require('pyke');
+const { Pyke } = require('pyke');
 var request = require('request');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
-var dia, flag,selector,players,turno = "",auxiliar=0;
+var dia, flag, selector, players, turno = "", auxiliar = 0;
 
 
-function getChampName(id,callback) {
-  request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
+function getChampName(username, id, callback) {
+	request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
 
-	let list = JSON.parse(body);
+		let list = JSON.parse(body);
+		let championList = list.data;
+		let playerName;
+
+		var map = new Map();
+		let data;
+		var sum;
+		var regionID = "la2";
+		try {
+			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+
+		} catch (err) {
+			console.log(err);
+			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
 
 
-    let championList = list.data;
+		}
 
-	
-    for (var i in championList) {
 
-      if (championList[i].key == id) {
-		
-		
-		console.log("FOR: "+championList[i].id)
-		
-		return callback(championList[i].id);
-		
-		
-      }
 
-      //console.log(championList[i].id + " | " + championList[i].key);
-    }
+		for (var i = 0; i < data.participants.length; i++) {
 
-  });
+			playerName = data.participants[i].summonerName;
+
+
+			for (var i in championList) {
+
+				if (championList[i].key == id) {
+
+
+					console.log("FOR: " + championList[i].id)
+
+					myMap.set(playerName, championList[i].id)
+
+
+
+				}
+
+				//console.log(championList[i].id + " | " + championList[i].key);
+			}
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+		return callback(map);
+
+	});
 }
 
 function getLastVersion() {
 	request('http://ddragon.leagueoflegends.com/api/versions.json', function (error, response, body) {
-  
-	  let version = JSON.parse(body);
-	  console.log("VERSION: "+version)
-	  return version[0];
-  
-	  
-  
+
+		let version = JSON.parse(body);
+		console.log("VERSION: " + version)
+		return version[0];
+
+
+
 	});
-  }
+}
 
 
 
@@ -54,8 +88,8 @@ client.on("ready", () => {
 	console.log("Bot iniciado");
 
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
-	.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-	.catch(console.error);
+		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+		.catch(console.error);
 
 });
 
@@ -82,7 +116,7 @@ function dia() {
 }
 
 
-function horariosDeSfe(currentDay,flag) {
+function horariosDeSfe(currentDay, flag) {
 	var horarios = [];
 	var resultado = [];
 
@@ -90,54 +124,54 @@ function horariosDeSfe(currentDay,flag) {
 
 	switch (currentDay) {
 		case 1: //lunes
-		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 2: //martes
-		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 3: //miercoles
-		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 4: //jueves
-		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "19:15", "21:05", "22:30"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 5: //viernes
-		horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "18:45", "19:45", "21:05", "22:30"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:30", "06:45", "10:10", "12:00", "13:00", "14:00", "15:50", "18:00", "18:45", "19:45", "21:05", "22:30"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 6: //sabado
-		horarios = ["05:30", "10:10", "12:00", "14:00", "18:00", "19:15", "22:30"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:30", "10:10", "12:00", "14:00", "18:00", "19:15", "22:30"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 0: //domingo
-		horarios = ["08:30", "10:10", "13:30", "17:15", "20:30", "22:30", "23:45"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["08:30", "10:10", "13:30", "17:15", "20:30", "22:30", "23:45"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 
 
 
@@ -158,54 +192,54 @@ function horariosDeSCC(currentDay, flag) {
 
 	switch (parseInt(dia())) {
 		case 1: //lunes
-		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 2: //martes
-		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 3: //miercoles
-		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 4: //jueves
-		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 5: //viernes
-		horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18", "22:45"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["05:35", "06:13", "07:30", "09:00", "12:33", "14:23", "15:05", "15:55", "17:40", "19:45", "21:18", "22:45"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 6: //sabado
-		horarios = ["07:30", "09:00", "12:33", "14:23", "15:55", "19:45", "21:18"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["07:30", "09:00", "12:33", "14:23", "15:55", "19:45", "21:18"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 		case 0: //domingo
-		horarios = ["06:45", "11:00", "15:15", "19:00", "20:50", "22:30"];
-		if (flag)
-			return horariosAux(horarios);
-		else
-			return horarios.join(' - ');
-		break;
+			horarios = ["06:45", "11:00", "15:15", "19:00", "20:50", "22:30"];
+			if (flag)
+				return horariosAux(horarios);
+			else
+				return horarios.join(' - ');
+			break;
 
 
 
@@ -251,12 +285,12 @@ function horariosAux(array) {
 
 client.on("message", async message => {
 
-	
+
 
 
 	if (message.content.startsWith("!web")) {
 		message.channel.send("www.elnortesa.com.ar");
-		
+
 	}
 
 
@@ -264,157 +298,99 @@ client.on("message", async message => {
 	if (message.content.startsWith("!elo")) {
 
 
-let args = message.content.substring(1).split(" ");
+		let args = message.content.substring(1).split(" ");
 
-args.splice(0, 1);
-const username = args.join(" ");
-
-
+		args.splice(0, 1);
+		const username = args.join(" ");
 
 
-      	var sum;
+
+
+		var sum;
 		var regionID = "la2";
 		try {
-		sum = await pyke.summoner.getBySummonerName(String(username), regionID);
-	
-	} catch (err) {
-		console.log(err);
-		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-		
-		
-	  }
+			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 
-	
+		} catch (err) {
+			console.log(err);
+			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+
+
+		}
+
+
 
 
 		try {
 			//console.log("SUMMMMM ID: "+sum.id);
-		let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-		/*
-		 data = { 
-		  id: 79858287,
-		  accountId: 224542288,
-		  summonerLevel: 119,
-		  profileIconId: 3348,
-		  name: 'SP Jason' 
-		 }
-
-
-
-			console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
-		console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
-		console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
-		console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
-		console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
-		
-*/
-
-
-		message.channel.send(
-		"\nUSER: "+data.all.RANKED_FLEX_SR.summonerName+
-		"\nELO SOLO: "+data.all.RANKED_FLEX_SR.tier +" "+ data.all.RANKED_FLEX_SR.rank+" "+ data.all.RANKED_FLEX_SR.leaguePoints + "PL"+
-		"\nELO FLEX: "+data.all.RANKED_SOLO_5x5.tier +" "+ data.all.RANKED_SOLO_5x5.rank+" "+data.all.RANKED_SOLO_5x5.leaguePoints+" PL"
-		
-		);
-
+			let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
+			/*
+			 data = { 
+			  id: 79858287,
+			  accountId: 224542288,
+			  summonerLevel: 119,
+			  profileIconId: 3348,
+			  name: 'SP Jason' 
+			 }
 	
 	
-
-
-
-		//console.log(data);
-	} catch (err) {
-		console.log(err);
-		
-		
-		
-	  }
-
-}
-
-
-if (message.content.includes("huevo")) {
-	message.react("537716624296378399");
-}
-
-
-if (message.content.startsWith("!m")) {
-
-	let data;
-	let args = message.content.substring(1).split(" ");
-	args.splice(0, 1);
-	const username = args.join(" ");
-
 	
-	var sum;
-	var regionID = "la2";
-	try {
-	sum = await pyke.summoner.getBySummonerName(String(username), regionID);
-
-} catch (err) {
-	console.log(err);
-	// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-	
-	
-  }
+				console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
+			console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
+			console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
+			console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
+			console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
+			
+	*/
 
 
+			message.channel.send(
+				"\nUSER: " + data.all.RANKED_FLEX_SR.summonerName +
+				"\nELO SOLO: " + data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL" +
+				"\nELO FLEX: " + data.all.RANKED_SOLO_5x5.tier + " " + data.all.RANKED_SOLO_5x5.rank + " " + data.all.RANKED_SOLO_5x5.leaguePoints + " PL"
+
+			);
 
 
 
-	if(data.statuscode==404){
-		message.channel.send(username+" no está en partida.");
-	
+
+
+
+			//console.log(data);
+		} catch (err) {
+			console.log(err);
+
+
+
+		}
+
 	}
 
 
-	var players = new Array();
-	var playerName;
-	var i;
+	if (message.content.includes("huevo")) {
+		message.react("537716624296378399");
+	}
 
-	//message.channel.send("Partida de "+ username);
 
-	
-	
-	for(i = 0; i < data.participants.length;i++){
-		
+	if (message.content.startsWith("!m")) {
 
-	getChampName(data.participants[i].championId, function(response){
-		
-	try {
-		
-		data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-	} catch (err) {
-		console.log(err);
-		
-		
-		
-	  }
-		playerName = data.participants[i].summonerName;
-console.log(playerName);
-		console.log(playerName +" "+ response);
-		//message.channel.send(playerName +" "+ response);	
+
+		let args = message.content.substring(1).split(" ");
+		args.splice(0, 1);
+		const username = args.join(" ");
+		//message.channel.send("Partida de "+ username);
+		getChampName(username, data.participants[i].championId, function (response) {
+
+			console.log(response);
 		})
 
-		players.push(data.participants[i].summonerName);
+
 
 	}
-		
-        
-  
 
 
 
 
-//  console.log(data);
-
-		
-
-}
-
-
-
-	
 
 
 
@@ -647,19 +623,19 @@ async function gatherPlayersFromReaction(message, emoji) {
 	return new Promise(async (resolve, reject) => {
 		let players = [];
 		const filter = (r) => (r.emoji.name == emoji);
-        //const filter = (r) => { return true; };
-        await message.awaitReactions(filter, { time: 10000 })
-        .then(collected => {
-        	collected.first().users.forEach((user) => {
-        		if (!user.bot) {
-        			players.push(user);
-        		}
-        	});
-        })
-        .catch(err => reject(err));
+		//const filter = (r) => { return true; };
+		await message.awaitReactions(filter, { time: 10000 })
+			.then(collected => {
+				collected.first().users.forEach((user) => {
+					if (!user.bot) {
+						players.push(user);
+					}
+				});
+			})
+			.catch(err => reject(err));
 
-        resolve(players);
-    });
+		resolve(players);
+	});
 }
 
 async function gatherPlayers(channel) {
@@ -669,18 +645,18 @@ async function gatherPlayers(channel) {
 	let aPlayers = await Promise.all([p1, p2]);
 	msg.delete();
 	let players = [];
-    // join both arrays of players into one of unique players.
-    aPlayers.forEach(ps => ps.forEach(p => {
-    	if (!players.find(pOther => pOther.id == p.id)) {
-    		players.push(p);
-    	}
-    }));
-    return players;
+	// join both arrays of players into one of unique players.
+	aPlayers.forEach(ps => ps.forEach(p => {
+		if (!players.find(pOther => pOther.id == p.id)) {
+			players.push(p);
+		}
+	}));
+	return players;
 }
 
 async function getNextMessage(channel, maxTime) {
 	return await channel.awaitMessages((m) => !m.author.bot, { max: 1, time: maxTime, errors: ['time'] })
-	.catch((collected) => { throw collected });
+		.catch((collected) => { throw collected });
 }
 
 async function getWordFromPlayers(players, channel) {
@@ -735,14 +711,14 @@ async function showProgress(channel, game, gameMessage, gameOver) {
 	let progress = game.progress;
 	let lives = "";
 
-if(auxiliar == jugadores.length || auxiliar > jugadores.length){
-	auxiliar = 0;
-}
+	if (auxiliar == jugadores.length || auxiliar > jugadores.length) {
+		auxiliar = 0;
+	}
 
-if(!jugadores.length==0){
-turno = jugadores[auxiliar].username;
-auxiliar++;
-}
+	if (!jugadores.length == 0) {
+		turno = jugadores[auxiliar].username;
+		auxiliar++;
+	}
 
 
 	for (let i = 0; i < 6; ++i) {
@@ -760,22 +736,22 @@ auxiliar++;
 
 	let screen;
 
-if(typeof selector == 'undefined' || selector == null) {
-       screen = figureStep.replace(/wordHere/, progress)
-	.replace(/numerOfLives/, lives)
-	.replace(/missC/, misses)
-.replace(/turnoA/, turno)
-.replace(/choosen/, "Bot");
-    }else{
-    	screen = figureStep.replace(/wordHere/, progress)
-	.replace(/numerOfLives/, lives)
-	.replace(/missC/, misses)
-.replace(/turnoA/, turno)
-.replace(/choosen/, selector.username);
+	if (typeof selector == 'undefined' || selector == null) {
+		screen = figureStep.replace(/wordHere/, progress)
+			.replace(/numerOfLives/, lives)
+			.replace(/missC/, misses)
+			.replace(/turnoA/, turno)
+			.replace(/choosen/, "Bot");
+	} else {
+		screen = figureStep.replace(/wordHere/, progress)
+			.replace(/numerOfLives/, lives)
+			.replace(/missC/, misses)
+			.replace(/turnoA/, turno)
+			.replace(/choosen/, selector.username);
 
 
 
-    }
+	}
 
 
 	const embed = new Discord.RichEmbed();
@@ -812,22 +788,22 @@ async function startGame(channel, gameType) {
 	}
 
 	let word;
-	
+
 	switch (gameType) {
 		case "random":
 
-		word = randomWord();
-		break;
+			word = randomWord();
+			break;
 		case "custom":
-		await channel.send(players.length + " jugadores participando. Seleccionando a un jugador para elegir la palabra. Revisen sus mensajes privados!!");
-		let userSelection = await getWordFromPlayers(players, channel);
-		if (userSelection) {
-			word = userSelection.word;
-			selector = userSelection.selector;
-		} else {
-			return;
-		}
-		break;
+			await channel.send(players.length + " jugadores participando. Seleccionando a un jugador para elegir la palabra. Revisen sus mensajes privados!!");
+			let userSelection = await getWordFromPlayers(players, channel);
+			if (userSelection) {
+				word = userSelection.word;
+				selector = userSelection.selector;
+			} else {
+				return;
+			}
+			break;
 	}
 
 	const game = new hangman(word);
@@ -840,35 +816,35 @@ async function runGame(channel, game, players) {
 	const filter = ((m) =>
 		players.find((p) => (p.id == m.author.id)));
 
-    const collector = channel.createMessageCollector(filter, { time: 600000 }); // max of 15 minutes per game
+	const collector = channel.createMessageCollector(filter, { time: 600000 }); // max of 15 minutes per game
 
-    return new Promise((resolve, reject) => {
-    	collector.on('collect', async (m) => {
-    		const c = m.content.toLowerCase();
-    		m.delete();
-    		if (m.content.match(/^[A-Za-zÀ-ú]{2,}$/)) {
-    			if (game.guessAll(c) == false) {
-    				players.splice(players.find(p => m.author.id == p.id), 1);
-    			}
-    		} else if (m.content.match(/^[A-Za-zÀ-ú]{1}$/)) {
-    			game.guess(c);
-    		} else {
-    			return;
-    		}
-    		await showProgress(channel, game, gameMessage);
+	return new Promise((resolve, reject) => {
+		collector.on('collect', async (m) => {
+			const c = m.content.toLowerCase();
+			m.delete();
+			if (m.content.match(/^[A-Za-zÀ-ú]{2,}$/)) {
+				if (game.guessAll(c) == false) {
+					players.splice(players.find(p => m.author.id == p.id), 1);
+				}
+			} else if (m.content.match(/^[A-Za-zÀ-ú]{1}$/)) {
+				game.guess(c);
+			} else {
+				return;
+			}
+			await showProgress(channel, game, gameMessage);
 
-    		if (game.status !== "in progress") {
-    			collector.stop();
-    		} else if (players.length < 1) {
-    			collector.stop();
-    			game.status = "lost";
-    		}
-    	});
-    	collector.on('end', async (collected) => {
-    		await showProgress(channel, game, gameMessage, true);
-    		resolve();
-    	});
-    });
+			if (game.status !== "in progress") {
+				collector.stop();
+			} else if (players.length < 1) {
+				collector.stop();
+				game.status = "lost";
+			}
+		});
+		collector.on('end', async (collected) => {
+			await showProgress(channel, game, gameMessage, true);
+			resolve();
+		});
+	});
 }
 
 async function showResult(channel, game, selector) {
@@ -895,46 +871,46 @@ client.on('message', async (msg) => {
 		const args = msg.content.slice(prefix.length).trim().split(' ').filter(word => word.trim().length > 0);
 
 
-		if(args[0]=="stop"){
+		if (args[0] == "stop") {
 			runningGames.delete(msg.channel.guild);
-			msg.channel.send("Juego terminado.");  
-		}else{
-				if (!runningGames.has(msg.guild)) {
-			let gameType = "custom";
-			if (args[0]) switch (args[0]) {
-				case "random":
-				gameType = "random";
-				break;
-				case "custom":
-				gameType = "custom";
-				break;      
-				case "help":
-				msg.channel.send("Usa !jugar (modo), podes elegir entre el modo de juego \"custom\" o \"random\". !jugar stop para parar un juego");
-				return;
-
-			}
-
-			runningGames.add(msg.channel.guild);
-
-			let game, players;
-			selector = null;
-			const gameInfo = await startGame(msg.channel, gameType);
-			if (gameInfo) {
-				game = gameInfo.game;
-				players = gameInfo.players;
-				jugadores = gameInfo.players;
-				selector = gameInfo.selector;
-				await runGame(msg.channel, game, players);
-				await showResult(msg.channel, game, selector);
-			}
-
-			runningGames.delete(msg.channel.guild);
+			msg.channel.send("Juego terminado.");
 		} else {
-			msg.reply("Ya hay un juego en curso.");
-		}
+			if (!runningGames.has(msg.guild)) {
+				let gameType = "custom";
+				if (args[0]) switch (args[0]) {
+					case "random":
+						gameType = "random";
+						break;
+					case "custom":
+						gameType = "custom";
+						break;
+					case "help":
+						msg.channel.send("Usa !jugar (modo), podes elegir entre el modo de juego \"custom\" o \"random\". !jugar stop para parar un juego");
+						return;
+
+				}
+
+				runningGames.add(msg.channel.guild);
+
+				let game, players;
+				selector = null;
+				const gameInfo = await startGame(msg.channel, gameType);
+				if (gameInfo) {
+					game = gameInfo.game;
+					players = gameInfo.players;
+					jugadores = gameInfo.players;
+					selector = gameInfo.selector;
+					await runGame(msg.channel, game, players);
+					await showResult(msg.channel, game, selector);
+				}
+
+				runningGames.delete(msg.channel.guild);
+			} else {
+				msg.reply("Ya hay un juego en curso.");
+			}
 		}
 
-	
+
 
 
 	}
