@@ -386,10 +386,10 @@ if (message.content.startsWith("!m")) {
 	
 	
 	for(i = 0; i < data.participants.length;i++){
-
+		playerName = data.participants[i].summonerName;
 	getChampName(data.participants[i].championId, function(response){
 		
-			playerName = data.participants[i].summonerName;
+			
 		message.channel.send(playerName +" "+ response);
 
 	
