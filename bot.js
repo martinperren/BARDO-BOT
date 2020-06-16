@@ -378,7 +378,7 @@ client.on("message", async message => {
 
 				for (var i in championList) {
 
-					if (championList[i].key == id) {
+					if (championList[i].key == data.participants[i].championId) {
 
 
 						console.log("FOR: " + championList[i].id)
