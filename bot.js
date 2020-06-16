@@ -7,7 +7,7 @@ const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
 
-
+/*
 function getLastVersion() {
 	request('http://ddragon.leagueoflegends.com/api/versions.json', function (error, response, body) {
 
@@ -19,7 +19,7 @@ function getLastVersion() {
 
 	});
 }
-
+*/
 
 
 
@@ -344,7 +344,7 @@ client.on("message", async message => {
 				var sum;
 				var regionID = "la2";
 				try {
-					sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+					sum = pyke.summoner.getBySummonerName(String(username), regionID);
 		
 				} catch (err) {
 					console.log(err);
