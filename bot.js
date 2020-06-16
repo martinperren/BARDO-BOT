@@ -389,10 +389,11 @@ if (message.content.startsWith("!m")) {
 		playerName = data.participants[i].summonerName;
 console.log(playerName);
 
-	getChampName(data.participants[i].championId, function(response){
-		console.log(playerName +" "+ response);
-		//message.channel.send(playerName +" "+ response);	
-		})
+console.log(playerName +" "+ getChampName(data.participants[i].championId, function(response){
+		
+		
+	//message.channel.send(playerName +" "+ response);	
+	}));
 
 		players.push(data.participants[i].summonerName);
 
