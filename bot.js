@@ -15,6 +15,7 @@ function getChampName(id,callback) {
 
     let championList = list.data;
 
+	
     for (var i in championList) {
 
       if (championList[i].key == id) {
@@ -339,30 +340,35 @@ if (message.content.includes("huevo")) {
 
 if (message.content.startsWith("!m")) {
 
-	
+	let data;
 	let args = message.content.substring(1).split(" ");
 	args.splice(0, 1);
 	const username = args.join(" ");
 
 	
-			  var sum;
-			var regionID = "la2";
-			try {
-			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
-		
-		} catch (err) {
-			console.log(err);
-			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-			
-			
-		  }
+	var sum;
+	var regionID = "la2";
+	try {
+	sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 
-
-
-			try {
-				
-			let data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+} catch (err) {
+	console.log(err);
+	// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
 	
+	
+  }
+
+
+
+	try {
+		
+	data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+} catch (err) {
+	console.log(err);
+	
+	
+	
+  }
 
 
 	if(data.statuscode==404){
@@ -373,35 +379,33 @@ if (message.content.startsWith("!m")) {
 
 	var players = new Array();
 	var playerName;
-	var champion;
+
 	message.channel.send("Partida de "+ username);
 
-	for(var i = 0; i < data.participants.length;i++){
+	
 	
 		playerName = data.participants[i].summonerName;
 
-		champion = getChampName(data.participants[i].championId, function(response){
-		
-		//message.channel.send(playerName +" "+ response);
-		
+	getChampName(data.participants[i].championId, function(response){
+		for(var i = 0; i < data.participants.length;i++){
+
+		message.channel.send(playerName +" "+ response);
+
+	}
+			
 		})
 
-		message.channel.send(playerName +" "+ champion);
+
 		
         players.push(data.participants[i].summonerName);
-  }
+  
 
 
 
 
 //  console.log(data);
 
-		} catch (err) {
-			console.log(err);
-			
-			
-			
-		  }
+		
 
 }
 
