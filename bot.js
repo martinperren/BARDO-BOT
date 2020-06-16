@@ -314,52 +314,13 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!m")) {
 
-		let data;
-		let args = message.content.substring(1).split(" ");
-		args.splice(0, 1);
-		const username = args.join(" ");
-
-
-		var sum;
-		var regionID = "la2";
-		try {
-			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
-
-		} catch (err) {
-			console.log(err);
-			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-
-
-		}
-
-
-
-		try {
-
-			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-		} catch (err) {
-			console.log(err);
-
-
-
-		}
-
-
-		if (data.statuscode == 404) {
-			message.channel.send(username + " no está en partida.");
-
-		}
-
-
-		var players = new Array();
-		var playerName;
-		var i;
+	
 
 		//message.channel.send("Partida de "+ username);
 
 		var promises = [];
 
-		for (i = 0; i < data.participants.length; i++) {
+		for (i = 0; i < 10; i++) {
 
 
 
@@ -369,6 +330,48 @@ client.on("message", async message => {
 
 
 			request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
+
+				let data;
+				let args = message.content.substring(1).split(" ");
+				args.splice(0, 1);
+				const username = args.join(" ");
+				
+		
+				var players = new Array();
+				var playerName;
+				var i;
+
+				var sum;
+				var regionID = "la2";
+				try {
+					sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+		
+				} catch (err) {
+					console.log(err);
+					// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+		
+		
+				}
+		
+		
+		
+				try {
+		
+					data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+				} catch (err) {
+					console.log(err);
+		
+		
+		
+				}
+		
+		
+				if (data.statuscode == 404) {
+					message.channel.send(username + " no está en partida.");
+		
+				}
+		
+
 
 				let list = JSON.parse(body);
 
