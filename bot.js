@@ -329,7 +329,7 @@ client.on("message", async message => {
 
 
 
-			request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
+			rp('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
 
 				let data;
 				let args = message.content.substring(1).split(" ");
