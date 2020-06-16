@@ -7,32 +7,6 @@ const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
 
-function getChampName(id, callback) {
-	request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
-
-		let list = JSON.parse(body);
-
-
-		let championList = list.data;
-
-
-		for (var i in championList) {
-
-			if (championList[i].key == id) {
-
-
-				console.log("FOR: " + championList[i].id)
-
-				return callback(championList[i].id);
-
-
-			}
-
-			//console.log(championList[i].id + " | " + championList[i].key);
-		}
-
-	});
-}
 
 function getLastVersion() {
 	request('http://ddragon.leagueoflegends.com/api/versions.json', function (error, response, body) {
@@ -392,12 +366,39 @@ client.on("message", async message => {
 			playerName = data.participants[i].summonerName;
 			console.log(playerName);
 
-			getChampName(data.participants[i].championId, function (response) {
 
-				promises.push(response);
 
-				//message.channel.send(playerName +" "+ response);	
-			})
+			request('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
+
+				let list = JSON.parse(body);
+
+
+				let championList = list.data;
+
+
+				for (var i in championList) {
+
+					if (championList[i].key == id) {
+
+
+						console.log("FOR: " + championList[i].id)
+
+						promises.push(championList[i].id);
+
+
+					}
+
+					//console.log(championList[i].id + " | " + championList[i].key);
+				}
+
+			});
+
+
+
+
+
+			//message.channel.send(playerName +" "+ response);	
+
 
 			players.push(data.participants[i].summonerName);
 		}
@@ -405,9 +406,13 @@ client.on("message", async message => {
 
 		//console.log(playerName +" "+ response);
 
+
+
+
+
 		Promise.all(promises)
 			.then(() => {
-				for (i = 0; i < 5; i++) {
+				for (i = 0; i < 10; i++) {
 
 					console.log(players[i] + " " + promises[i]);
 
