@@ -392,13 +392,15 @@ if (message.content.startsWith("!m")) {
 			playerName = data.participants[i].summonerName;
 		message.channel.send(playerName +" "+ response);
 
-	}
+	
 			
 		})
 
+		players.push(data.participants[i].summonerName);
 
+	}
 		
-        players.push(data.participants[i].summonerName);
+        
   
 
 
