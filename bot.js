@@ -407,7 +407,7 @@ client.on("message", async message => {
 
 		Promise.all(promises)
 			.then(() => {
-				for (i = 0; i < 5; i +) {
+				for (i = 0; i < 5; i++) {
 
 					console.log(players[i] + " " + promises[i]);
 
