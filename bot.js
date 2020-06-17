@@ -493,6 +493,10 @@ client.on("message", async message => {
 				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
 
 
+
+				console.log(tierSD =='Unranked');
+
+				
 				if (!tierSD =='Unranked') {
 
 					lpSD = lpSD + " PL";
