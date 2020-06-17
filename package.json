@@ -13,8 +13,7 @@
     "node-opus": "0.3.3",
     "ffmpeg": "0.0.4",
      "random-spanish-words":"2.0.0",
-     "pyke":"3.1.1",
-     "request-promise":"4.2.5"
+     "pyke":"3.1.1"
 
   }
 
