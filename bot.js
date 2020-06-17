@@ -435,7 +435,7 @@ modo = data.gameType;
 
 
 			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lp + "PL")
-				.setDescription(data.gameMode);
+				.setDescription(data.gameMode +" " + data.gameType);
 
 			/*.addBlankField(true)*/
 
