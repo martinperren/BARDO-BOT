@@ -329,6 +329,7 @@ client.on("message", async message => {
 		let lp;
 		var i;
 		let modo;
+		let wins,losses;
 
 		var sum;
 		var regionID = "la2";
@@ -413,6 +414,9 @@ modo = data.gameType;
 				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
 				rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
 				lp = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+				wins = leaguePos.all.RANKED_SOLO_5x5.wins;
+				losses = leaguePos.all.RANKED_SOLO_5x5.losses;
+				winrate = [wins / (wins + losses)] * 100;
 
 				//console.log(tierSD + " " + rankSD + " " + lp + "PL");
 
@@ -439,7 +443,7 @@ modo = data.gameType;
 
 			/*.addBlankField(true)*/
 
-			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL");
+			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL" + " | "+winrate);
 
 			if (i == 4) {
 				embed.addField("----------","EQUIPO 2");
