@@ -5,7 +5,7 @@ const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
-let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex,hotStreak="";
+let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex,hotStreak;
 
 
 
@@ -412,6 +412,10 @@ client.on("message", async message => {
 
 
 		for (i = 0; i < 10; i++) {
+
+
+			hotStreak = "";
+
 
 			//get summoner ID
 
