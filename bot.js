@@ -382,7 +382,7 @@ client.on("message", async message => {
 			try {
 				//console.log("SUMMMMM ID: "+sum.id);
 				 leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-
+console.log(leaguePos);
 	
 				//console.log(data);
 			} catch (err) {
