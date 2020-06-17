@@ -247,7 +247,7 @@ client.on("message", async message => {
 
 
 	if (message.content.startsWith("!elo")) {
-		const embed = new Discord.RichEmbed();
+		
 
 		let args = message.content.substring(1).split(" ");
 
@@ -264,7 +264,7 @@ client.on("message", async message => {
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 			profileImage = sum.profileIconId;
-
+			const embed = new Discord.RichEmbed();
 		} catch (err) {
 			if (err.statuscode == 404) {
 				message.channel.send("el jugador " + username + " no existe en LAS.")
