@@ -317,6 +317,11 @@ client.on("message", async message => {
 			}
 
 
+
+			console.log(tierSD);
+console.log(rankSD);
+console.log(lpSD);
+
 			//console.log(tierSD + " " + rankSD + " " + lp + "PL");
 
 
