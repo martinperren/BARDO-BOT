@@ -301,7 +301,7 @@ client.on("message", async message => {
 			 winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
 
 
-			 if (!tierSD.equals('Unranked')) {
+			 if (!tierSD =='Unranked') {
 
 				tierSD = tierSD + " PL";
 
@@ -353,7 +353,8 @@ client.on("message", async message => {
 
 
 			message.channel.send(
-				"\nJugador: " + username +
+				
+				username +
 				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " WINRATE: " + winrateSD+
 				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " WINRATE: " + winrateFlex
 
@@ -492,7 +493,7 @@ client.on("message", async message => {
 				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
 
 
-				if (!tierSD.equals('Unranked')) {
+				if (!tierSD =='Unranked') {
 
 					lpSD = lpSD + " PL";
 
