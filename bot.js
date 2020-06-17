@@ -401,7 +401,7 @@ client.on("message", async message => {
 				
 
 
-				console.log(leaguePos);
+				//console.log(leaguePos);
 
 				//console.log(data);
 			} catch (err) {
