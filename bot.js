@@ -338,7 +338,7 @@ client.on("message", async message => {
 			.setColor(0x00AE86)
 			.setFooter("cabe comeme los huevos", "https://i.imgur.com/cgqgoSa.png")
 			.setTimestamp()
-			.addField("","Equipo 1");
+			.addField("-","Equipo 1");
 
 
 
@@ -435,7 +435,7 @@ client.on("message", async message => {
 			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL");
 
 			if (i == 4) {
-				embed.addField("","Equipo 2");
+				embed.addField("-","Equipo 2");
 			}
 
 		}
