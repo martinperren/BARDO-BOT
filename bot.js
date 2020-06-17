@@ -324,7 +324,7 @@ client.on("message", async message => {
 
 			hotStreak = "";
 			if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
-				hotStreak = ":fire:"
+				hotStreak = "Racha de victorias :fire:"
 			}
 
 
@@ -334,7 +334,7 @@ client.on("message", async message => {
 					"Solo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD +
 					"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex)
 				.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
-				.setTimestamp()
+				.setTimestamp(hotStreak)
 				.setURL("https://las.op.gg/summoner/userName=" + username);
 
 
