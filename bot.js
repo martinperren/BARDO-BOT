@@ -336,7 +336,7 @@ client.on("message", async message => {
 		const embed = new Discord.RichEmbed()
 			.setTitle("Partida de " + username)
 			.setColor(0x00AE86)
-			.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
+			.setFooter("cabe comeme los huevos", "https://i.imgur.com/cgqgoSa.png")
 			.setTimestamp();
 
 
