@@ -260,6 +260,7 @@ client.on("message", async message => {
 		var sum;
 		var profileImage;
 		var regionID = "la2";
+		
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 			profileImage = sum.profileIconId;
