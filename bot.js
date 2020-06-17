@@ -5,7 +5,7 @@ const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
-let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex,hotStreak;
+let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex, hotStreak;
 
 
 
@@ -247,7 +247,7 @@ client.on("message", async message => {
 
 
 	if (message.content.startsWith("!elo")) {
-
+		const embed = new Discord.RichEmbed();
 
 		let args = message.content.substring(1).split(" ");
 
@@ -258,9 +258,11 @@ client.on("message", async message => {
 
 
 		var sum;
+		var profileImage;
 		var regionID = "la2";
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+			profileImage = sum.profileIconId;
 
 		} catch (err) {
 			if (err.statuscode == 404) {
@@ -274,11 +276,6 @@ client.on("message", async message => {
 			let data;
 
 			data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-
-
-
-
-
 
 
 			tierSD = data.all.RANKED_SOLO_5x5.tier;
@@ -295,6 +292,14 @@ client.on("message", async message => {
 			winsFlex = data.all.RANKED_FLEX_SR.wins;
 			lossesFlex = data.all.RANKED_FLEX_SR.losses;
 			winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
+
+
+
+
+			
+
+
+
 
 
 			if (tierSD.toString() != "Unranked") {
@@ -326,15 +331,15 @@ client.on("message", async message => {
 			data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
 
 
-
-			message.channel.send(
-
-				username +
+			embed.setAuthor(username, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/"+profileImage+".png")
+			.setColor(0x00AE86)
+			.setDescription( +
 				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD +
-				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex
-
-
-			);
+				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex)
+			.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
+			.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/"+profileImage+".png")
+			.setURL("https://las.op.gg/summoner/userName="+username);
+		
 
 
 		} catch (err) {
@@ -343,6 +348,9 @@ client.on("message", async message => {
 
 
 		}
+
+		message.channel.send({ embed });
+
 
 	}
 
@@ -439,14 +447,14 @@ client.on("message", async message => {
 				lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
 				winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
 				lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-				
-				if(leaguePos.all.RANKED_SOLO_5x5.hotStreak){
+
+				if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
 					hotStreak = ":fire:"
 
 				}
-				
+
 				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
-				
+
 
 
 
