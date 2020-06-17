@@ -327,7 +327,7 @@ client.on("message", async message => {
 
 			//console.log(data);
 
-
+			console.log(tierSD.toString() =='Unranked');
 
 
 			//console.log("SUMMMMM ID: "+sum.id);
@@ -494,9 +494,6 @@ client.on("message", async message => {
 
 
 
-				console.log(tierSD =='Unranked');
-
-				
 				if (!tierSD =='Unranked') {
 
 					lpSD = lpSD + " PL";
