@@ -328,6 +328,7 @@ client.on("message", async message => {
 		let tierSD;
 		let lp;
 		var i;
+		let modo;
 
 		var sum;
 		var regionID = "la2";
@@ -338,7 +339,7 @@ client.on("message", async message => {
 			.setColor(0x00AE86)
 			.setFooter("cabe comeme los huevos", "https://i.imgur.com/cgqgoSa.png")
 			.setTimestamp()
-			.addField("----------","EQUIPO 1");
+			.addField("----------", "EQUIPO 1");
 
 
 
@@ -365,6 +366,10 @@ client.on("message", async message => {
 
 
 			data = JSON.parse(data);
+
+
+
+			modo = data.gameMode;
 
 		}
 
@@ -428,14 +433,14 @@ client.on("message", async message => {
 
 
 			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lp + "PL")
-				.setDescription(data.gameType);
+				.setDescription(modo);
 
 			/*.addBlankField(true)*/
 
 			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL");
 
 			if (i == 4) {
-				embed.addField("----------","EQUIPO 2");
+				embed.addField("----------", "EQUIPO 2");
 			}
 
 		}
