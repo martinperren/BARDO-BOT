@@ -328,7 +328,7 @@ client.on("message", async message => {
 
 
 			//console.log("SUMMMMM ID: "+sum.id);
-			let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
+			data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
 			/*
 			 data = { 
 			  id: 79858287,
