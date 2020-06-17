@@ -356,6 +356,18 @@ try {
 
 
 
+try {
+
+	data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+} catch (err) {
+	console.log(err);
+	playerName = JSON.parse(data.participants[i].summonerName);
+
+
+
+}
+
+
 		for (i = 0; i < 10; i++) {
 
 
@@ -364,16 +376,7 @@ try {
 
 			//get current game info
 
-			try {
-
-				data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			} catch (err) {
-				console.log(err);
-				playerName = data.participants[i].summonerName;
-
-
-
-			}
+		
 
 
 
