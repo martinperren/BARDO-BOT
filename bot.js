@@ -401,10 +401,10 @@ client.on("message", async message => {
 
 
 
-			embed.addField(data.participants[i].summonerName + " " + getChampionName(data.participants[i].championId), true).addBlankField(true)
+			embed.addField(data.participants[i].summonerName + " " + getChampionName(data.participants[i].championId), true)/*.addBlankField(true)*/
 				.addField(tierSD + " " + rankSD + " " + lp + "PL", true);
 
-			console.log(data.participants[i].summonerName + "\n " + getChampionName(data.participants[i].championId) + tierSD + " " + rankSD + " " + lp + "PL");
+			console.log(data.participants[i].summonerName + "\n " + getChampionName(data.participants[i].championId) +" " + tierSD + " " + rankSD + " " + lp + "PL");
 		}
 
 
