@@ -349,7 +349,7 @@ client.on("message", async message => {
 				.setDescription("Ranked normal que se yo.")
 				.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
 				.setThumbnail("https://vignette.wikia.nocookie.net/leagueoflegendsoficial/images/8/8c/LOL_Logo.png")
-				.setTimestamp()
+				.setTimestamp();
 
 			//get summoner ID
 
