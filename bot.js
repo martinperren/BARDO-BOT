@@ -477,12 +477,12 @@ client.on("message", async message => {
 			}
 
 
-			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak)
+			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak+ "[opgg](https://las.op.gg/summoner/userName="+data.participants[i].summonerName+") ")
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
 
-			console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + "[opgg](https://las.op.gg/summoner/userName="+data.participants[i].summonerName+") ");
+			console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
 
 			if (i == 4) {
 				embed.addField("----------", "**EQUIPO 2**");
