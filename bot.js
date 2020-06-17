@@ -333,7 +333,7 @@ client.on("message", async message => {
 			const username = args.join(" ");
 
 			var playerName;
-			let leaguePos
+			var leaguePos
 			var i;
 
 			var sum;
@@ -362,6 +362,21 @@ client.on("message", async message => {
 			}
 
 
+//get ranks
+
+try {
+	//console.log("SUMMMMM ID: "+sum.id);
+	 leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
+console.log(leaguePos);
+
+	//console.log(data);
+} catch (err) {
+	console.log(err);
+
+
+
+}
+
 
 			//get summoner name
 
@@ -377,20 +392,7 @@ client.on("message", async message => {
 			}
 
 
-//get ranks
 
-			try {
-				//console.log("SUMMMMM ID: "+sum.id);
-				 leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-console.log(leaguePos);
-	
-				//console.log(data);
-			} catch (err) {
-				console.log(err);
-	
-	
-	
-			}
 
 
 
