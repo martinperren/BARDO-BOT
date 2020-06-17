@@ -484,7 +484,7 @@ client.on("message", async message => {
 
 			/*.addBlankField(true)*/
 
-			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
+			console.log(data.participants[i].summonerName + "[link](https://las.op.gg/summoner/userName="+data.participants[i].summonerName+") " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
 
 			if (i == 4) {
 				embed.addField("----------", "**EQUIPO 2**");
