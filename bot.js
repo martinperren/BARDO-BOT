@@ -26,7 +26,7 @@ function getLastVersion() {
 
 client.on("ready", () => {
 	console.log("Bot iniciado");
-
+	getChampionName(3);
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
 		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
 		.catch(console.error);
@@ -34,6 +34,24 @@ client.on("ready", () => {
 });
 
 
+
+
+function getChampionName(key) {
+
+	var Champions = {
+		EMPTY_CHAMPION = 0,
+		ANNIE = 1, OLAF = 2, GALIO = 3, TWISTED_FATE = 4, XIN_ZHAO = 5, URGOT = 6, LEBLANC = 7, VLADIMIR = 8, FIDDLESTICKS = 9, KAYLE = 10, MASTER_YI = 11, ALISTAR = 12, RYZE = 13, SION = 14, SIVIR = 15, SORAKA = 16, TEEMO = 17, TRISTANA = 18, WARWICK = 19, NUNU = 20, MISS_FORTUNE = 21, ASHE = 22, TRYNDAMERE = 23, JAX = 24, MORGANA = 25, ZILEAN = 26, SINGED = 27, EVELYNN = 28, TWITCH = 29, KARTHUS = 30, CHOGATH = 31, AMUMU = 32, RAMMUS = 33, ANIVIA = 34,
+		SHACO = 35, DR_MUNDO = 36, SONA = 37, KASSADIN = 38, IRELIA = 39, JANNA = 40, GANGPLANK = 41, CORKI = 42, KARMA = 43, TARIC = 44,
+		VEIGAR = 45, TRUNDLE = 48, SWAIN = 50, CAITLYN = 51, BLITZCRANK = 53, MALPHITE = 54, KATARINA = 55, NOCTURNE = 56, MAOKAI = 57, RENEKTON = 58, JARVAN_IV = 59, ELISE = 60, ORIANNA = 61, MONKEY_KING = 62, BRAND = 63,
+		LEE_SIN = 64, VAYNE = 67, RUMBLE = 68, CASSIOPEIA = 69, SKARNER = 72, HEIMERDINGER = 74, NASUS = 75, NIDALEE = 76, UDYR = 77, POPPY = 78, GRAGAS = 79,
+		PANTHEON = 80, EZREAL = 81, MORDEKAISER = 82, YORICK = 83, AKALI = 84, KENNEN = 85, GAREN = 86, LEONA = 89, MALZAHAR = 90, TALON = 91, RIVEN = 92, KOG_MAW = 96, SHEN = 98, LUX = 99, XERATH = 101, SHYVANA = 102, AHRI = 103, GRAVES = 104, FIZZ = 105, VOLIBEAR = 106, RENGAR = 107, VARUS = 110, NAUTILUS = 111, VIKTOR = 112, SEJUANI = 113, FIORA = 114, ZIGGS = 115, LULU = 117, DRAVEN = 119, HECARIM = 120, KHAZIX = 121, DARIUS = 122, JAYCE = 126, LISSANDRA = 127, DIANA = 131, QUINN = 133, SYNDRA = 134, AURELION_SOL = 136, KAYN = 141, ZOE = 142, ZYRA = 143, KAISA = 145, GNAR = 150, ZAC = 154, YASUO = 157, VELKOZ = 161, TALIYAH = 163, CAMILLE = 164, BRAUM = 201, JHIN = 202, KINDRED = 203, JINX = 222, TAHM_KENCH = 223, LUCIAN = 236, ZED = 238, KLED = 240, EKKO = 245, QIYANA = 246, VI = 254, AATROX = 266, NAMI = 267, AZIR = 268, YUUMI = 350, THRESH = 412, ILLAOI = 420, REKSAI = 421, IVERN = 427, KALISTA = 429, BARD = 432, RAKAN = 497, XAYAH = 498, ORNN = 516, SYLAS = 517, NEEKO = 518, APHELIOS = 523, PYKE = 555, SENNA = 235, SETT = 875
+	}
+	Object.freeze(Champions);
+
+
+	return Champions[key];
+
+}
 
 
 function hora() {
@@ -46,16 +64,12 @@ function hora() {
 	min = (min < 10 ? "0" : "") + min;
 	return hour + ":" + min;
 }
-//
-
 
 function dia() {
 	date = new Date();
 	var day = date.getDay()
 	return day;
 }
-
-
 function horariosDeSfe(currentDay, flag) {
 	var horarios = [];
 	var resultado = [];
@@ -120,10 +134,6 @@ function horariosDeSfe(currentDay, flag) {
 	return 0;
 
 }
-
-
-
-
 function horariosDeSCC(currentDay, flag) {
 	var horarios = [];
 	var resultado = [];
@@ -189,15 +199,12 @@ function horariosDeSCC(currentDay, flag) {
 
 }
 
-
-
 function scrap() {
 
 
 
 
 }
-
 
 function horariosAux(array) {
 
@@ -314,14 +321,10 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!m")) {
 
-	
 
-		//message.channel.send("Partida de "+ username);
 
-		var promises = [];
 
 		for (i = 0; i < 10; i++) {
-
 
 
 			playerName = data.participants[i].summonerName;
@@ -329,78 +332,44 @@ client.on("message", async message => {
 
 
 
-			rp('http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion.json', function (error, response, body) {
 
-				let data;
-				let args = message.content.substring(1).split(" ");
-				args.splice(0, 1);
-				const username = args.join(" ");
-				
-		
-				var players = new Array();
-				var playerName;
-				var i;
-
-				var sum;
-				var regionID = "la2";
-				try {
-					sum = pyke.summoner.getBySummonerName(String(username), regionID);
-		
-				} catch (err) {
-					console.log(err);
-					// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-		
-		
-				}
-		
-		
-		
-				try {
-		
-					data =  pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-				} catch (err) {
-					console.log(err);
-		
-		
-		
-				}
-		
-		
-				if (data.statuscode == 404) {
-					message.channel.send(username + " no está en partida.");
-		
-				}
-		
+			let data;
+			let args = message.content.substring(1).split(" ");
+			args.splice(0, 1);
+			const username = args.join(" ");
 
 
-				let list = JSON.parse(body);
+			var players = new Array();
+			var playerName;
+			var i;
+
+			var sum;
+			var regionID = "la2";
+			try {
+				sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+
+			} catch (err) {
+				console.log(err);
+				// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
 
 
-				let championList = list.data;
-
-
-				for (var i in championList) {
-
-					if (championList[i].key == data.participants[i].championId) {
-
-
-						console.log("FOR: " + championList[i].id)
-
-						promises.push(championList[i].id);
-
-
-					}
-
-					//console.log(championList[i].id + " | " + championList[i].key);
-				}
-
-			});
+			}
 
 
 
+			try {
+
+				data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+			} catch (err) {
+				console.log(err);
 
 
-			//message.channel.send(playerName +" "+ response);	
+
+			}
+
+
+			//data.participants[i].championId
+
 
 
 			players.push(data.participants[i].summonerName);
@@ -408,28 +377,6 @@ client.on("message", async message => {
 
 
 		//console.log(playerName +" "+ response);
-
-
-
-
-
-		Promise.all(promises)
-			.then(() => {
-				for (i = 0; i < 10; i++) {
-
-					console.log(players[i] + " " + promises[i]);
-
-				}
-			})
-			.catch((e) => {
-				// handle errors here
-			});
-
-
-
-
-
-		//  console.log(data);
 
 
 
