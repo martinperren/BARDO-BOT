@@ -323,9 +323,10 @@ client.on("message", async message => {
 		args.splice(0, 1);
 		const username = args.join(" ");
 		var playerName;
-		var leaguePos
-		var rankSD;
-		var lp;
+		let leaguePos
+		let rankSD;
+		let rankSD;
+		let lp;
 		var i;
 
 		var sum;
@@ -426,7 +427,7 @@ client.on("message", async message => {
 			
 			/*.addBlankField(true)*/
 		
-			console.log(data.participants[i].summonerName + " " + getChampionName(data.participants[i].championId) +" " + tierSD + " " + rankSD + " " + lp + "PL");
+			console.log(data.participants[i].summonerName + " " + "("+getChampionName(data.participants[i].championId)+")" +" " + tierSD + " " + rankSD + " " + lp + "PL");
 		}
 
 
