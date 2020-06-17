@@ -379,7 +379,7 @@ client.on("message", async message => {
 			.setColor(0x00AE86)
 			.setFooter("cabe comeme los huevos", "https://i.imgur.com/cgqgoSa.png")
 			.setTimestamp()
-			.addField("----------", "EQUIPO 1");
+			.addField("----------", "**EQUIPO 1**");
 
 
 
@@ -473,18 +473,13 @@ client.on("message", async message => {
 					winrateSD = winrateSD + "%";
 				}
 
-				//console.log(tierSD + " " + rankSD + " " + lp + "PL");
-
-
-				//console.log(leaguePos);
-
-				//console.log(data);
+		
 			} catch (err) {
 				console.log(err);
 			}
 
 
-			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak)
+			embed.addField("**"+data.participants[i].summonerName+"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak)
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
@@ -492,7 +487,7 @@ client.on("message", async message => {
 			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
 
 			if (i == 4) {
-				embed.addField("----------", "EQUIPO 2");
+				embed.addField("----------", "**EQUIPO 2**");
 			}
 
 		}
