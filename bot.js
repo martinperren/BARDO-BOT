@@ -361,10 +361,10 @@ try {
 	data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 } catch (err) {
 	console.log(err);
-	playerName = JSON.parse(data);
 
 
-
+	data = JSON.parse(data);
+	
 }
 
 
@@ -383,7 +383,7 @@ try {
 			//get summoner ID
 
 			try {
-				sumAux = await pyke.summoner.getBySummonerName(playerName.participants[i].summonerName, regionID);
+				sumAux = await pyke.summoner.getBySummonerName(data.participants[i].summonerName, regionID);
 				sumAux = sumAux.id;
 
 			} catch (err) {
