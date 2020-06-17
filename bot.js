@@ -417,12 +417,26 @@ modo = data.gameType;
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
 
+
+				if(tierSD != 'Unranked'){
+
+					tierSD = tierSD + " PL";
+
+				}
+
+
 				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
 				rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
 				lp = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
 				wins = leaguePos.all.RANKED_SOLO_5x5.wins;
+				console.log(wins);
 				losses = leaguePos.all.RANKED_SOLO_5x5.losses;
 				winrate = round([wins / (wins + losses)] * 100,1);
+
+
+				if(winrate.isNaN()){
+					winrate = "ND";
+				}
 
 				//console.log(tierSD + " " + rankSD + " " + lp + "PL");
 
@@ -444,12 +458,12 @@ modo = data.gameType;
 
 
 
-			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lp + "PL" + " | "+winrate + "%")
+			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lp  + " | "+winrate + "%")
 				.setDescription(data.gameMode +" " + data.gameType);
 
 			/*.addBlankField(true)*/
 
-			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL" + " | "+winrate + "%");
+			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + " | "+winrate + "%");
 
 			if (i == 4) {
 				embed.addField("----------","EQUIPO 2");
