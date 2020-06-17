@@ -318,6 +318,7 @@ client.on("message", async message => {
 	if (message.content.startsWith("!m")) {
 
 		let data;
+		let sumAux;
 		let args = message.content.substring(1).split(" ");
 		args.splice(0, 1);
 		const username = args.join(" ");
