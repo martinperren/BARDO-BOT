@@ -331,12 +331,11 @@ client.on("message", async message => {
 			embed.setAuthor(username, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
 				.setColor(0x00AE86)
 				.setDescription(
-					"Solo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD +
-					"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex+
-					"\n" + hotStreak)
-				.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
-				.setTimestamp()
-				.setURL("https://las.op.gg/summoner/userName=" + username);
+					"**Solo/Duo:** " + tierSD + " " + rankSD + " " + lpSD + " **Winrate: **" + winrateSD +
+					"\n**Flex: **" + tierFlex + " " + rankFlex + " " + lpFlex + "** Winrate: **" + winrateFlex+
+					"\n" + hotStreak).setURL("https://las.op.gg/summoner/userName=" + username)
+				.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png");
+				
 
 
 
