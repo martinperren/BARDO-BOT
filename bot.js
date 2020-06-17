@@ -281,11 +281,7 @@ client.on("message", async message => {
 
 
 
-			if (!tierSD.equals('Unranked')) {
-
-				tierSD = tierSD + " PL";
-
-			}
+			
 
 
 
@@ -303,6 +299,13 @@ client.on("message", async message => {
 			 winsFlex = data.all.RANKED_FLEX_SR.wins;
 			 lossesFlex = data.all.RANKED_FLEX_SR.losses;
 			 winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
+
+
+			 if (!tierSD.equals('Unranked')) {
+
+				tierSD = tierSD + " PL";
+
+			}
 
 			if (isNaN(winrateFlex)) {
 				winrateFlex = "ND";
@@ -478,11 +481,7 @@ client.on("message", async message => {
 
 
 
-				if (tierSD != 'Unranked') {
-
-					lpSD = lpSD + " PL";
-
-				}
+				
 
 
 				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
@@ -491,6 +490,13 @@ client.on("message", async message => {
 				winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
 				lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
 				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+
+
+				if (!tierSD.equals('Unranked')) {
+
+					lpSD = lpSD + " PL";
+
+				}
 
 
 				if (isNaN(winrateSD)) {
