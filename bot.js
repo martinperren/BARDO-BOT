@@ -400,7 +400,7 @@ client.on("message", async message => {
 			rankSD = leaguePos.all.RANKED_FLEX_SR.rank;
 			lp = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
 
-				
+				console.log(tierSD + " " + rankSD + " " + lp + "PL");
 
 
 				//console.log(leaguePos);
@@ -426,7 +426,7 @@ client.on("message", async message => {
 			
 			/*.addBlankField(true)*/
 		
-			console.log(data.participants[i].summonerName + "\n " + getChampionName(data.participants[i].championId) +" " + tierSD + " " + rankSD + " " + lp + "PL");
+			console.log(data.participants[i].summonerName + " " + getChampionName(data.participants[i].championId) +" " + tierSD + " " + rankSD + " " + lp + "PL");
 		}
 
 
