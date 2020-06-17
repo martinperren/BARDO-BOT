@@ -380,38 +380,8 @@ client.on("message", async message => {
 
 			try {
 				//console.log("SUMMMMM ID: "+sum.id);
-				let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-				/*
-				 data = { 
-				  id: 79858287,
-				  accountId: 224542288,
-				  summonerLevel: 119,
-				  profileIconId: 3348,
-				  name: 'SP Jason' 
-				 }
-		
-		
-		
-					console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
-				console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
-				console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
-				console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
-				console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
-				
-		*/
-	
-	
-				message.channel.send(
-					"\nUSER: " + data.all.RANKED_FLEX_SR.summonerName +
-					"\nELO SOLO: " + data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL" +
-					"\nELO FLEX: " + data.all.RANKED_SOLO_5x5.tier + " " + data.all.RANKED_SOLO_5x5.rank + " " + data.all.RANKED_SOLO_5x5.leaguePoints + " PL"
-	
-				);
-	
-	
-	
-	
-	
+				let leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
+
 	
 				//console.log(data);
 			} catch (err) {
@@ -425,7 +395,7 @@ client.on("message", async message => {
 
 
 embed.addField(data.participants[i].summonerName+" "+getChampionName(data.participants[i].championId), true).addBlankField(true)
-		.addField(data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL", true);
+		.addField(leaguePos.all.RANKED_FLEX_SR.tier + " " + leaguePos.all.RANKED_FLEX_SR.rank + " " + leaguePos.all.RANKED_FLEX_SR.leaguePoints + "PL", true);
 
 			console.log(data.participants[i].summonerName+"\n "+getChampionName(data.participants[i].championId)+data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL");
 		}
