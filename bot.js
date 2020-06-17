@@ -289,9 +289,9 @@ client.on("message", async message => {
 
 
 
-			tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
-			 rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-			 lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+			tierSD = data.all.RANKED_SOLO_5x5.tier;
+			 rankSD = data.all.RANKED_SOLO_5x5.rank;
+			 lpSD = data.all.RANKED_SOLO_5x5.leaguePoints;
 			 winsSD = data.all.RANKED_SOLO_5x5.wins;
 			 lossesSD = data.all.RANKED_SOLO_5x5.losses;
 			 winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
