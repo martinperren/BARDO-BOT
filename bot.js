@@ -303,7 +303,8 @@ client.on("message", async message => {
 
 			}
 
-
+console.log(tierFlex.toString());
+console.log(tierFlex.toString().trim()=="Unranked");
 console.log(tierFlex.toString()=="Unranked");
 console.log(tierFlex.toString()==="Unranked");
 
