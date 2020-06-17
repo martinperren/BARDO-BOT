@@ -254,7 +254,7 @@ client.on("message", async message => {
 		args.splice(0, 1);
 		const username = args.join(" ");
 
-
+		const embed = new Discord.RichEmbed();
 
 
 		var sum;
@@ -264,7 +264,7 @@ client.on("message", async message => {
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 			profileImage = sum.profileIconId;
-			const embed = new Discord.RichEmbed();
+			
 		} catch (err) {
 			if (err.statuscode == 404) {
 				message.channel.send("el jugador " + username + " no existe en LAS.")
@@ -339,7 +339,7 @@ client.on("message", async message => {
 
 
 
-
+				message.channel.send({ embed });
 
 		} catch (err) {
 			console.log(err);
@@ -348,7 +348,7 @@ client.on("message", async message => {
 
 		}
 
-		message.channel.send({ embed });
+		
 
 
 	}
