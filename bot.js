@@ -301,9 +301,15 @@ client.on("message", async message => {
 			 winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
 
 
-			 if (!tierSD =='Unranked') {
+			 if (!tierSD.toString() =='Unranked') {
 
 				tierSD = tierSD + " PL";
+
+			}
+
+			if (!tierFlex.toString() =='Unranked') {
+
+				tierFlex = tierFlex + " PL";
 
 			}
 
@@ -327,7 +333,7 @@ client.on("message", async message => {
 
 			//console.log(data);
 
-			console.log(tierSD.toString() =='Unranked');
+			
 
 
 			//console.log("SUMMMMM ID: "+sum.id);
@@ -494,7 +500,7 @@ client.on("message", async message => {
 
 
 
-				if (!tierSD =='Unranked') {
+				if (!tierSD.toString() =='Unranked') {
 
 					lpSD = lpSD + " PL";
 
