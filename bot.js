@@ -351,7 +351,7 @@ client.on("message", async message => {
 
 			message.channel.send(
 				"\nUSER: " + username +
-				"\nELO SOLO: " + tierSD + " " + rankSD + " " + lpSD + " " + winrateSD
+				"\nELO SOLO: " + tierSD + " " + rankSD + " " + lpSD + " " + winrateSD+
 				"\nELO FLEX: " + tierFlex + " " + rankFlex + " " + lpFlex + " " + winrateFlex
 
 
