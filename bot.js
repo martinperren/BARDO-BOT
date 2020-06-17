@@ -289,8 +289,9 @@ client.on("message", async message => {
 
 			message.channel.send(
 				"\nUSER: " + data.all.RANKED_FLEX_SR.summonerName +
-				"\nELO SOLO: " + data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL" +
-				"\nELO FLEX: " + data.all.RANKED_SOLO_5x5.tier + " " + data.all.RANKED_SOLO_5x5.rank + " " + data.all.RANKED_SOLO_5x5.leaguePoints + " PL"
+				"\nELO SOLO: " + data.all.RANKED_SOLO_5x5.tier + " " + data.all.RANKED_SOLO_5x5.rank + " " + data.all.RANKED_SOLO_5x5.leaguePoints + " PL"+
+				"\nELO FLEX: " + data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL"
+				
 
 			);
 
@@ -322,7 +323,6 @@ client.on("message", async message => {
 		let args = message.content.substring(1).split(" ");
 		args.splice(0, 1);
 		const username = args.join(" ");
-		var playerName;
 		let leaguePos
 		let rankSD;
 		let tierSD;
@@ -402,9 +402,9 @@ try {
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
 
-				tierSD = leaguePos.all.RANKED_FLEX_SR.tier;
-				rankSD = leaguePos.all.RANKED_FLEX_SR.rank;
-				lp = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
+				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+				rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+				lp = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
 
 				console.log(tierSD + " " + rankSD + " " + lp + "PL");
 
