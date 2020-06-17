@@ -318,18 +318,17 @@ client.on("message", async message => {
 	if (message.content.startsWith("!m")) {
 
 
-
-
+		let data;
+let playerName;
 		for (i = 0; i < 10; i++) {
 
-
-			playerName = data.participants[i].summonerName;
-			console.log(playerName);
-
+			
+		
 
 
 
-			let data;
+
+			
 			let args = message.content.substring(1).split(" ");
 			args.splice(0, 1);
 			const username = args.join(" ");
@@ -358,7 +357,8 @@ client.on("message", async message => {
 				data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 			} catch (err) {
 				console.log(err);
-
+				playerName = data.participants[i].summonerName;
+				
 
 
 			}
