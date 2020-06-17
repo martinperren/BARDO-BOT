@@ -325,7 +325,7 @@ client.on("message", async message => {
 		var playerName;
 		let leaguePos
 		let rankSD;
-		let rankSD;
+		let tierSD;
 		let lp;
 		var i;
 
