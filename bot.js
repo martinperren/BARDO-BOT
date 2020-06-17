@@ -310,7 +310,7 @@ client.on("message", async message => {
 				winrateFlex = winrateFlex + "%";
 			}
 
-			if (isNaN(winrate)) {
+			if (isNaN(winrateSD)) {
 				winrateSD = "ND";
 			}else{
 				winrateSD = winrateSD + "%";
