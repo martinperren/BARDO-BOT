@@ -260,7 +260,7 @@ client.on("message", async message => {
 		var sum;
 		var profileImage;
 		var regionID = "la2";
-		
+
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 			profileImage = sum.profileIconId;
@@ -322,23 +322,23 @@ client.on("message", async message => {
 
 
 
-
+			hotStreak = "";
 			if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
 				hotStreak = ":fire:"
 			}
 
 
-			embed.setAuthor(username + hotStreak, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/"+profileImage+".png")
-			.setColor(0x00AE86)
-			.setDescription(
-				"Solo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD +
-				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex)
-			.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/"+profileImage+".png")
-			.setTimestamp()
-			.setURL("https://las.op.gg/summoner/userName="+username);
-			
-			
-		
+			embed.setAuthor(username + hotStreak, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
+				.setColor(0x00AE86)
+				.setDescription(
+					"Solo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD +
+					"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex)
+				.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
+				.setTimestamp()
+				.setURL("https://las.op.gg/summoner/userName=" + username);
+
+
+
 
 
 		} catch (err) {
