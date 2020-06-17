@@ -25,7 +25,7 @@ function getLastVersion() {
 
 client.on("ready", () => {
 	console.log("Bot iniciado");
-	console.log(getChampionName(3));
+	console.log(getChampionName('ANNIE'));
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
 		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
 		.catch(console.error);
