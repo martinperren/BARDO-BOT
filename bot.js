@@ -317,39 +317,33 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!m")) {
 
-
-
-
-
-
-
-
-
 		let data;
+		let args = message.content.substring(1).split(" ");
+		args.splice(0, 1);
+		const username = args.join(" ");
+		var playerName;
+		var leaguePos
+		var rankSD;
+		var lp;
+		var i;
+
+		var sum;
+		var regionID = "la2";
+
+		//build embed
+		const embed = new Discord.RichEmbed()
+			.setTitle("Partida de " + username)
+			.setColor(0x00AE86)
+			.setDescription("Ranked normal que se yo.")
+			.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
+			.setThumbnail("https://vignette.wikia.nocookie.net/leagueoflegendsoficial/images/8/8c/LOL_Logo.png")
+			.setTimestamp();
+
+
 		for (i = 0; i < 10; i++) {
 
-			let args = message.content.substring(1).split(" ");
-			args.splice(0, 1);
-			const username = args.join(" ");
-
-			var playerName;
-			var leaguePos
-			var rankSD;
-			var lp;
-			var i;
-
-			var sum;
-			var regionID = "la2";
 
 
-			//build embed
-			const embed = new Discord.RichEmbed()
-				.setTitle("Partida de " + username)
-				.setColor(0x00AE86)
-				.setDescription("Ranked normal que se yo.")
-				.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
-				.setThumbnail("https://vignette.wikia.nocookie.net/leagueoflegendsoficial/images/8/8c/LOL_Logo.png")
-				.setTimestamp();
 
 			//get summoner ID
 
