@@ -319,7 +319,6 @@ client.on("message", async message => {
 
 
 		let data;
-let playerName;
 		for (i = 0; i < 10; i++) {
 
 			
@@ -333,8 +332,6 @@ let playerName;
 			args.splice(0, 1);
 			const username = args.join(" ");
 
-
-			var players = new Array();
 			var playerName;
 			var i;
 
