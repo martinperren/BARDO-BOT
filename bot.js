@@ -329,7 +329,8 @@ client.on("message", async message => {
 		let lp;
 		var i;
 		let modo;
-		let wins,losses;
+		let winrate,wins,losses;
+
 
 		var sum;
 		var regionID = "la2";
