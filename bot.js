@@ -334,6 +334,8 @@ client.on("message", async message => {
 
 			var playerName;
 			var leaguePos
+			var rankSD;
+			var lp;
 			var i;
 
 			var sum;
@@ -362,12 +364,20 @@ client.on("message", async message => {
 			}
 
 
+
+
 //get ranks
 
 try {
 	//console.log("SUMMMMM ID: "+sum.id);
 	 leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-console.log(leaguePos);
+
+	 tierSD = leaguePos.all.RANKED_FLEX_SR.tier;
+rankSD = leaguePos.all.RANKED_FLEX_SR.rank;
+lp = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
+
+
+	 console.log(leaguePos);
 
 	//console.log(data);
 } catch (err) {
@@ -398,7 +408,7 @@ console.log(leaguePos);
 
 
 embed.addField(data.participants[i].summonerName+" "+getChampionName(data.participants[i].championId), true).addBlankField(true)
-		.addField(leaguePos.all.RANKED_FLEX_SR.tier + " " + leaguePos.all.RANKED_FLEX_SR.rank + " " + leaguePos.all.RANKED_FLEX_SR.leaguePoints + "PL", true);
+		.addField(tierSD + " " + rankSD + " " + lp + "PL", true);
 
 			console.log(data.participants[i].summonerName+"\n "+getChampionName(data.participants[i].championId)+data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL");
 		}
