@@ -443,7 +443,7 @@ modo = data.gameType;
 
 			/*.addBlankField(true)*/
 
-			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL" + " | "+winrate);
+			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL" + " | "+winrate + "%");
 
 			if (i == 4) {
 				embed.addField("----------","EQUIPO 2");
