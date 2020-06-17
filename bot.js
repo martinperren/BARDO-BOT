@@ -318,13 +318,7 @@ client.on("message", async message => {
 	if (message.content.startsWith("!m")) {
 
 
-		const embed = new Discord.RichEmbed()
-		.setTitle("Partida de "+username)
-		.setColor(0x00AE86)
-		.setDescription("Ranked normal que se yo.")
-		.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
-		.setThumbnail("https://vignette.wikia.nocookie.net/leagueoflegendsoficial/images/8/8c/LOL_Logo.png")
-		.setTimestamp()
+	
 		
 	   
 		
@@ -344,6 +338,16 @@ client.on("message", async message => {
 			var sum;
 			var regionID = "la2";
 		
+
+//build embed
+			const embed = new Discord.RichEmbed()
+			.setTitle("Partida de "+username)
+			.setColor(0x00AE86)
+			.setDescription("Ranked normal que se yo.")
+			.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
+			.setThumbnail("https://vignette.wikia.nocookie.net/leagueoflegendsoficial/images/8/8c/LOL_Logo.png")
+			.setTimestamp()
+
 		//get summoner ID
 		
 			try {
