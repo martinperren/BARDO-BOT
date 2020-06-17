@@ -377,8 +377,6 @@ client.on("message", async message => {
 		const embed = new Discord.RichEmbed()
 			.setTitle("Partida de " + username)
 			.setColor(0x00AE86)
-			.setFooter("cabe comeme los huevos", "https://i.imgur.com/cgqgoSa.png")
-			.setTimestamp()
 			.addField("----------", "**EQUIPO 1**");
 
 
@@ -479,12 +477,12 @@ client.on("message", async message => {
 			}
 
 
-			embed.addField("**"+data.participants[i].summonerName + "[link](https://las.op.gg/summoner/userName="+data.participants[i].summonerName+") " +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak)
+			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak)
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
 
-			console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
+			console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + "[opgg](https://las.op.gg/summoner/userName="+data.participants[i].summonerName+") ");
 
 			if (i == 4) {
 				embed.addField("----------", "**EQUIPO 2**");
