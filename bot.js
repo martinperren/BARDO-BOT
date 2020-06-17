@@ -5,6 +5,9 @@ const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
+let tierSD,rankSD,lpSD,winsSD,lossesSD,winrateSD ,tierFlex ,rankFlex ,lpFlex ,winsFlex ,lossesFlex,winrateFlex; 
+
+
 
 /*
 function getLastVersion() {
@@ -270,6 +273,60 @@ client.on("message", async message => {
 
 
 		try {
+
+
+
+			//console.log("SUMMMMM ID: "+sum.id);
+			data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
+
+
+
+			if (tierSD != 'Unranked') {
+
+				tierSD = tierSD + " PL";
+
+			}
+
+
+
+			tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+			 rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+			 lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+			 winsSD = data.all.RANKED_SOLO_5x5.wins;
+			 lossesSD = data.all.RANKED_SOLO_5x5.losses;
+			 winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+
+
+			 tierFlex = data.all.RANKED_FLEX_SR.tier;
+			 rankFlex = data.all.RANKED_FLEX_SR.rank;
+			 lpFlex = data.all.RANKED_FLEX_SR.leaguePoints;
+			 winsFlex = data.all.RANKED_FLEX_SR.wins;
+			 lossesFlex = data.all.RANKED_FLEX_SR.losses;
+			 winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
+
+			if (isNaN(winrateFlex)) {
+				winrateFlex = "ND";
+			}else{
+				winrateFlex = winrateFlex + "%";
+			}
+
+			if (isNaN(winrate)) {
+				winrateSD = "ND";
+			}else{
+				winrateSD = winrateSD + "%";
+			}
+
+
+			//console.log(tierSD + " " + rankSD + " " + lp + "PL");
+
+
+			//console.log(leaguePos);
+
+			//console.log(data);
+
+
+
+
 			//console.log("SUMMMMM ID: "+sum.id);
 			let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
 			/*
@@ -293,9 +350,9 @@ client.on("message", async message => {
 
 
 			message.channel.send(
-				"\nUSER: " + data.all.RANKED_FLEX_SR.summonerName +
-				"\nELO SOLO: " + data.all.RANKED_SOLO_5x5.tier + " " + data.all.RANKED_SOLO_5x5.rank + " " + data.all.RANKED_SOLO_5x5.leaguePoints + " PL" +
-				"\nELO FLEX: " + data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL"
+				"\nUSER: " + username +
+				"\nELO SOLO: " + tierSD + " " + rankSD + " " + lpSD + " " + winrateSD
+				"\nELO FLEX: " + tierFlex + " " + rankFlex + " " + lpFlex + " " + winrateFlex
 
 
 			);
@@ -331,10 +388,7 @@ client.on("message", async message => {
 		let leaguePos
 		let rankSD;
 		let tierSD;
-		let lp;
 		var i;
-		let modo;
-		let winrate, wins, losses;
 
 
 		var sum;
@@ -357,7 +411,9 @@ client.on("message", async message => {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 
 		} catch (err) {
-			console.log(err);
+			if (err.statuscode == 404) {
+				message.channel.send("el jugador " + username + " no existe en LAS.")
+			}
 			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
 
 
@@ -369,7 +425,12 @@ client.on("message", async message => {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 		} catch (err) {
-			console.log(err.statuscode);
+
+
+			if (err.statuscode == 404) {
+				message.channel.send(username + " no está en una partida.")
+			}
+
 
 			data = JSON.parse(data);
 
@@ -426,14 +487,16 @@ client.on("message", async message => {
 
 				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
 				rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-				lp = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
-				wins = leaguePos.all.RANKED_SOLO_5x5.wins;
-				losses = leaguePos.all.RANKED_SOLO_5x5.losses;
-				winrate = round([wins / (wins + losses)] * 100, 1);
+				lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+				winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+				lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
 
 
-				if (isNaN(winrate)) {
-					winrate = "ND";
+				if (isNaN(winrateSD)) {
+					winrateSD = "ND";
+				}else{
+					winrateSD = winrateSD + "%";
 				}
 
 				//console.log(tierSD + " " + rankSD + " " + lp + "PL");
@@ -456,12 +519,12 @@ client.on("message", async message => {
 
 
 
-			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lp + " | " + winrate + "%")
+			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD)
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
 
-			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + " | " + winrate + "%");
+			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
 
 			if (i == 4) {
 				embed.addField("----------", "EQUIPO 2");
