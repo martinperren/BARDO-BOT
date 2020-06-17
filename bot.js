@@ -303,7 +303,12 @@ client.on("message", async message => {
 
 			}
 
-			if (!tierFlex.toString().trim()=="Unranked".trim()) {
+
+console.log(tierFlex.toString()=="Unranked");
+console.log(tierFlex.toString()==="Unranked");
+
+
+			if (!tierFlex.toString()==="Unranked") {
 
 				tierFlex = tierFlex + " PL";
 
