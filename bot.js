@@ -319,30 +319,13 @@ client.on("message", async message => {
 
 
 		const embed = new Discord.RichEmbed()
-		.setTitle("This is your title, it can hold 256 characters")
-		.setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
-		/*
-		 * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-		 */
+		.setTitle("Partida de "+username)
 		.setColor(0x00AE86)
-		.setDescription("This is the main body of text, it can hold 2048 characters.")
+		.setDescription("Ranked normal que se yo.")
 		.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
-		.setImage("http://i.imgur.com/yVpymuV.png")
-		.setThumbnail("http://i.imgur.com/p2qNFag.png")
-		/*
-		 * Takes a Date object, defaults to current date.
-		 */
+		.setThumbnail("https://vignette.wikia.nocookie.net/leagueoflegendsoficial/images/8/8c/LOL_Logo.png")
 		.setTimestamp()
-		.setURL("https://discord.js.org/#/docs/main/indev/class/RichEmbed")
-		/*
-		 * Inline fields may not display as inline if the thumbnail and/or image is too big.
-		 */
-		.addField("Inline Field", "They can also be inline.", true)
-		/*
-		 * Blank field, useful to create some space.
-		 */
-		.addBlankField(true)
-		.addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
+		
 	   
 		
 
@@ -360,6 +343,9 @@ client.on("message", async message => {
 
 			var sum;
 			var regionID = "la2";
+		
+		//get summoner ID
+		
 			try {
 				sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 
@@ -372,6 +358,8 @@ client.on("message", async message => {
 
 
 
+			//get summoner name
+
 			try {
 
 				data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
@@ -383,9 +371,59 @@ client.on("message", async message => {
 
 			}
 
-embed.addField(data.participants[i].summonerName+" "+getChampionName(data.participants[i].championId))
 
-			console.log(data.participants[i].summonerName+" "+getChampionName(data.participants[i].championId));
+//get ranks
+
+			try {
+				//console.log("SUMMMMM ID: "+sum.id);
+				let data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
+				/*
+				 data = { 
+				  id: 79858287,
+				  accountId: 224542288,
+				  summonerLevel: 119,
+				  profileIconId: 3348,
+				  name: 'SP Jason' 
+				 }
+		
+		
+		
+					console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
+				console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
+				console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
+				console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
+				console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
+				
+		*/
+	
+	
+				message.channel.send(
+					"\nUSER: " + data.all.RANKED_FLEX_SR.summonerName +
+					"\nELO SOLO: " + data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL" +
+					"\nELO FLEX: " + data.all.RANKED_SOLO_5x5.tier + " " + data.all.RANKED_SOLO_5x5.rank + " " + data.all.RANKED_SOLO_5x5.leaguePoints + " PL"
+	
+				);
+	
+	
+	
+	
+	
+	
+				//console.log(data);
+			} catch (err) {
+				console.log(err);
+	
+	
+	
+			}
+
+
+
+
+embed.addField(data.participants[i].summonerName+" "+getChampionName(data.participants[i].championId), true).addBlankField(true)
+		.addField(data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL", true);
+
+			console.log(data.participants[i].summonerName+"\n "+getChampionName(data.participants[i].championId)+data.all.RANKED_FLEX_SR.tier + " " + data.all.RANKED_FLEX_SR.rank + " " + data.all.RANKED_FLEX_SR.leaguePoints + "PL");
 		}
 
 
