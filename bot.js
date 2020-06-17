@@ -5,7 +5,7 @@ const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
-let tierSD,rankSD,lpSD,winsSD,lossesSD,winrateSD ,tierFlex ,rankFlex ,lpFlex ,winsFlex ,lossesFlex,winrateFlex; 
+let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex;
 
 
 
@@ -256,7 +256,7 @@ client.on("message", async message => {
 
 
 
-		
+
 		var sum;
 		var regionID = "la2";
 		try {
@@ -277,34 +277,34 @@ client.on("message", async message => {
 
 
 
-			
+
 
 
 
 			tierSD = data.all.RANKED_SOLO_5x5.tier;
-			 rankSD = data.all.RANKED_SOLO_5x5.rank;
-			 lpSD = data.all.RANKED_SOLO_5x5.leaguePoints;
-			 winsSD = data.all.RANKED_SOLO_5x5.wins;
-			 lossesSD = data.all.RANKED_SOLO_5x5.losses;
-			 winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+			rankSD = data.all.RANKED_SOLO_5x5.rank;
+			lpSD = data.all.RANKED_SOLO_5x5.leaguePoints;
+			winsSD = data.all.RANKED_SOLO_5x5.wins;
+			lossesSD = data.all.RANKED_SOLO_5x5.losses;
+			winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
 
 
-			 tierFlex = data.all.RANKED_FLEX_SR.tier;
-			 rankFlex = data.all.RANKED_FLEX_SR.rank;
-			 lpFlex = data.all.RANKED_FLEX_SR.leaguePoints;
-			 winsFlex = data.all.RANKED_FLEX_SR.wins;
-			 lossesFlex = data.all.RANKED_FLEX_SR.losses;
-			 winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
+			tierFlex = data.all.RANKED_FLEX_SR.tier;
+			rankFlex = data.all.RANKED_FLEX_SR.rank;
+			lpFlex = data.all.RANKED_FLEX_SR.leaguePoints;
+			winsFlex = data.all.RANKED_FLEX_SR.wins;
+			lossesFlex = data.all.RANKED_FLEX_SR.losses;
+			winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
 
 
-			 if (tierSD.toString() != "Unranked") {
+			if (tierSD.toString() != "Unranked") {
 
-				lpSD = lpSD.toString()  + " PL";
+				lpSD = lpSD.toString() + " PL";
 
 			}
 
 
-			if (tierFlex.toString()!= "Unranked") {
+			if (tierFlex.toString() != "Unranked") {
 
 				lpFlex = lpFlex.toString() + " PL";
 
@@ -312,25 +312,25 @@ client.on("message", async message => {
 
 			if (isNaN(winrateFlex)) {
 				winrateFlex = "ND";
-			}else{
+			} else {
 				winrateFlex = winrateFlex + "%";
 			}
 
 			if (isNaN(winrateSD)) {
 				winrateSD = "ND";
-			}else{
+			} else {
 				winrateSD = winrateSD + "%";
 			}
 
 
 			data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-	
+
 
 
 			message.channel.send(
-				
+
 				username +
-				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD+
+				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD +
 				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex
 
 
@@ -359,9 +359,7 @@ client.on("message", async message => {
 		let args = message.content.substring(1).split(" ");
 		args.splice(0, 1);
 		const username = args.join(" ");
-		let leaguePos
-		let rankSD;
-		let tierSD;
+		let leaguePos;
 		var i;
 
 
@@ -388,13 +386,9 @@ client.on("message", async message => {
 			if (err.statuscode == 404) {
 				message.channel.send("el jugador " + username + " no existe en LAS.")
 			}
-			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-
-
 		}
 
-
-
+		//get current game info
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
@@ -419,16 +413,6 @@ client.on("message", async message => {
 
 		for (i = 0; i < 10; i++) {
 
-
-
-
-
-			//get current game info
-
-
-
-
-
 			//get summoner ID
 
 			try {
@@ -437,22 +421,13 @@ client.on("message", async message => {
 
 			} catch (err) {
 				console.log(err);
-				// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-
-
 			}
-
-
 
 			//get ranks
 
 			try {
 				//console.log("SUMMMMM ID: "+sum.id);
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
-
-
-
-				
 
 
 				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
@@ -466,14 +441,14 @@ client.on("message", async message => {
 
 				if (tierSD.toString() != "Unranked") {
 
-					lpSD = lpSD.toString()  + " PL";
-	
+					lpSD = lpSD.toString() + " PL";
+
 				}
 
 
 				if (isNaN(winrateSD)) {
 					winrateSD = "ND";
-				}else{
+				} else {
 					winrateSD = winrateSD + "%";
 				}
 
@@ -485,16 +460,7 @@ client.on("message", async message => {
 				//console.log(data);
 			} catch (err) {
 				console.log(err);
-
-
-
 			}
-
-
-
-
-
-
 
 
 			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD)
@@ -510,17 +476,8 @@ client.on("message", async message => {
 
 		}
 
-
-
 		message.channel.send({ embed });
-
-		//console.log(playerName +" "+ response);
-
-
-
 	}
-
-
 
 
 
@@ -530,7 +487,6 @@ client.on("message", async message => {
 		message.channel.send("``Comandos:``\n``!desc`` para ver las proximas salidas desde scc\n``!desf`` para ver las proximas salidas de sf \n``!horarios`` para ver horarios de otros dias");
 
 	}
-
 
 
 	if (message.content.startsWith("!desf")) {
@@ -618,33 +574,6 @@ music.start(client, {
 
 
 
-//   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   //   COMANDOS   
-
-
-/*
-async function getPlayerId(summonerName) {
-	
-
-	var sum;
-	var regionID = "la2";
-	try {
-	sum = await pyke.summoner.getBySummonerName(String(summonerName), regionID);
-console.log("SUM IN FUCTION"+sum);
-} catch (err) {
-	console.log(err);
-	// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-	
-	
-  }
-
-  return sum;
-
-}
-*/
-
-
-
-
 
 function gatherPlayersFromMessage(channel) {
 	return new Promise((resolve, reject) => {
@@ -660,11 +589,6 @@ function gatherPlayersFromMessage(channel) {
 		});
 	});
 }
-
-
-
-
-
 
 
 const randomWord = require('random-spanish-words');
