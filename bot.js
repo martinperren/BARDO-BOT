@@ -464,10 +464,10 @@ client.on("message", async message => {
 
 
 
-				if (!tierSD.toString() =='Unranked') {
+				if (tierSD.toString() != "Unranked") {
 
-					lpSD = lpSD.toString() + " PL";
-
+					lpSD = lpSD.toString()  + " PL";
+	
 				}
 
 
