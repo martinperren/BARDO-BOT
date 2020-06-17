@@ -297,16 +297,16 @@ client.on("message", async message => {
 			 winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
 
 
-			 if (!tierSD.toString() =="Unranked") {
+			 if (tierSD.toString() =="Unranked") {
 
-				lpSD = lpSD + " PL";
+				lpSD = lpSD.toString()  + " PL";
 
 			}
 
 
-			if (!tierFlex.toString()=="Unranked") {
+			if (tierFlex.toString()=="Unranked") {
 
-				lpFlex = lpFlex + " PL";
+				lpFlex = lpFlex.toString() + " PL";
 
 			}
 
@@ -466,7 +466,7 @@ client.on("message", async message => {
 
 				if (!tierSD.toString() =='Unranked') {
 
-					lpSD = lpSD + " PL";
+					lpSD = lpSD.toString() + " PL";
 
 				}
 
