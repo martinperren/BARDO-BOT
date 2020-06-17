@@ -333,7 +333,7 @@ client.on("message", async message => {
 				.setDescription(
 					"**Solo/Duo:** " + tierSD + " " + rankSD + " " + lpSD + " **Winrate: **" + winrateSD +
 					"\n**Flex: **" + tierFlex + " " + rankFlex + " " + lpFlex + "** Winrate: **" + winrateFlex+
-					"\n" + hotStreak).setURL("https://las.op.gg/summoner/userName=" + username)
+					"\n" + hotStreak)
 				.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png");
 				
 
