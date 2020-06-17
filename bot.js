@@ -337,7 +337,8 @@ client.on("message", async message => {
 			.setTitle("Partida de " + username)
 			.setColor(0x00AE86)
 			.setFooter("cabe comeme los huevos", "https://i.imgur.com/cgqgoSa.png")
-			.setTimestamp();
+			.setTimestamp()
+			.addField("","Equipo 1");
 
 
 
@@ -426,8 +427,7 @@ client.on("message", async message => {
 
 
 
-
-			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lp + "PL", true)
+			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lp + "PL")
 				.setDescription(data.gameType);
 
 			/*.addBlankField(true)*/
@@ -435,7 +435,7 @@ client.on("message", async message => {
 			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL");
 
 			if (i == 4) {
-				embed.addBlankField(true).addBlankField(true);
+				embed.addField("","Equipo 2");
 			}
 
 		}
