@@ -25,7 +25,6 @@ function getLastVersion() {
 
 client.on("ready", () => {
 	console.log("Bot iniciado");
-	console.log(getChampionName(6));
 	client.user.setActivity(process.env.GAME, { type: 'LISTENING' })
 		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
 		.catch(console.error);
@@ -365,11 +364,8 @@ client.on("message", async message => {
 			}
 
 
-			//data.participants[i].championId
 
-
-
-			players.push(data.participants[i].summonerName);
+			console.log(data.participants[i].summonerName+getChampionName(data.participants[i].championId));
 		}
 
 
