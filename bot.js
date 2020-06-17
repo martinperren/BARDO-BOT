@@ -423,9 +423,7 @@ try {
 
 
 
-if(i==4){
-	embed.addBlankField(true);
-}
+
 
 
 
@@ -435,6 +433,11 @@ if(i==4){
 			/*.addBlankField(true)*/
 
 			console.log(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lp + "PL");
+	
+			if(i==4){
+				embed.addBlankField(true);
+			}
+	
 		}
 
 
