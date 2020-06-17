@@ -396,7 +396,9 @@ client.on("message", async message => {
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
 
-				
+				tierSD = leaguePos.all.RANKED_FLEX_SR.tier;
+			rankSD = leaguePos.all.RANKED_FLEX_SR.rank;
+			lp = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
 
 				
 
@@ -414,9 +416,7 @@ client.on("message", async message => {
 
 
 
-			tierSD = leaguePos.all.RANKED_FLEX_SR.tier;
-			rankSD = leaguePos.all.RANKED_FLEX_SR.rank;
-			lp = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
+			
 
 
 
