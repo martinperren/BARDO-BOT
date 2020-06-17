@@ -5,7 +5,7 @@ const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
-let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex;
+let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex,hotStreak="";
 
 
 
@@ -435,7 +435,14 @@ client.on("message", async message => {
 				lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
 				winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
 				lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+				
+				if(leaguePos.all.RANKED_SOLO_5x5.hotStreak){
+					hotStreak = ":fire:"
+
+				}
+				
 				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+				
 
 
 
@@ -444,6 +451,9 @@ client.on("message", async message => {
 					lpSD = lpSD.toString() + " PL";
 
 				}
+
+
+
 
 
 				if (isNaN(winrateSD)) {
@@ -463,7 +473,7 @@ client.on("message", async message => {
 			}
 
 
-			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD)
+			embed.addField(data.participants[i].summonerName + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak)
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
