@@ -480,7 +480,7 @@ client.on("message", async message => {
 opgg = data.participants[i].summonerName.split(' ').join('+');
 
 
-			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak+ "[opgg](https://las.op.gg/summoner/userName="+opgg+") ")
+			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak+ " [(opgg)](https://las.op.gg/summoner/userName="+opgg+") ")
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
