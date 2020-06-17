@@ -5,7 +5,7 @@ const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
-let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex, hotStreak;
+let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex, hotStreak,opgg;
 
 
 
@@ -477,7 +477,10 @@ client.on("message", async message => {
 			}
 
 
-			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak+ "[opgg](https://las.op.gg/summoner/userName="+data.participants[i].summonerName+") ")
+opgg = data.participants[i].summonerName.split(' ').join('+');
+
+
+			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak+ "[opgg](https://las.op.gg/summoner/userName="+opgg+") ")
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
