@@ -263,20 +263,16 @@ client.on("message", async message => {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 
 		} catch (err) {
-			console.log(err);
-			// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
-
-
+			if (err.statuscode == 404) {
+				message.channel.send("el jugador " + username + " no existe en LAS.")
+			}
 		}
-
-
 
 
 		try {
 
 			let data;
 
-			//console.log("SUMMMMM ID: "+sum.id);
 			data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
 
 
@@ -301,13 +297,13 @@ client.on("message", async message => {
 			 winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
 
 
-			 if (!tierSD.toString() =='Unranked') {
+			 if (!tierSD.toString() =="Unranked") {
 
 				tierSD = tierSD + " PL";
 
 			}
 
-			if (!tierFlex.toString() =='Unranked') {
+			if (!tierFlex.toString()=="Unranked") {
 
 				tierFlex = tierFlex + " PL";
 
@@ -326,53 +322,20 @@ client.on("message", async message => {
 			}
 
 
-			//console.log(tierSD + " " + rankSD + " " + lp + "PL");
-
-
-			//console.log(leaguePos);
-
-			//console.log(data);
-
-			
-
-
-			//console.log("SUMMMMM ID: "+sum.id);
 			data = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-			/*
-			 data = { 
-			  id: 79858287,
-			  accountId: 224542288,
-			  summonerLevel: 119,
-			  profileIconId: 3348,
-			  name: 'SP Jason' 
-			 }
 	
-	
-	
-				console.log("USER: "+data.all.RANKED_FLEX_SR.summonerName);
-			console.log("LP SOLO: "+data.all.RANKED_FLEX_SR.leaguePoints);
-			console.log("ELO SOLO: "+data.all.RANKED_FLEX_SR.tier + data.all.RANKED_FLEX_SR.rank);
-			console.log("LP FLEX: "+data.all.RANKED_SOLO_5x5.leaguePoints);
-			console.log("ELO FLEX: "+data.all.RANKED_SOLO_5x5.tier + data.all.RANKED_SOLO_5x5.rank);
-			
-	*/
 
 
 			message.channel.send(
 				
 				username +
-				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " WINRATE: " + winrateSD+
-				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " WINRATE: " + winrateFlex
+				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " Winrate: " + winrateSD+
+				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " Winrate: " + winrateFlex
 
 
 			);
 
 
-
-
-
-
-			//console.log(data);
 		} catch (err) {
 			console.log(err);
 
