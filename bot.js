@@ -281,7 +281,7 @@ client.on("message", async message => {
 
 
 
-			if (tierSD != 'Unranked') {
+			if (!tierSD.equals('Unranked')) {
 
 				tierSD = tierSD + " PL";
 
@@ -317,11 +317,6 @@ client.on("message", async message => {
 			}
 
 
-
-			console.log(tierSD);
-console.log(rankSD);
-console.log(lpSD);
-
 			//console.log(tierSD + " " + rankSD + " " + lp + "PL");
 
 
@@ -356,8 +351,8 @@ console.log(lpSD);
 
 			message.channel.send(
 				"\nJugador: " + username +
-				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + "WINRATE: " + winrateSD+
-				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + "WINRATE: " + winrateFlex
+				"\nSolo/Duo: " + tierSD + " " + rankSD + " " + lpSD + " WINRATE: " + winrateSD+
+				"\nFlex: " + tierFlex + " " + rankFlex + " " + lpFlex + " WINRATE: " + winrateFlex
 
 
 			);
