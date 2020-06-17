@@ -336,7 +336,6 @@ client.on("message", async message => {
 			.setColor(0x00AE86)
 			.setDescription("Ranked normal que se yo.")
 			.setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
-			.setThumbnail("https://vignette.wikia.nocookie.net/leagueoflegendsoficial/images/8/8c/LOL_Logo.png")
 			.setTimestamp();
 
 
@@ -360,28 +359,6 @@ client.on("message", async message => {
 
 
 
-			//get ranks
-
-			try {
-				//console.log("SUMMMMM ID: "+sum.id);
-				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-
-				tierSD = leaguePos.all.RANKED_FLEX_SR.tier;
-				rankSD = leaguePos.all.RANKED_FLEX_SR.rank;
-				lp = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
-
-
-				console.log(leaguePos);
-
-				//console.log(data);
-			} catch (err) {
-				console.log(err);
-
-
-
-			}
-
-
 			//get summoner name
 
 			try {
@@ -397,6 +374,49 @@ client.on("message", async message => {
 
 
 
+	//get summoner ID
+
+	try {
+		sumAux = await pyke.summoner.getBySummonerName(playerName, regionID);
+		sumAux = sumAux.id;
+
+	} catch (err) {
+		console.log(err);
+		// {... DO WHAT YOU NEED TO WITH THE ERROR CAUGHT BY EITHER Asynchronous OR Synchronous part of the method ...}
+
+
+	}
+
+
+
+			//get ranks
+
+			try {
+				//console.log("SUMMMMM ID: "+sum.id);
+				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
+
+
+				
+
+				
+
+
+				console.log(leaguePos);
+
+				//console.log(data);
+			} catch (err) {
+				console.log(err);
+
+
+
+			}
+
+
+
+
+			tierSD = leaguePos.all.RANKED_FLEX_SR.tier;
+			rankSD = leaguePos.all.RANKED_FLEX_SR.rank;
+			lp = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
 
 
 
