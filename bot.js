@@ -260,6 +260,7 @@ client.on("message", async message => {
 		var sum;
 		var profileImage;
 		var regionID = "la2";
+		const ayy = client.emojis.get("305818615712579584");
 
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
@@ -267,7 +268,8 @@ client.on("message", async message => {
 			
 		} catch (err) {
 			if (err.statuscode == 404) {
-				message.channel.send("el jugador " + username + " no existe en LAS.")
+				
+				message.channel.send("el jugador " + username + " no existe en LAS. ${ayy}")
 			}
 		}
 
