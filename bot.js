@@ -241,8 +241,8 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!test")) {
 		//message.channel.send("www.elnortesa.com.ar");
-		var emojilist = message.guild.emojis.map;
-		message.channel.sendMessage(`${emojilist}`);
+		const emojiList = message.guild.emojis.map((e, x) => (x + ' = ' + e) + ' | ' +e.name).join('\n');
+		message.channel.send(emojiList);
 	}
 
 
