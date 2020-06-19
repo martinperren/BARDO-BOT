@@ -239,9 +239,10 @@ client.on("message", async message => {
 
 
 
-	if (message.content.startsWith("!web")) {
-		message.channel.send("www.elnortesa.com.ar");
-
+	if (message.content.startsWith("!test")) {
+		//message.channel.send("www.elnortesa.com.ar");
+		var emojilist = message.guild.emojis.map;
+		message.channel.sendMessage(`${emojilist}`);
 	}
 
 
@@ -269,7 +270,7 @@ client.on("message", async message => {
 		} catch (err) {
 			if (err.statuscode == 404) {
 				
-				message.channel.send("el jugador " + username + " no existe en LAS. ${ayy}")
+				message.channel.send("el jugador " + username + " no existe en LAS. ")
 			}
 		}
 
