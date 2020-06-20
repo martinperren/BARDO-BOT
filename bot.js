@@ -469,6 +469,8 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+			embed.setDescription(getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength));
+
 		} catch (err) {
 
 
@@ -477,10 +479,10 @@ client.on("message", async message => {
 			}
 
 
-			data = JSON.parse(data);
+			data = JSON.parse(data); //??????????????????????????????????????
 
 
-			embed.setDescription(getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength));
+			
 			
 
 
