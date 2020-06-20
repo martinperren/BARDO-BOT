@@ -215,9 +215,7 @@ function getChampionEmote(key) {
 
 class Player {
 
-	nick = nick;
-	  elo = elo;
-	  champ = champ;
+
 	constructor(nick,champ,elo) {
 	  this.nick = nick;
 	  this.elo = elo;
