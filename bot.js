@@ -229,6 +229,19 @@ function getChampionName(key) {
 
 
 
+function toMins(time) {
+	var hr = ~~(time / 3600);
+	var min = ~~((time % 3600) / 60);
+	var sec = time % 60;
+	var sec_min = "";
+	if (hr > 0) {
+	   sec_min += "" + hrs + ":" + (min < 10 ? "0" : "");
+	}
+	sec_min += "" + min + ":" + (sec < 10 ? "0" : "");
+	sec_min += "" + sec;
+	return sec_min+ " min";
+ }
+
 
 
 function round(value, precision) {
@@ -499,7 +512,7 @@ console.log(data.gameLength);
 
 
 			embed.addField("**" + data.participants[i].summonerName + "**" + " " + "(" +champEmoji + championName + ")",tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ")
-				.setDescription(data.gameMode + " " + data.gameQueueConfigId + data.gameLength);
+				.setDescription(data.gameMode + " " + data.gameQueueConfigId + toMins(data.gameLength));
 
 			/*.addBlankField(true)*/
 
