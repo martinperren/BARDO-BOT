@@ -557,8 +557,19 @@ client.on("message", async message => {
 
 
 			embed.addField(
-				"**" + data.participants[i].summonerName + "**" + " " + "(" + champEmoji + championName + ")",
-				 tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ");
+
+				{ name: '', value: "**" + data.participants[i].summonerName + "**" + " " + "(" + champEmoji + championName + ")" +
+				tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ")", inline: true },
+			//	{ name: 'Inline field title', value: 'Some value here', inline: true }
+
+
+
+				
+				 
+				 
+				 
+				 
+				 );
 				
 
 			/*.addBlankField(true)*/
