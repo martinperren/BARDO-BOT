@@ -558,7 +558,7 @@ client.on("message", async message => {
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
 
-				let elo = JSON.parse(leaguePos); 
+			
 
 
 
@@ -608,7 +608,7 @@ client.on("message", async message => {
 			champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
-			players.add(new Player(username,championName,elo).tier(elo));
+			players.add(new Player(username,championName,elo).tier(leaguePos));
 
 
 
