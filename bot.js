@@ -5,7 +5,7 @@ const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
 var dia, flag, selector, players, turno = "", auxiliar = 0;
 
-let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex, hotStreak,opgg;
+let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex, hotStreak, opgg;
 
 
 
@@ -33,6 +33,187 @@ client.on("ready", () => {
 		.catch(console.error);
 
 });
+
+
+
+function getChampionEmote(key) {
+
+	var Emotes = {
+
+		'Challenger': '723808761441157162',
+		'Diamond': '723809276841164811',
+		'Gold': '723809276920856578',
+		'Iron': '723809277902323754',
+		'Platinum': '723809277944528922',
+		'Grandmaster': '723809278158176266',
+		'Silver': '723809278275616819',
+		'Master': '723809279135711303',
+		'Bronze': '723809588301791272',
+		'Aatrox': '723802342453018696',
+		'Ahri': '723802348433965067',
+		'Alistar': '723802351051472977',
+		'Akali': '723802359037165578',
+		'Braum': '723802361130385520',
+		'Aphelios': '723802362627751966',
+		'Ashe': '723802363734917161',
+		'Annie': '723802364284370965',
+		'Amumu': '723802367736414208',
+		'Camille': '723802369262878740',
+		'Bard': '723802370466906184',
+		'Kindred': '723802371058302978',
+		'Azir': '723802372144627732',
+		'AurelionSol': '723802372530503740',
+		'Elise': '723802372589092895',
+		'LeeSin': '723802373042208799',
+		'Karthus': '723802374514278423',
+		'Cassiopeia': '723802374594101308',
+		'Anivia': '723802374673530890',
+		'Caitlyn': '723802375059406889',
+		'Kled': '723802375110000671',
+		'Zac': '723802375453933599',
+		'Maokai': '723802375847936072',
+		'Fizz': '723802375894073424',
+		'Mordekaiser': '723802375982415882',
+		'Jayce': '723802376368160798',
+		'Diana': '723802376506703912',
+		'Kalista': '723802376619950110',
+		'TahmKench': '723802377026535494',
+		'DrMundo': '723802377311748107',
+		'Urgot': '723802377320267857',
+		'Ivern': '723802377550954517',
+		'Janna': '723802377735634974',
+		'Illaoi': '723802377819389952',
+		'Ekko': '723802377974448128',
+		'Jax': '723802377978773555',
+		'Nocturne': '723802378020847676',
+		'Yorick': '723802378142482502',
+		'Evelynn': '723802378159259688',
+		'Draven': '723802378184425482',
+		'Khazix': '723802378272243782',
+		'Graves': '723802378301866014',
+		'Lucian': '723802378465181768',
+		'RekSai': '723802378796662854',
+		'Swain': '723802378813440010',
+		'Lissandra': '723802379043995688',
+		'Malphite': '723802379094327336',
+		'Orianna': '723802379191058483',
+		'Darius': '723802379333664768',
+		'Blitzcrank': '723802380071862303',
+		'Shen': '723802380080250970',
+		'Sion': '723802380117868544',
+		'Annie': '723806005359542293',
+		'Braum': '723806005686698045',
+		'Cassiopeia': '723806006424895529',
+		'Brand': '723806008824037506',
+		'Chogath': '723806011152138264',
+		'Galio': '723806017183285268',
+		'Gnar': '723806017326153778',
+		'Gragas': '723806017351057488',
+		'Jinx': '723806018185855028',
+		'JarvanIV': '723806018248769546',
+		'Fiora': '723806018269610065',
+		'Jhin': '723806018328592386',
+		'KogMaw': '723806018479325287',
+		'Kennen': '723806018617737227',
+		'FiddleSticks': '723806018840035369',
+		'Irelia': '723806018957737995',
+		'Nidalee': '723806018991030303',
+		'Kayle': '723806018995355669',
+		'Kayn': '723806019125510174',
+		'Pantheon': '723806019167453185',
+		'Ornn': '723806019188424765',
+		'Karma': '723806019343351878',
+		'Kaisa': '723806019347808367',
+		'Morgana': '723806019632758784',
+		'Nautilus': '723806019838410802',
+		'Corki': '723806019846930482',
+		'Wukong': '723806019867640081',
+		'Garen': '723806020119560192',
+		'Nunu': '723806020178018324',
+		'MasterYi': '723806020421550101',
+		'Nami': '723806020442259496',
+		'Quinn': '723806020513824820',
+		'Qiyana': '723806020652105759',
+		'Lulu': '723806020660494358',
+		'Ezreal': '723806020706500719',
+		'Leona': '723806020773871678',
+		'Hecarim': '723806020895506432',
+		'Gangplank': '723806020907958333',
+		'Lux': '723806020987650060',
+		'Malzahar': '723806021050564651',
+		'Nasus': '723806021092638721',
+		'Pyke': '723806021159485511',
+		'Olaf': '723806021205622836',
+		'Kassadin': '723806021264605245',
+		'Katarina': '723806021306417172',
+		'MissFortune': '723806021323325451',
+		'Leblanc': '723806021415469106',
+		'Neeko': '723806021440503829',
+		'Poppy': '723806021461606450',
+		'Heimerdinger': '723806021675384832',
+		'Rakan': '723806464174456892',
+		'Rammus': '723806464703070230',
+		'Renekton': '723806465520959548',
+		'Rengar': '723806465864761396',
+		'Riven': '723806466212888647',
+		'Shaco': '723806474412883979',
+		'Singed': '723806475406934026',
+		'Sona': '723806475796873217',
+		'Sett': '723806475906187274',
+		'Senna': '723806476195594330',
+		'Volibear': '723806476426280970',
+		'Sivir': '723806476526944287',
+		'Ryze': '723806476547915798',
+		'Tristana': '723806476568887386',
+		'Sejuani': '723806476581470249',
+		'Syndra': '723806476677677098',
+		'Sylas': '723806476795117598',
+		'Trundle': '723806476841385987',
+		'Warwick': '723806477072072754',
+		'Taliyah': '723806477109821440',
+		'Rumble': '723806477147570227',
+		'TwistedFate': '723806477218873355',
+		'Soraka': '723806477285851167',
+		'Twitch': '723806477365542994',
+		'Skarner': '723806477550354442',
+		'Xayah': '723806477567131659',
+		'Viktor': '723806477583908927',
+		'Udyr': '723806477722320916',
+		'Talon': '723806477810139206',
+		'Taric': '723806477915127878',
+		'Tryndamere': '723806477935968266',
+		'Zyra': '723806477990494241',
+		'Veigar': '723806478095351828',
+		'Varus': '723806478103871498',
+		'Zed': '723806478183694356',
+		'Vi': '723806478422507570',
+		'Ziggs': '723806478506393690',
+		'Zilean': '723806478674165790',
+		'Yasuo': '723806478753988638',
+		'Yuumi': '723806478992932895',
+		'Zoe': '723806479018098718',
+		'Shyvana': '723806479022293002',
+		'Velkoz': '723806479072624662',
+		'Xerath': '723806479072886804',
+		'Thresh': '723806479081144370',
+		'XinZhao': '723806479143927843',
+		'Vladimir': '723806479181807666',
+		'Vayne': '723806479211167795',
+		'Teemo': '723806479307767843',
+
+	}
+
+
+	Object.freeze(Emotes);
+
+
+	return Emotes[key];
+
+}
+
+
+
+
 
 
 
@@ -241,8 +422,8 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!test")) {
 		//message.channel.send("www.elnortesa.com.ar");
-		
-		const emojiList = message.guild.emojis.map((e, x) => (x + ' = ' + e) + ' | ' +e.name).join('\n');
+
+		const emojiList = message.guild.emojis.map((e, x) => (x + ' = ' + e) + ' | ' + e.name).join('\n');
 		console.log(emojiList);
 
 
@@ -252,7 +433,7 @@ client.on("message", async message => {
 
 
 	if (message.content.startsWith("!elo")) {
-		
+
 
 		let args = message.content.substring(1).split(" ");
 
@@ -270,10 +451,10 @@ client.on("message", async message => {
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 			profileImage = sum.profileIconId;
-			
+
 		} catch (err) {
 			if (err.statuscode == 404) {
-				
+
 				message.channel.send("el jugador " + username + " no existe en LAS. ")
 			}
 		}
@@ -339,14 +520,14 @@ client.on("message", async message => {
 				.setColor(0x00AE86)
 				.setDescription(
 					"**Solo/Duo:** " + tierSD + " " + rankSD + " " + lpSD + " **Winrate: **" + winrateSD +
-					"\n**Flex: **" + tierFlex + " " + rankFlex + " " + lpFlex + "** Winrate: **" + winrateFlex+
+					"\n**Flex: **" + tierFlex + " " + rankFlex + " " + lpFlex + "** Winrate: **" + winrateFlex +
 					"\n" + hotStreak)
 				.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png");
-				
 
 
 
-				message.channel.send({ embed });
+
+			message.channel.send({ embed });
 
 		} catch (err) {
 			console.log(err);
@@ -355,7 +536,7 @@ client.on("message", async message => {
 
 		}
 
-		
+
 
 
 	}
@@ -374,6 +555,8 @@ client.on("message", async message => {
 		args.splice(0, 1);
 		const username = args.join(" ");
 		let leaguePos;
+		let champEmoji;
+		let rankEmoji;
 		var i;
 		hotStreak = "";
 
@@ -478,21 +661,24 @@ client.on("message", async message => {
 					winrateSD = winrateSD + "%";
 				}
 
-		
+
 			} catch (err) {
 				console.log(err);
 			}
 
 
-opgg = data.participants[i].summonerName.split(' ').join('+');
+			opgg = data.participants[i].summonerName.split(' ').join('+');
+let championName = getChampionName(data.participants[i].championId);
+let champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
-			embed.addField("**"+data.participants[i].summonerName  +"**" + " " + "(" + getChampionName(data.participants[i].championId) + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak+ " [(OP.GG)](https://las.op.gg/summoner/userName="+opgg+") ")
+
+			embed.addField("**" + data.participants[i].summonerName + "**" + " " + "( ${champEmoji}" + championName + ")", tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ")
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
 
-		//	console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
+			//	console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
 
 			if (i == 4) {
 				embed.addField("________________________________", "**EQUIPO 2**");
