@@ -493,6 +493,9 @@ client.on("message", async message => {
 let championName = getChampionName(data.participants[i].championId);
 let champEmoji = client.emojis.get(getChampionEmote(championName));
 
+console.log(data.gameQueueConfigId);
+console.log(data.gameLength);
+
 
 
 			embed.addField("**" + data.participants[i].summonerName + "**" + " " + "(" +champEmoji + championName + ")",tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ")
