@@ -673,7 +673,7 @@ let champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
 
-			embed.addField("**" + data.participants[i].summonerName + "**" + " " + "( <:"+championName+":"+champEmoji+"> " + championName + ")",tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ")
+			embed.addField("**" + data.participants[i].summonerName + "**" + " " + "(" +champEmoji+ + championName + ")",tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ")
 				.setDescription(data.gameMode + " " + data.gameType);
 
 			/*.addBlankField(true)*/
