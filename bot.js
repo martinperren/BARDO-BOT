@@ -243,8 +243,8 @@ client.on("message", async message => {
 		//message.channel.send("www.elnortesa.com.ar");
 		
 		const emojiList = message.guild.emojis.map((e, x) => (x + ' = ' + e) + ' | ' +e.name).join('\n');
-		message.channel.send(emojiList);
-		
+		console.log(emojiList);
+
 
 
 	}
