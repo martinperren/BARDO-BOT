@@ -212,6 +212,9 @@ function getChampionEmote(key) {
 
 
 
+
+
+
 function getChampionName(key) {
 
 	var Champions = {
@@ -220,10 +223,124 @@ function getChampionName(key) {
 	}
 
 
+
 	Object.freeze(Champions);
 
 
 	return Champions[key];
+
+}
+
+
+
+function getQueue(key) {
+
+	var Queue = {
+
+		'0':'Custom games',
+       
+        '72':'Abismo de los lamentos 1v1 Snowdown Showdown games',
+         
+    
+     
+       '73':'Abismo de los lamentos 2v2 Snowdown Showdown games',
+         
+    
+     
+       '75':'Grieta del invocador 6v6 Hexakill games',
+         
+    
+     
+       '76':'Grieta del invocador Ultra Rapid Fire games',
+         
+    
+     
+       '78':'Abismo de los lamentos One For All: Mirror Mode games',
+         
+    
+     
+       '83':'Grieta del invocador Co-op vs AI Ultra Rapid Fire games',
+         
+    
+    
+     
+       '100':'Butchers Bridge 5v5 ARAM games',
+                 
+    
+     
+       '325':'Grieta del invocador All Random games',
+                 
+    
+     
+       '400':'Grieta del invocador 5v5 Draft Pick',
+         
+    
+
+    
+     
+       '420':'Grieta del invocador 5v5 Ranked Solo',
+         
+    
+     
+       '430':'Grieta del invocador 5v5 Blind Pick',
+         
+    
+     
+       '440':'Grieta del invocador 5v5 Ranked Flex',
+         
+    
+     
+       '450':'Abismo de los lamentos 5v5 ARAM',
+         
+
+    
+     
+       '700':'Grieta del invocador Clash',
+         
+    
+ 
+       '830':'Grieta del invocador Co-op vs. Bots',
+         
+    
+     
+       '840':'Grieta del invocador Co-op vs. Bots',
+         
+    
+     
+       '850':'Grieta del invocador Co-op vs. Bots',
+         
+    
+     
+       '900':'Grieta del invocador URF',
+         
+    
+     
+       '1010':'Grieta del invocador Snow ARURF games',
+         
+    
+     
+       '1020':'Grieta del invocador One for All',
+         
+    
+     
+       '2000':'Grieta del invocador Tutorial 1',
+         
+    
+     
+       '2010':'Grieta del invocador Tutorial 2',
+         
+    
+     
+       '2020':'Grieta del invocador Tutorial 3'
+	
+
+	}
+
+
+	Object.freeze(Queue);
+
+
+	return Queue[key];
 
 }
 
@@ -512,7 +629,7 @@ console.log(data.gameLength);
 
 
 			embed.addField("**" + data.participants[i].summonerName + "**" + " " + "(" +champEmoji + championName + ")",tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ")
-				.setDescription(data.gameMode + " " + data.gameQueueConfigId + toMins(data.gameLength));
+				.setDescription(data.gameMode + " " + getQueue(data.gameQueueConfigId) +" "+  toMins(data.gameLength));
 
 			/*.addBlankField(true)*/
 
