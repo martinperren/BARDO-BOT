@@ -241,8 +241,10 @@ client.on("message", async message => {
 
 	if (message.content.startsWith("!test")) {
 		//message.channel.send("www.elnortesa.com.ar");
-		const ayy = client.emojis.get("438075289050808321");
-		message.reply(`${ayy}`);
+		
+			const ayy = client.emojis.find(emoji => emoji.name === "Urgot");
+			message.reply(`${ayy}`);
+		 
 
 
 	}
