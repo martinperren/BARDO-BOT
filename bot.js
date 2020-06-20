@@ -227,7 +227,7 @@ class Player {
   }
 
 
-  class Elo extends Player (leaguePos) {
+  class Elo extends Player {
 	
 
 	set tier(leaguePos) {
