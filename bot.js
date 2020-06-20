@@ -586,7 +586,7 @@ client.on("message", async message => {
 			champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
-			players.push(new Player(username, championName, leaguePos));
+			players.push(new Player(data.participants[i].summonerName, championName, leaguePos));
 
 
 
