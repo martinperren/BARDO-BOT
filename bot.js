@@ -213,6 +213,45 @@ function getChampionEmote(key) {
 
 
 
+class Player {
+
+	nick = nick;
+	  elo = elo;
+	  champ = champ;
+	constructor(nick,champ,elo) {
+	  this.nick = nick;
+	  this.elo = elo;
+	  this.champ = champ;
+	}
+	
+  }
+
+
+  class Elo extends Player (leaguePos) {
+	
+
+	set tier(leaguePos) {
+		this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+		this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+		this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+		this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+		this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+		this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+	  }
+
+
+	constructor(leaguePos) {
+		this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+		this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+		this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+		this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+		this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+		this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+	}
+	
+  }
+
+
 
 
 function getChampionName(key) {
@@ -325,6 +364,7 @@ client.on("message", async message => {
 
 
 		var sum;
+		
 		var profileImage;
 		var regionID = "la2";
 		const ayy = client.emojis.get("305818615712579584");
@@ -396,6 +436,7 @@ client.on("message", async message => {
 				hotStreak = "Racha de victorias :fire:"
 			}
 
+			
 
 			embed.setAuthor(username, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
 				.setColor(0x00AE86)
@@ -440,6 +481,10 @@ client.on("message", async message => {
 		let champEmoji;
 		let rankEmoji;
 		var i;
+
+		var players = new Array();
+
+	
 		hotStreak = "";
 
 		var sum;
@@ -469,7 +514,7 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			embed.setDescription(getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength));
+		//	embed.setDescription(getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength));
 
 		} catch (err) {
 
@@ -482,8 +527,8 @@ client.on("message", async message => {
 			data = JSON.parse(data); //??????????????????????????????????????
 
 
-			
-			
+
+
 
 
 
@@ -511,6 +556,10 @@ client.on("message", async message => {
 			try {
 				//console.log("SUMMMMM ID: "+sum.id);
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
+
+
+				elo = JSON.parse(leaguePos); 
+
 
 
 				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
@@ -551,36 +600,60 @@ client.on("message", async message => {
 			}
 
 
+		
+
+
 			opgg = data.participants[i].summonerName.split(' ').join('+');
 			championName = getChampionName(data.participants[i].championId);
 			champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
-			embed.addField(
-
-				{ name: '', value: "**" + data.participants[i].summonerName + "**" + " " + "(" + champEmoji + championName + ")" +
-				tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ")", inline: true },
-			//	{ name: 'Inline field title', value: 'Some value here', inline: true }
+			players.add(new Player(username,championName,elo).tier(elo));
 
 
 
-				
-				 
-				 
-				 
-				 
-				 );
-				
+		/*	embed.addField(
+				"**" + data.participants[i].summonerName + "**" + " " + "(" + champEmoji + championName + ")",
+				tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ");
 
+*/
 			/*.addBlankField(true)*/
 
 			//	console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
 
+			/*
 			if (i == 4) {
 				embed.addField("________________________________", "**EQUIPO 2**");
 			}
+*/
 
 		}
+
+
+		
+
+		embed.addField("Blue Team",
+		champEmoji+players[0].nick+"\n"+
+		champEmoji+players[1].nick+"\n"+
+		champEmoji+players[2].nick+"\n"+
+		champEmoji+players[3].nick+"\n"+
+		champEmoji+players[4].nick+"\n"
+		,true);
+		embed.addField("Blue Team",
+		players[0].nick+"\n"+
+		players[1].nick+"\n"+
+		players[2].nick+"\n"+
+		players[3].nick+"\n"+
+		players[4].nick+"\n"
+		,true);
+		embed.addField("Blue Team",
+		players[0].nick+"\n"+
+		players[1].nick+"\n"+
+		players[2].nick+"\n"+
+		players[3].nick+"\n"+
+		players[4].nick+"\n"
+		,true);
+
 
 		message.channel.send({ embed });
 	}
