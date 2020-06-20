@@ -471,8 +471,8 @@ client.on("message", async message => {
 		//build embed
 		const embed = new Discord.RichEmbed()
 			.setTitle("Partida de " + username)
-			.setColor(0x00AE86)
-			.addField("________________________________", "**EQUIPO 1**");
+			.setColor(0x00AE86);
+		//	.addField("________________________________", "**EQUIPO 1**");
 
 
 
@@ -609,22 +609,39 @@ client.on("message", async message => {
 
 
 
+/*
+function Player(nick, champ, leaguePos) {
+	this.nick = nick;
+	this.champ = champ;
+	this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+	this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+	this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+	this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+	this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+
+}
+
+*/
+
+
+
 
 		embed.addField("Blue Team",
-			champEmoji + players[0].nick + "\n" +
+		client.emojis.get(getChampionEmote(players[1].champ)) + players[0].nick + "\n" +
 			champEmoji + players[1].nick + "\n" +
 			champEmoji + players[2].nick + "\n" +
 			champEmoji + players[3].nick + "\n" +
 			champEmoji + players[4].nick + "\n"
 			, true);
-		embed.addField("Blue Team",
+		embed.addField("Rank",
 			players[0].nick + "\n" +
 			players[1].nick + "\n" +
 			players[2].nick + "\n" +
 			players[3].nick + "\n" +
 			players[4].nick + "\n"
 			, true);
-		embed.addField("Blue Team",
+		embed.addField("Winrate",
 			players[0].nick + "\n" +
 			players[1].nick + "\n" +
 			players[2].nick + "\n" +
