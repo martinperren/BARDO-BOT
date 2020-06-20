@@ -628,11 +628,11 @@ function Player(nick, champ, leaguePos) {
 
 
 		embed.addField("Blue Team",
-		client.emojis.get(getChampionEmote(players[1].champ)) + players[0].nick + "\n" +
+		client.emojis.get(getChampionEmote(players[0].champ)) + players[0].nick + "\n" +
 		client.emojis.get(getChampionEmote(players[1].champ))  + players[1].nick + "\n" +
-		client.emojis.get(getChampionEmote(players[1].champ))  + players[2].nick + "\n" +
-		client.emojis.get(getChampionEmote(players[1].champ))  + players[3].nick + "\n" +
-		client.emojis.get(getChampionEmote(players[1].champ))  + players[4].nick + "\n"
+		client.emojis.get(getChampionEmote(players[2].champ))  + players[2].nick + "\n" +
+		client.emojis.get(getChampionEmote(players[3].champ))  + players[3].nick + "\n" +
+		client.emojis.get(getChampionEmote(players[4].champ))  + players[4].nick + "\n"
 			, true);
 		embed.addField("Rank",
 			players[0].nick + "\n" +
