@@ -635,11 +635,11 @@ function Player(nick, champ, leaguePos) {
 		client.emojis.get(getChampionEmote(players[4].champ))  + players[4].nick + "\n"
 			, true);
 		embed.addField("Rank",
-			players[0].nick + "\n" +
-			players[1].nick + "\n" +
-			players[2].nick + "\n" +
-			players[3].nick + "\n" +
-			players[4].nick + "\n"
+			players[0].tierSD + "\n" +
+			players[1].tierSD + "\n" +
+			players[2].tierSD + "\n" +
+			players[3].tierSD + "\n" +
+			players[4].tierSD + "\n"
 			, true);
 		embed.addField("Winrate",
 			players[0].nick + "\n" +
