@@ -558,7 +558,7 @@ client.on("message", async message => {
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
 
-				elo = JSON.parse(leaguePos); 
+				let elo = JSON.parse(leaguePos); 
 
 
 
