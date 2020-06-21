@@ -125,7 +125,7 @@ function getChampionEmote(key) {
 		'Darius': '723802379333664768',
 		'Blitzcrank': '723802380071862303',
 		'Shen': '724066794356080710',
-		'Sion':'724066794905534574',
+		'Sion': '724066794905534574',
 		'Annie': '723806005359542293',
 		'Braum': '723806005686698045',
 		'Cassiopeia': '723806006424895529',
@@ -303,29 +303,26 @@ function getQueue(key) {
 	var Queue = {
 
 		'0': 'Custom games',
-		'72': 'Abismo de los lamentos 1v1 Snowdown Showdown games',
-		'73': 'Abismo de los lamentos 2v2 Snowdown Showdown games',
-		'75': 'Grieta del invocador 6v6 Hexakill games',
-		'76': 'Grieta del invocador Ultra Rapid Fire games',
-		'78': 'Abismo de los lamentos One For All: Mirror Mode games',
-		'83': 'Grieta del invocador Co-op vs AI Ultra Rapid Fire games',
-		'100': 'Butchers Bridge 5v5 ARAM games',
-		'325': 'Grieta del invocador All Random games',
-		'400': 'Grieta del invocador 5v5 Draft Pick',
-		'420': 'Grieta del invocador 5v5 Ranked Solo',
-		'430': 'Grieta del invocador 5v5 Blind Pick',
-		'440': 'Grieta del invocador 5v5 Ranked Flex',
-		'450': 'Abismo de los lamentos 5v5 ARAM',
-		'700': 'Grieta del invocador Clash',
-		'830': 'Grieta del invocador Co-op vs. Bots',
-		'840': 'Grieta del invocador Co-op vs. Bots',
-		'850': 'Grieta del invocador Co-op vs. Bots',
-		'900': 'Grieta del invocador URF',
-		'1010': 'Grieta del invocador Snow ARURF games',
-		'1020': 'Grieta del invocador One for All',
-		'2000': 'Grieta del invocador Tutorial 1',
-		'2010': 'Grieta del invocador Tutorial 2',
-		'2020': 'Grieta del invocador Tutorial 3'
+		'76': 'Ultra Rapid Fire | Grieta del invocador',
+		'78': 'One For All: Mirror Mode | Abismo de los lamentos',
+		'83': 'Co-op vs AI Ultra Rapid Fire | Grieta del invocador',
+		'100': 'ARAM | Butchers Bridge',
+		'325': 'All Random games | Grieta del invocador',
+		'400': '5v5 Draft Pick | Grieta del invocador',
+		'420': 'Ranked Solo | Grieta del invocador',
+		'430': 'Blind Pick | Grieta del invocador',
+		'440': 'Ranked Flex | Grieta del invocador',
+		'450': 'ARAM | Abismo de los lamentos',
+		'700': 'Clash | Grieta del invocador',
+		'830': 'Co-op vs. Bots | Grieta del invocador',
+		'840': 'Co-op vs. Bots | Grieta del invocador',
+		'850': 'Co-op vs. Bots | Grieta del invocador',
+		'900': 'URF | Grieta del invocador',
+		'1010': 'Snow ARURF | Grieta del invocador',
+		'1020': 'One for All | Grieta del invocador',
+		'2000': 'Tutorial 1 | Grieta del invocador',
+		'2010': 'Tutorial 2 | Grieta del invocador',
+		'2020': 'Tutorial 3 | Grieta del invocador'
 
 
 	}
@@ -677,7 +674,7 @@ client.on("message", async message => {
 
 
 
-		embed.addField(client.emojis.get("724061793147813990")+" Blue Team",
+		embed.addField(client.emojis.get("724061793147813990") + " Blue Team",
 			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
@@ -700,7 +697,7 @@ client.on("message", async message => {
 			, true);
 
 
-		embed.addField(client.emojis.get("724060843670503474")+" Red Team",
+		embed.addField(client.emojis.get("724060843670503474") + " Red Team",
 			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + " " + players[5].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + " " + players[6].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + " " + players[7].hotStreak + "\n" +
