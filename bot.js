@@ -65,6 +65,7 @@ function getChampionEmote(key) {
 
 	var Emotes = {
 
+		'NoBan':'724147103680692277',
 		'Challenger': '723808761441157162',
 		'Diamond': '723809276841164811',
 		'Gold': '723809276920856578',
@@ -773,11 +774,18 @@ client.on("message", async message => {
 			"  " + players[9].winrateSD + "\n"
 			, true);
 
-
-
-
-
-
+			embed.addField("Banned Champions",
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[1].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[2].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[3].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[4].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[5].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[6].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[7].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[8].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[9].championId)) + "\n" +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[10].championId)) + "\n"
+			, true);
 
 
 		message.channel.send({ embed });
