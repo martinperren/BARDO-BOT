@@ -537,7 +537,7 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			embed.setTitle("Partida de " + username + " | " + getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength))
+			embed.setTitle("Partida de " + username + " | " + getQueue(data.gameQueueConfigId) + " " +"(" +toMins(data.gameLength)+")");
 
 		} catch (err) {
 
