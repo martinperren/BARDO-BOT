@@ -49,7 +49,7 @@ function getEloEmote(key) {
 		'SILVER': '723809278275616819',
 		'MASTER': '723809279135711303',
 		'BRONZE': '723809588301791272',
-		'Unranked': '724078663691403374'
+		'UNRANKED': '724078663691403374'
 
 	}
 
@@ -258,6 +258,8 @@ function Player(nick, champ, leaguePos) {
 
 
 	if (this.tierSD.toString() != "Unranked") {
+
+		this.tierSD = "UNRANKED";
 
 		this.lpSD = "("+this.lpSD.toString() + " PL)";
 
