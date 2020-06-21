@@ -775,16 +775,17 @@ client.on("message", async message => {
 			, true);
 
 		embed.addField("Banned Champions",
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[1].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[2].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[3].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[4].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[5].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[6].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[7].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[8].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[9].championId)) + "\n"
-			, true);
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[0].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[1].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[2].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[3].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[4].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[5].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[6].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[7].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[8].championId)) + " " +
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[9].championId)) + " "
+			, false);
 
 
 		message.channel.send({ embed });
