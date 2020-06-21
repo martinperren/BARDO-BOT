@@ -673,9 +673,9 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			
 
-		//	console.log(bannedChampions);
+
+			//	console.log(bannedChampions);
 
 
 
@@ -775,16 +775,18 @@ client.on("message", async message => {
 			, true);
 
 		embed.addField("Banned Champions",
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[0].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[1].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[2].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[3].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[4].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[5].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[6].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[7].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[8].championId))) + " " +
-			"  " + client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[9].championId))) + " "
+			client.emojis.get("724061793147813990") + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[0].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[1].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[2].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[3].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[4].championId))) + " " +
+			client.emojis.get("724060843670503474") + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[5].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[6].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[7].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[8].championId))) + " " +
+			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[9].championId))) + " "
 			, false);
 
 
