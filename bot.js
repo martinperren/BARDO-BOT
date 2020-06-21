@@ -259,10 +259,12 @@ function Player(nick, champ, leaguePos) {
 
 	if (this.tierSD.toString() != "Unranked") {
 
-		this.tierSD = "UNRANKED";
+		
 
 		this.lpSD = "("+this.lpSD.toString() + " PL)";
 
+	}else{
+		this.tierSD = "UNRANKED";
 	}
 
 
