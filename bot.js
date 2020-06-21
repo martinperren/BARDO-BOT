@@ -354,83 +354,83 @@ function getChampionName(key) {
 		'77': 'Udyr',
 		'78': 'Poppy',
 		'79': 'Gragas',
-		'80': 'Pantheon', 
-		'81': 'Ezreal', 
-		'82': 'Mordekaiser', 
-		'83': 'Yorick', 
-		'84': 'Akali', 
-		'85': 'Kennen', 
-		'86': 'Garen', 
-		'89': 'Leona', 
-		'90': 'Malzahar', 
-		'91': 'Talon', 
-		'92': 'Riven', 
-		'96': 'KogMaw', 
-		'98': 'Shen', 
-		'99': 'Lux', 
-		'101': 'Xerath', 
-		'102': 'Shyvana', 
-		'103': 'Ahri', 
-		'104': 'Graves', 
-		'105': 'Fizz', 
-		'106': 'Volibear', 
-		'107': 'Rengar', 
-		'110': 'Varus', 
-		'111': 'Nautilus', 
-		'112': 'Viktor', 
-		'113': 'Sejuani', 
-		'114': 'Fiora', 
-		'115': 'Ziggs', 
-		'117': 'Lulu', 
-		'119': 'Draven', 
-		'120': 'Hecarim', 
-		'121': 'Khazix', 
-		'122': 'Darius', 
-		'126': 'Jayce', 
-		'127': 'Lissandra', 
-		'131': 'Diana', 
-		'133': 'Quinn', 
-		'134': 'Syndra', 
-		'136': 'AurelionSol', 
-		'141': 'Kayn', 
-		'142': 'Zoe', 
-		'143': 'Zyra', 
-		'145': 'Kaisa', 
-		'150': 'Gnar', 
-		'154': 'Zac', 
-		'157': 'Yasuo', 
-		'161': 'Velkoz', 
-		'163': 'Taliyah', 
-		'164': 'Camille', 
-		'201': 'Braum', 
-		'202': 'Jhin', 
-		'203': 'Kindred', 
-		'222': 'Jinx', 
-		'223': 'TahmKench', 
-		'236': 'Lucian', 
-		'238': 'Zed', 
-		'240': 'Kled', 
-		'245': 'Ekko', 
-		'246': 'Qiyana', 
-		'254': 'Vi', 
-		'266': 'Aatrox', 
-		'267': 'Nami', 
-		'268': 'Azir', 
-		'350': 'Yuumi', 		
-		'412': 'Thresh', 
-		'420': 'Illaoi', 
-		'421': 'RekSai', 
-		'427': 'Ivern', 
-		'429': 'Kalista', 
-		'432': 'Bard', 
-		'497': 'Rakan', 
-		'498': 'Xayah', 
-		'516': 'Ornn', 
-		'517': 'Sylas', 
-		'518': 'Neeko', 
-		'523': 'Aphelios', 
-		'555': 'Pyke', 
-		'235': 'Senna', 
+		'80': 'Pantheon',
+		'81': 'Ezreal',
+		'82': 'Mordekaiser',
+		'83': 'Yorick',
+		'84': 'Akali',
+		'85': 'Kennen',
+		'86': 'Garen',
+		'89': 'Leona',
+		'90': 'Malzahar',
+		'91': 'Talon',
+		'92': 'Riven',
+		'96': 'KogMaw',
+		'98': 'Shen',
+		'99': 'Lux',
+		'101': 'Xerath',
+		'102': 'Shyvana',
+		'103': 'Ahri',
+		'104': 'Graves',
+		'105': 'Fizz',
+		'106': 'Volibear',
+		'107': 'Rengar',
+		'110': 'Varus',
+		'111': 'Nautilus',
+		'112': 'Viktor',
+		'113': 'Sejuani',
+		'114': 'Fiora',
+		'115': 'Ziggs',
+		'117': 'Lulu',
+		'119': 'Draven',
+		'120': 'Hecarim',
+		'121': 'Khazix',
+		'122': 'Darius',
+		'126': 'Jayce',
+		'127': 'Lissandra',
+		'131': 'Diana',
+		'133': 'Quinn',
+		'134': 'Syndra',
+		'136': 'AurelionSol',
+		'141': 'Kayn',
+		'142': 'Zoe',
+		'143': 'Zyra',
+		'145': 'Kaisa',
+		'150': 'Gnar',
+		'154': 'Zac',
+		'157': 'Yasuo',
+		'161': 'Velkoz',
+		'163': 'Taliyah',
+		'164': 'Camille',
+		'201': 'Braum',
+		'202': 'Jhin',
+		'203': 'Kindred',
+		'222': 'Jinx',
+		'223': 'TahmKench',
+		'236': 'Lucian',
+		'238': 'Zed',
+		'240': 'Kled',
+		'245': 'Ekko',
+		'246': 'Qiyana',
+		'254': 'Vi',
+		'266': 'Aatrox',
+		'267': 'Nami',
+		'268': 'Azir',
+		'350': 'Yuumi',
+		'412': 'Thresh',
+		'420': 'Illaoi',
+		'421': 'RekSai',
+		'427': 'Ivern',
+		'429': 'Kalista',
+		'432': 'Bard',
+		'497': 'Rakan',
+		'498': 'Xayah',
+		'516': 'Ornn',
+		'517': 'Sylas',
+		'518': 'Neeko',
+		'523': 'Aphelios',
+		'555': 'Pyke',
+		'235': 'Senna',
 		'875': 'Sett'
 	}
 
@@ -653,6 +653,7 @@ client.on("message", async message => {
 		var players = new Array();
 		var sum;
 		var regionID = "la2";
+		let bannedChampions = new Array();
 
 		const embed = new Discord.RichEmbed().setColor(0x26caf5);
 
@@ -671,6 +672,12 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
+			bannedChampions = data.bannedChampions;
+
+			console.log(bannedChampions);
+
+
+
 			embed.setTitle("Partida de " + username + " | " + getQueue(data.gameQueueConfigId) + " " + "(" + toMins(data.gameLength) + ")");
 
 		} catch (err) {
@@ -765,6 +772,16 @@ client.on("message", async message => {
 			"  " + players[8].winrateSD + "\n" +
 			"  " + players[9].winrateSD + "\n"
 			, true);
+
+		embed.addField("Winrate",
+			"  " + players[5].winrateSD + "\n" +
+			"  " + players[6].winrateSD + "\n" +
+			"  " + players[7].winrateSD + "\n" +
+			"  " + players[8].winrateSD + "\n" +
+			"  " + players[9].winrateSD + "\n"
+			, false);
+
+
 
 
 		message.channel.send({ embed });
