@@ -222,7 +222,7 @@ function Player(nick, champ, leaguePos) {
 	this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
 	this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
 	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-	this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+	this.winrateSD = round([this.winsSD / (this.winsSD + this.lossesSD)] * 100, 1);
 	this.hotStreak = "";
 
 	if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
