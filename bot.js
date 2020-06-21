@@ -666,11 +666,11 @@ client.on("message", async message => {
 			players[4].tierSD + " " + players[4].rankSD + " " + players[4].lpSD + "\n"
 			, true);
 		embed.addField("Winrate",
-			"  " + players[0].winrateSD + "%\n" +
-			"  " + players[1].winrateSD + "%\n" +
-			"  " + players[2].winrateSD + "%\n" +
-			"  " + players[3].winrateSD + "%\n" +
-			"  " + players[4].winrateSD + "%\n"
+			"  " + players[0].winrateSD + "\n" +
+			"  " + players[1].winrateSD + "\n" +
+			"  " + players[2].winrateSD + "\n" +
+			"  " + players[3].winrateSD + "\n" +
+			"  " + players[4].winrateSD + "\n"
 			, true);
 
 
@@ -689,11 +689,11 @@ client.on("message", async message => {
 			players[9].tierSD + " " + players[9].rankSD + " " + players[9].lpSD + "\n"
 			, true);
 		embed.addField("Winrate",
-			"  " + players[5].winrateSD + "%\n" +
-			"  " + players[6].winrateSD + "%\n" +
-			"  " + players[7].winrateSD + "%\n" +
-			"  " + players[8].winrateSD + "%\n" +
-			"  " + players[9].winrateSD + "%\n"
+			"  " + players[5].winrateSD + "\n" +
+			"  " + players[6].winrateSD + "\n" +
+			"  " + players[7].winrateSD + "\n" +
+			"  " + players[8].winrateSD + "\n" +
+			"  " + players[9].winrateSD + "\n"
 			, true);
 
 
