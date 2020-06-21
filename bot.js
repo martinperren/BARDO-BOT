@@ -771,6 +771,8 @@ client.on("message", async message => {
 		}
 
 
+console.log(data.bannedChampions[7].championId);
+
 
 
 		embed.addField(client.emojis.get("724061793147813990") + " Blue Team",
