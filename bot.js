@@ -223,6 +223,28 @@ function Player(nick, champ, leaguePos) {
 	this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
 	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
 	this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+this.hotStreak= "";
+
+	if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
+	this.hotStreak = ":fire:"
+
+	}
+
+
+	if (tierSD.toString() != "Unranked") {
+
+		lpSD = lpSD.toString() + " PL";
+
+	}
+
+
+	if (isNaN(winrateSD)) {
+		winrateSD = "ND";
+	} else {
+		winrateSD = winrateSD + "%";
+	}
+
+
 
 }
 
@@ -492,7 +514,7 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			embed.setTitle("Partida de " + username + getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength))
+			embed.setTitle("Partida de " + username +" | " +  getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength))
 
 		} catch (err) {
 
@@ -628,11 +650,11 @@ client.on("message", async message => {
 
 
 		embed.addField("Blue Team",
-			client.emojis.get(getChampionEmote(players[0].champ)) + players[0].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[1].champ)) + players[1].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[2].champ)) + players[2].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[3].champ)) + players[3].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[4].champ)) + players[4].nick + "\n"
+			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + "\n"
 			, true);
 		embed.addField("Rank",
 			players[0].tierSD + " " + players[0].rankSD + " " + players[0].lpSD + "\n" +
@@ -651,11 +673,11 @@ client.on("message", async message => {
 
 
 		embed.addField("Red Team",
-			client.emojis.get(getChampionEmote(players[5].champ)) + players[5].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[6].champ)) + players[6].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[7].champ)) + players[7].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[8].champ)) + players[8].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[9].champ)) + players[9].nick + "\n"
+			client.emojis.get(getChampionEmote(players[5].champ))+ " " + players[5].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + "\n"
 			, true);
 		embed.addField("Rank",
 			players[5].tierSD + " " + players[5].rankSD + " " + players[5].lpSD + "\n" +
