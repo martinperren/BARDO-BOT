@@ -659,13 +659,10 @@ client.on("message", async message => {
 	}
 
 
-	if (message.content.includes("huevo")) {
-		message.react("537716624296378399");
-	}
-
-
 	if (message.content.startsWith("!m")) {
 
+
+		console.time();
 		let data;
 		let sumAux;
 		let args = message.content.substring(1).split(" ");
@@ -764,10 +761,6 @@ client.on("message", async message => {
 
 
 
-
-
-
-
 		}
 
 
@@ -832,8 +825,14 @@ client.on("message", async message => {
 			client.emojis.get(getChampionEmote(getChampionName(data.bannedChampions[9].championId))) + " "
 			, false);
 
-
+		console.timeEnd();
 		message.channel.send({ embed });
+	}
+
+
+
+	if (message.content.includes("huevo")) {
+		message.react("537716624296378399");
 	}
 
 
