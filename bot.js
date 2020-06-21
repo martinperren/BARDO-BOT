@@ -738,7 +738,7 @@ client.on("message", async message => {
 
 
 			} catch (err) {
-				//En el caso de alguien con maestria 0 loguea el error, por eso comento la linea
+				//En el caso de alguien con maestria 0 loguea el error, por eso comento la linea.
 				//console.log(err);
 				maestria = 0;
 
