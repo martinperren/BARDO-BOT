@@ -36,6 +36,29 @@ client.on("ready", () => {
 
 
 
+function getMastriaEmote(key) {
+
+	var Emotes = {
+
+		'1':'724164725235253248',
+		'2':'724164725440643112',
+		'3':'724164725348499517',
+		'4':'724164725402763274',
+		'5':'724164725725986877',
+		'6':'724164725809872927',
+		'7':'724164725965062185'
+
+	}
+
+
+	Object.freeze(Emotes);
+
+
+	return Emotes[key];
+
+}
+
+
 function getEloEmote(key) {
 
 	var Emotes = {
@@ -241,7 +264,7 @@ function getChampionEmote(key) {
 
 
 
-function Player(nick, champ, leaguePos) {
+function Player(nick, champ, leaguePos, maestria) {
 	this.nick = nick;
 	this.champ = champ;
 	this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
@@ -251,6 +274,7 @@ function Player(nick, champ, leaguePos) {
 	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
 	this.winrateSD = round([this.winsSD / (this.winsSD + this.lossesSD)] * 100, 1);
 	this.hotStreak = "";
+	this.maestria = maestria;
 
 	if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
 		this.hotStreak = ":fire:"
@@ -654,7 +678,7 @@ client.on("message", async message => {
 		var players = new Array();
 		var sum;
 		var regionID = "la2";
-		let bannedChampions;
+		let maestria;
 
 		const embed = new Discord.RichEmbed().setColor(0x26caf5);
 
@@ -694,7 +718,6 @@ client.on("message", async message => {
 
 		for (i = 0; i < 10; i++) {
 
-
 			//get summoner ID
 
 			try {
@@ -705,6 +728,21 @@ client.on("message", async message => {
 				console.log(err);
 			}
 
+
+	//test de maestria
+	try {
+
+		maestria = await pyke.champion-mastery.getChampionMastery(sumAux, regionId, data.participants[i].championId);
+
+		maestria = maestria.championLevel;
+
+
+
+	} catch (err) {
+		console.log(err);
+	}
+
+
 			//get ranks
 
 			try {
@@ -713,15 +751,21 @@ client.on("message", async message => {
 
 
 				//	opgg = data.participants[i].summonerName.split(' ').join('+');
+
 				championName = getChampionName(data.participants[i].championId);
 				champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
-				players.push(new Player(data.participants[i].summonerName, championName, leaguePos));
+				players.push(new Player(data.participants[i].summonerName, championName, leaguePos,maestria));
 
 			} catch (err) {
 				console.log(err);
 			}
+
+
+
+		
+
 
 
 		}
@@ -730,11 +774,11 @@ client.on("message", async message => {
 
 
 		embed.addField(client.emojis.get("724061793147813990") + " Blue Team",
-			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + " " + players[3].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + " " + players[4].hotStreak + "\n"
+		client.emojis.get(getMastriaEmote(players[0].maestria)) + " " +client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[1].maestria)) + " " +client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[2].maestria)) + " " +client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[3].maestria)) + " " +client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + " " + players[3].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[4].maestria)) + " " +client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + " " + players[4].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
 			client.emojis.get(getEloEmote(players[0].tierSD)) + " " + players[0].tierSD + " " + players[0].rankSD + " " + players[0].lpSD + "\n" +
@@ -753,11 +797,11 @@ client.on("message", async message => {
 
 
 		embed.addField(client.emojis.get("724060843670503474") + " Red Team",
-			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + " " + players[5].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + " " + players[6].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + " " + players[7].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + " " + players[8].hotStreak + "\n" +
-			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + " " + players[9].hotStreak + "\n"
+		client.emojis.get(getMastriaEmote(players[5].maestria)) + " " +client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + " " + players[5].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[6].maestria)) + " " +client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + " " + players[6].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[7].maestria)) + " " +client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + " " + players[7].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[8].maestria)) + " " +client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + " " + players[8].hotStreak + "\n" +
+		client.emojis.get(getMastriaEmote(players[9].maestria)) + " " +client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + " " + players[9].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
 			client.emojis.get(getEloEmote(players[5].tierSD)) + " " + players[5].tierSD + " " + players[5].rankSD + " " + players[5].lpSD + "\n" +
