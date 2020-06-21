@@ -738,6 +738,7 @@ client.on("message", async message => {
 			} catch (err) {
 				console.log(err);
 				console.log(data.participants[i].summonerName);
+				console.log(maestria.championLevel);
 			}
 
 
