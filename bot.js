@@ -65,7 +65,7 @@ function getChampionEmote(key) {
 
 	var Emotes = {
 
-		'NoBan':'724147103680692277',
+		'NoBan': '724147103680692277',
 		'Challenger': '723808761441157162',
 		'Diamond': '723809276841164811',
 		'Gold': '723809276920856578',
@@ -654,7 +654,7 @@ client.on("message", async message => {
 		var players = new Array();
 		var sum;
 		var regionID = "la2";
-		let bannedChampions = new Array();
+		let bannedChampions;
 
 		const embed = new Discord.RichEmbed().setColor(0x26caf5);
 
@@ -675,7 +675,7 @@ client.on("message", async message => {
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 			bannedChampions = data.bannedChampions;
 
-			console.log(bannedChampions);
+		//	console.log(bannedChampions);
 
 
 
@@ -774,7 +774,7 @@ client.on("message", async message => {
 			"  " + players[9].winrateSD + "\n"
 			, true);
 
-			embed.addField("Banned Champions",
+		embed.addField("Banned Champions",
 			"  " + client.emojis.get(getChampionEmote(bannedChampions[1].championId)) + "\n" +
 			"  " + client.emojis.get(getChampionEmote(bannedChampions[2].championId)) + "\n" +
 			"  " + client.emojis.get(getChampionEmote(bannedChampions[3].championId)) + "\n" +
