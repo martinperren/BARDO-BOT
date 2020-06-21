@@ -35,6 +35,32 @@ client.on("ready", () => {
 
 
 
+
+function getEloEmote(key) {
+
+	var Emotes = {
+
+		'CHALLENGER': '723808761441157162',
+		'DIAMOND': '723809276841164811',
+		'GOLD': '723809276920856578',
+		'IRON': '723809277902323754',
+		'PLATINUM': '723809277944528922',
+		'GRANDMASTER': '723809278158176266',
+		'SILVER': '723809278275616819',
+		'MASTER': '723809279135711303',
+		'BRONZE': '723809588301791272'
+
+
+	}
+
+
+	Object.freeze(Emotes);
+
+
+	return Emotes[key];
+
+}
+
 function getChampionEmote(key) {
 
 	var Emotes = {
@@ -198,7 +224,7 @@ function getChampionEmote(key) {
 		'XinZhao': '723806479143927843',
 		'Vladimir': '723806479181807666',
 		'Vayne': '723806479211167795',
-		'Teemo': '723806479307767843',
+		'Teemo': '723806479307767843'
 
 	}
 
@@ -652,18 +678,18 @@ client.on("message", async message => {
 
 
 		embed.addField("Blue Team",
-			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick +" "+ players[0].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick +" "+ players[1].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick +" "+ players[2].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick +" "+ players[3].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick +" "+ players[4].hotStreak+"\n"
+			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + " " + players[3].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + " " + players[4].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
-			players[0].tierSD + " " + players[0].rankSD + " (" + players[0].lpSD + ")\n" +
-			players[1].tierSD + " " + players[1].rankSD + " (" + players[1].lpSD + ")\n" +
-			players[2].tierSD + " " + players[2].rankSD + " (" + players[2].lpSD + ")\n" +
-			players[3].tierSD + " " + players[3].rankSD + " (" + players[3].lpSD + ")\n" +
-			players[4].tierSD + " " + players[4].rankSD + " (" + players[4].lpSD + ")\n"
+			getEloEmote(players[0].tierSD) + " " + players[0].tierSD + " " + players[0].rankSD + " (" + players[0].lpSD + ")\n" +
+			getEloEmote(players[1].tierSD) + " " + players[1].tierSD + " " + players[1].rankSD + " (" + players[1].lpSD + ")\n" +
+			getEloEmote(players[2].tierSD) + " " + players[2].tierSD + " " + players[2].rankSD + " (" + players[2].lpSD + ")\n" +
+			getEloEmote(players[3].tierSD) + " " + players[3].tierSD + " " + players[3].rankSD + " (" + players[3].lpSD + ")\n" +
+			getEloEmote(players[4].tierSD) + " " + players[4].tierSD + " " + players[4].rankSD + " (" + players[4].lpSD + ")\n"
 			, true);
 		embed.addField("Winrate",
 			"  " + players[0].winrateSD + "\n" +
@@ -675,18 +701,18 @@ client.on("message", async message => {
 
 
 		embed.addField("Red Team",
-			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick +" "+ players[5].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick +" "+ players[6].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick +" "+ players[7].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick +" "+ players[8].hotStreak+"\n" +
-			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick +" "+ players[9].hotStreak+"\n"
+			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + " " + players[5].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + " " + players[6].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + " " + players[7].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + " " + players[8].hotStreak + "\n" +
+			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + " " + players[9].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
-			players[5].tierSD + " " + players[5].rankSD + " (" + players[5].lpSD + ")\n" +
-			players[6].tierSD + " " + players[6].rankSD + " (" + players[6].lpSD + ")\n" +
-			players[7].tierSD + " " + players[7].rankSD + " (" + players[7].lpSD + ")\n" +
-			players[8].tierSD + " " + players[8].rankSD + " (" + players[8].lpSD + ")\n" +
-			players[9].tierSD + " " + players[9].rankSD + " (" + players[9].lpSD + ")\n"
+			getEloEmote(players[5].tierSD) + " " + players[5].tierSD + " " + players[5].rankSD + " (" + players[5].lpSD + ")\n" +
+			getEloEmote(players[6].tierSD) + " " + players[6].tierSD + " " + players[6].rankSD + " (" + players[6].lpSD + ")\n" +
+			getEloEmote(players[7].tierSD) + " " + players[7].tierSD + " " + players[7].rankSD + " (" + players[7].lpSD + ")\n" +
+			getEloEmote(players[8].tierSD) + " " + players[8].tierSD + " " + players[8].rankSD + " (" + players[8].lpSD + ")\n" +
+			getEloEmote(players[9].tierSD) + " " + players[9].tierSD + " " + players[9].rankSD + " (" + players[9].lpSD + ")\n"
 			, true);
 		embed.addField("Winrate",
 			"  " + players[5].winrateSD + "\n" +
