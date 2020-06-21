@@ -223,10 +223,10 @@ function Player(nick, champ, leaguePos) {
 	this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
 	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
 	this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
-this.hotStreak= "";
+	this.hotStreak = "";
 
 	if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
-	this.hotStreak = ":fire:"
+		this.hotStreak = ":fire:"
 
 	}
 
@@ -514,7 +514,7 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			embed.setTitle("Partida de " + username +" | " +  getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength))
+			embed.setTitle("Partida de " + username + " | " + getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength))
 
 		} catch (err) {
 
@@ -557,7 +557,7 @@ client.on("message", async message => {
 				//console.log("SUMMMMM ID: "+sum.id);
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
-
+/*
 
 
 
@@ -593,7 +593,7 @@ client.on("message", async message => {
 				} else {
 					winrateSD = winrateSD + "%";
 				}
-
+*/
 
 			} catch (err) {
 				console.log(err);
@@ -673,7 +673,7 @@ client.on("message", async message => {
 
 
 		embed.addField("Red Team",
-			client.emojis.get(getChampionEmote(players[5].champ))+ " " + players[5].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + "\n" +
 			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + "\n" +
 			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + "\n" +
 			client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + "\n" +
