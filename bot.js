@@ -524,7 +524,7 @@ client.on("message", async message => {
 			}
 
 
-			data = JSON.parse(data); //??????????????????????????????????????
+			//data = JSON.parse(data); //??????????????????????????????????????
 
 
 
@@ -595,6 +595,13 @@ client.on("message", async message => {
 				}
 */
 
+opgg = data.participants[i].summonerName.split(' ').join('+');
+			championName = getChampionName(data.participants[i].championId);
+			champEmoji = client.emojis.get(getChampionEmote(championName));
+
+
+			players.push(new Player(data.participants[i].summonerName, championName, leaguePos));
+
 			} catch (err) {
 				console.log(err);
 			}
@@ -603,12 +610,7 @@ client.on("message", async message => {
 
 
 
-			opgg = data.participants[i].summonerName.split(' ').join('+');
-			championName = getChampionName(data.participants[i].championId);
-			champEmoji = client.emojis.get(getChampionEmote(championName));
-
-
-			players.push(new Player(data.participants[i].summonerName, championName, leaguePos));
+			
 
 
 
