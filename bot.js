@@ -233,15 +233,15 @@ function Player(nick, champ, leaguePos) {
 
 	if (tierSD.toString() != "Unranked") {
 
-		lpSD = lpSD.toString() + " PL";
+		this.lpSD = this.lpSD.toString() + " PL";
 
 	}
 
 
-	if (isNaN(winrateSD)) {
-		winrateSD = "ND";
+	if (isNaN(this.winrateSD)) {
+		this.winrateSD = "ND";
 	} else {
-		winrateSD = winrateSD + "%";
+		this.winrateSD = this.winrateSD + "%";
 	}
 
 
@@ -557,50 +557,50 @@ client.on("message", async message => {
 				//console.log("SUMMMMM ID: "+sum.id);
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
-/*
+				/*
+				
+				
+				
+				
+								tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+								rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+								lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+								winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+								lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+				
+								if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
+									hotStreak = ":fire:"
+				
+								}
+				
+								winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+				
+				
+				
+				
+								if (tierSD.toString() != "Unranked") {
+				
+									lpSD = lpSD.toString() + " PL";
+				
+								}
+				
+				
+				
+				
+				
+								if (isNaN(winrateSD)) {
+									winrateSD = "ND";
+								} else {
+									winrateSD = winrateSD + "%";
+								}
+				*/
+
+				opgg = data.participants[i].summonerName.split(' ').join('+');
+				championName = getChampionName(data.participants[i].championId);
+				champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
-
-
-				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
-				rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-				lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
-				winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
-				lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-
-				if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
-					hotStreak = ":fire:"
-
-				}
-
-				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
-
-
-
-
-				if (tierSD.toString() != "Unranked") {
-
-					lpSD = lpSD.toString() + " PL";
-
-				}
-
-
-
-
-
-				if (isNaN(winrateSD)) {
-					winrateSD = "ND";
-				} else {
-					winrateSD = winrateSD + "%";
-				}
-*/
-
-opgg = data.participants[i].summonerName.split(' ').join('+');
-			championName = getChampionName(data.participants[i].championId);
-			champEmoji = client.emojis.get(getChampionEmote(championName));
-
-
-			players.push(new Player(data.participants[i].summonerName, championName, leaguePos));
+				players.push(new Player(data.participants[i].summonerName, championName, leaguePos));
 
 			} catch (err) {
 				console.log(err);
@@ -610,7 +610,7 @@ opgg = data.participants[i].summonerName.split(' ').join('+');
 
 
 
-			
+
 
 
 
