@@ -731,7 +731,7 @@ client.on("message", async message => {
 
 	//test de maestria
 	try {
-		CHAMPION-MASTERY
+		
 		maestria = await pyke.champion_mastery.getChampionMastery(sumAux, regionId, data.participants[i].championId);
 
 		maestria = maestria.championLevel;
