@@ -677,7 +677,7 @@ client.on("message", async message => {
 
 
 
-		embed.addField("Blue Team",
+		embed.addField(client.emojis.get("724060843670503474")+" Red Team",
 			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
@@ -700,7 +700,7 @@ client.on("message", async message => {
 			, true);
 
 
-		embed.addField("Red Team",
+		embed.addField(client.emojis.get("724060843670503474")+" Red Team",
 			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + " " + players[5].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + " " + players[6].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + " " + players[7].hotStreak + "\n" +
