@@ -659,11 +659,11 @@ client.on("message", async message => {
 			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + "\n"
 			, true);
 		embed.addField("Rank",
-			players[0].tierSD + " " + players[0].rankSD + " " + players[0].lpSD + "\n" +
-			players[1].tierSD + " " + players[1].rankSD + " " + players[1].lpSD + "\n" +
-			players[2].tierSD + " " + players[2].rankSD + " " + players[2].lpSD + "\n" +
-			players[3].tierSD + " " + players[3].rankSD + " " + players[3].lpSD + "\n" +
-			players[4].tierSD + " " + players[4].rankSD + " " + players[4].lpSD + "\n"
+			players[0].tierSD + " " + players[0].rankSD + " (" + players[0].lpSD + ")\n" +
+			players[1].tierSD + " " + players[1].rankSD + " (" + players[1].lpSD + ")\n" +
+			players[2].tierSD + " " + players[2].rankSD + " (" + players[2].lpSD + ")\n" +
+			players[3].tierSD + " " + players[3].rankSD + " (" + players[3].lpSD + ")\n" +
+			players[4].tierSD + " " + players[4].rankSD + " (" + players[4].lpSD + ")\n"
 			, true);
 		embed.addField("Winrate",
 			"  " + players[0].winrateSD + "\n" +
@@ -682,11 +682,11 @@ client.on("message", async message => {
 			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + "\n"
 			, true);
 		embed.addField("Rank",
-			players[5].tierSD + " " + players[5].rankSD + " " + players[5].lpSD + "\n" +
-			players[6].tierSD + " " + players[6].rankSD + " " + players[6].lpSD + "\n" +
-			players[7].tierSD + " " + players[7].rankSD + " " + players[7].lpSD + "\n" +
-			players[8].tierSD + " " + players[8].rankSD + " " + players[8].lpSD + "\n" +
-			players[9].tierSD + " " + players[9].rankSD + " " + players[9].lpSD + "\n"
+			players[5].tierSD + " " + players[5].rankSD + " (" + players[5].lpSD + ")\n" +
+			players[6].tierSD + " " + players[6].rankSD + " (" + players[6].lpSD + ")\n" +
+			players[7].tierSD + " " + players[7].rankSD + " (" + players[7].lpSD + ")\n" +
+			players[8].tierSD + " " + players[8].rankSD + " (" + players[8].lpSD + ")\n" +
+			players[9].tierSD + " " + players[9].rankSD + " (" + players[9].lpSD + ")\n"
 			, true);
 		embed.addField("Winrate",
 			"  " + players[5].winrateSD + "\n" +
