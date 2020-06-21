@@ -652,11 +652,11 @@ client.on("message", async message => {
 
 
 		embed.addField("Blue Team",
-			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + "\n"
+			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + players[0].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + players[1].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + players[2].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + players[3].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + players[4].hotStreak+"\n"
 			, true);
 		embed.addField("Rank",
 			players[0].tierSD + " " + players[0].rankSD + " (" + players[0].lpSD + ")\n" +
@@ -675,11 +675,11 @@ client.on("message", async message => {
 
 
 		embed.addField("Red Team",
-			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + "\n" +
-			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + "\n"
+			client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + players[5].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + players[6].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + players[7].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + players[8].hotStreak+"\n" +
+			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + players[9].hotStreak+"\n"
 			, true);
 		embed.addField("Rank",
 			players[5].tierSD + " " + players[5].rankSD + " (" + players[5].lpSD + ")\n" +
