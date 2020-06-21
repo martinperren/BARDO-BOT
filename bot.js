@@ -732,7 +732,7 @@ client.on("message", async message => {
 			//test de maestria
 			try {
 
-				maestria = await pyke.masteries.getChampionMastery(sumAux, regionId, data.participants[i].championId);
+				maestria = await pyke.masteries.getChampionMastery(sumAux, regionID, data.participants[i].championId);
 
 				maestria = maestria.championLevel;
 
@@ -769,9 +769,6 @@ client.on("message", async message => {
 
 
 		}
-
-
-		console.log(data.bannedChampions[7].championId);
 
 
 
