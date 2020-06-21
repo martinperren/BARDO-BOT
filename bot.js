@@ -470,7 +470,7 @@ client.on("message", async message => {
 
 		//build embed
 		const embed = new Discord.RichEmbed()
-			.setTitle("Partida de " + username)
+
 			.setColor(0x00AE86);
 		//	.addField("________________________________", "**EQUIPO 1**");
 
@@ -492,7 +492,7 @@ client.on("message", async message => {
 		try {
 
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
-			//	embed.setDescription(getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength));
+			embed.setTitle("Partida de " + username + getQueue(data.gameQueueConfigId) + " " + toMins(data.gameLength))
 
 		} catch (err) {
 
@@ -502,7 +502,7 @@ client.on("message", async message => {
 			}
 
 
-			
+			data = JSON.parse(data); //??????????????????????????????????????
 
 
 
@@ -609,30 +609,30 @@ client.on("message", async message => {
 
 
 
-/*
-function Player(nick, champ, leaguePos) {
-	this.nick = nick;
-	this.champ = champ;
-	this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
-	this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-	this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
-	this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
-	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-	this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
-
-}
-
-*/
+		/*
+		function Player(nick, champ, leaguePos) {
+			this.nick = nick;
+			this.champ = champ;
+			this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+			this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+			this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+			this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+			this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+			this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+		
+		}
+		
+		*/
 
 
 
 
 		embed.addField("Blue Team",
-		client.emojis.get(getChampionEmote(players[0].champ)) + players[0].nick + "\n" +
-		client.emojis.get(getChampionEmote(players[1].champ))  + players[1].nick + "\n" +
-		client.emojis.get(getChampionEmote(players[2].champ))  + players[2].nick + "\n" +
-		client.emojis.get(getChampionEmote(players[3].champ))  + players[3].nick + "\n" +
-		client.emojis.get(getChampionEmote(players[4].champ))  + players[4].nick + "\n"
+			client.emojis.get(getChampionEmote(players[0].champ)) + players[0].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[1].champ)) + players[1].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[2].champ)) + players[2].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[3].champ)) + players[3].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[4].champ)) + players[4].nick + "\n"
 			, true);
 		embed.addField("Rank",
 			players[0].tierSD + " " + players[0].rankSD + " " + players[0].lpSD + "\n" +
@@ -642,11 +642,34 @@ function Player(nick, champ, leaguePos) {
 			players[4].tierSD + " " + players[4].rankSD + " " + players[4].lpSD + "\n"
 			, true);
 		embed.addField("Winrate",
-			players[0].winrateSD + "\n" +
-			players[1].winrateSD + "\n" +
-			players[2].winrateSD + "\n" +
-			players[3].winrateSD + "\n" +
-			players[4].winrateSD + "\n"
+			"  " + players[0].winrateSD + "%\n" +
+			"  " + players[1].winrateSD + "%\n" +
+			"  " + players[2].winrateSD + "%\n" +
+			"  " + players[3].winrateSD + "%\n" +
+			"  " + players[4].winrateSD + "%\n"
+			, true);
+
+
+		embed.addField("Red Team",
+			client.emojis.get(getChampionEmote(players[5].champ)) + players[5].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[6].champ)) + players[6].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[7].champ)) + players[7].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[8].champ)) + players[8].nick + "\n" +
+			client.emojis.get(getChampionEmote(players[9].champ)) + players[9].nick + "\n"
+			, true);
+		embed.addField("Rank",
+			players[5].tierSD + " " + players[5].rankSD + " " + players[5].lpSD + "\n" +
+			players[6].tierSD + " " + players[6].rankSD + " " + players[6].lpSD + "\n" +
+			players[7].tierSD + " " + players[7].rankSD + " " + players[7].lpSD + "\n" +
+			players[8].tierSD + " " + players[8].rankSD + " " + players[8].lpSD + "\n" +
+			players[9].tierSD + " " + players[9].rankSD + " " + players[9].lpSD + "\n"
+			, true);
+		embed.addField("Winrate",
+			"  " + players[5].winrateSD + "%\n" +
+			"  " + players[6].winrateSD + "%\n" +
+			"  " + players[7].winrateSD + "%\n" +
+			"  " + players[8].winrateSD + "%\n" +
+			"  " + players[9].winrateSD + "%\n"
 			, true);
 
 
