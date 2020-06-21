@@ -40,13 +40,13 @@ function getMastriaEmote(key) {
 
 	var Emotes = {
 
-		'1':'724164725235253248',
-		'2':'724164725440643112',
-		'3':'724164725348499517',
-		'4':'724164725402763274',
-		'5':'724164725725986877',
-		'6':'724164725809872927',
-		'7':'724164725965062185'
+		'1': '724164725235253248',
+		'2': '724164725440643112',
+		'3': '724164725348499517',
+		'4': '724164725402763274',
+		'5': '724164725725986877',
+		'6': '724164725809872927',
+		'7': '724164725965062185'
 
 	}
 
@@ -88,7 +88,7 @@ function getChampionEmote(key) {
 
 	var Emotes = {
 
-		'-1': '724147103680692277',
+		'None': '724147103680692277',
 		'Challenger': '723808761441157162',
 		'Diamond': '723809276841164811',
 		'Gold': '723809276920856578',
@@ -308,7 +308,7 @@ function Player(nick, champ, leaguePos, maestria) {
 function getChampionName(key) {
 
 	var Champions = {
-
+		'-1': 'None',
 		'1': 'Annie',
 		'2': 'Olaf',
 		'3': 'Galio',
@@ -729,18 +729,18 @@ client.on("message", async message => {
 			}
 
 
-	//test de maestria
-	try {
-		
-		maestria = await pyke.champion_mastery.getChampionMastery(sumAux, regionId, data.participants[i].championId);
+			//test de maestria
+			try {
 
-		maestria = maestria.championLevel;
+				maestria = await pyke.champion_mastery.getChampionMastery(sumAux, regionId, data.participants[i].championId);
+
+				maestria = maestria.championLevel;
 
 
 
-	} catch (err) {
-		console.log(err);
-	}
+			} catch (err) {
+				console.log(err);
+			}
 
 
 			//get ranks
@@ -756,7 +756,7 @@ client.on("message", async message => {
 				champEmoji = client.emojis.get(getChampionEmote(championName));
 
 
-				players.push(new Player(data.participants[i].summonerName, championName, leaguePos,maestria));
+				players.push(new Player(data.participants[i].summonerName, championName, leaguePos, maestria));
 
 			} catch (err) {
 				console.log(err);
@@ -764,23 +764,23 @@ client.on("message", async message => {
 
 
 
-		
+
 
 
 
 		}
 
 
-console.log(data.bannedChampions[7].championId);
+		console.log(data.bannedChampions[7].championId);
 
 
 
 		embed.addField(client.emojis.get("724061793147813990") + " Blue Team",
-		client.emojis.get(getMastriaEmote(players[0].maestria)) + " " +client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[1].maestria)) + " " +client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[2].maestria)) + " " +client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[3].maestria)) + " " +client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + " " + players[3].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[4].maestria)) + " " +client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + " " + players[4].hotStreak + "\n"
+			client.emojis.get(getMastriaEmote(players[0].maestria)) + " " + client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[1].maestria)) + " " + client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[2].maestria)) + " " + client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[3].maestria)) + " " + client.emojis.get(getChampionEmote(players[3].champ)) + " " + players[3].nick + " " + players[3].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[4].maestria)) + " " + client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + " " + players[4].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
 			client.emojis.get(getEloEmote(players[0].tierSD)) + " " + players[0].tierSD + " " + players[0].rankSD + " " + players[0].lpSD + "\n" +
@@ -799,11 +799,11 @@ console.log(data.bannedChampions[7].championId);
 
 
 		embed.addField(client.emojis.get("724060843670503474") + " Red Team",
-		client.emojis.get(getMastriaEmote(players[5].maestria)) + " " +client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + " " + players[5].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[6].maestria)) + " " +client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + " " + players[6].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[7].maestria)) + " " +client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + " " + players[7].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[8].maestria)) + " " +client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + " " + players[8].hotStreak + "\n" +
-		client.emojis.get(getMastriaEmote(players[9].maestria)) + " " +client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + " " + players[9].hotStreak + "\n"
+			client.emojis.get(getMastriaEmote(players[5].maestria)) + " " + client.emojis.get(getChampionEmote(players[5].champ)) + " " + players[5].nick + " " + players[5].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[6].maestria)) + " " + client.emojis.get(getChampionEmote(players[6].champ)) + " " + players[6].nick + " " + players[6].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[7].maestria)) + " " + client.emojis.get(getChampionEmote(players[7].champ)) + " " + players[7].nick + " " + players[7].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[8].maestria)) + " " + client.emojis.get(getChampionEmote(players[8].champ)) + " " + players[8].nick + " " + players[8].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[9].maestria)) + " " + client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + " " + players[9].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
 			client.emojis.get(getEloEmote(players[5].tierSD)) + " " + players[5].tierSD + " " + players[5].rankSD + " " + players[5].lpSD + "\n" +
