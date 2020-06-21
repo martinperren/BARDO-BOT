@@ -751,7 +751,6 @@ client.on("message", async message => {
 
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
-
 				//	opgg = data.participants[i].summonerName.split(' ').join('+');
 
 				championName = getChampionName(data.participants[i].championId);
