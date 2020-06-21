@@ -677,7 +677,7 @@ client.on("message", async message => {
 
 
 
-		embed.addField(client.emojis.get("724060843670503474")+" Red Team",
+		embed.addField(client.emojis.get("724061793147813990")+" Blue Team",
 			client.emojis.get(getChampionEmote(players[0].champ)) + " " + players[0].nick + " " + players[0].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[1].champ)) + " " + players[1].nick + " " + players[1].hotStreak + "\n" +
 			client.emojis.get(getChampionEmote(players[2].champ)) + " " + players[2].nick + " " + players[2].hotStreak + "\n" +
