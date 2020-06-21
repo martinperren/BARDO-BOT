@@ -259,11 +259,11 @@ function Player(nick, champ, leaguePos) {
 
 	if (this.tierSD.toString() != "Unranked") {
 
-		
 
-		this.lpSD = "("+this.lpSD.toString() + " PL)";
 
-	}else{
+		this.lpSD = "(" + this.lpSD.toString() + " PL)";
+
+	} else {
 		this.tierSD = "UNRANKED";
 	}
 
@@ -280,15 +280,158 @@ function Player(nick, champ, leaguePos) {
 
 
 
-
-
-
-
 function getChampionName(key) {
 
 	var Champions = {
 
-		'1': 'Annie', '2': 'Olaf', '3': 'Galio', '4': 'TwistedFate', '5': 'XinZhao', '6': 'Urgot', '7': 'Leblanc', '8': 'Vladimir', '9': 'FiddleSticks', '10': 'Kayle', '11': 'MasterYi', '12': 'Alistar', '13': 'Ryze', '14': 'Sion', '15': 'Sivir', '16': 'Soraka', '17': 'Teemo', '18': 'Tristana', '19': 'Warwick', '20': 'Nunu', '21': 'MissFortune', '22': 'Ashe', '23': 'Tryndamere', '24': 'Jax', '25': 'Morgana', '26': 'Zilean', '27': 'Singed', '28': 'Evelynn', '29': 'Twitch', '30': 'Karthus', '31': 'Chogath', '32': 'Amumu', '33': 'Rammus', '34': 'Anivia', '35': 'Shaco', '36': 'DrMundo', '37': 'Sona', '38': 'Kassadin', '39': 'Irelia', '40': 'Janna', '41': 'Gangplank', '42': 'Corki', '43': 'Karma', '44': 'Taric', '45': 'Veigar', '48': 'Trundle', '50': 'Swain', '51': 'Caitlyn', '53': 'Blitzcrank', '54': 'Malphite', '55': 'Katarina', '56': 'Nocturne', '57': 'Maokai', '58': 'Renekton', '59': 'JarvanIV', '60': 'Elise', '61': 'Orianna', '62': 'Wukong', '63': 'Brand', '64': 'LeeSin', '67': 'Vayne', '68': 'Rumble', '69': 'Cassiopeia', '72': 'Skarner', '74': 'Heimerdinger', '75': 'Nasus', '76': 'Nidalee', '77': 'Udyr', '78': 'Poppy', '79': 'Gragas', '80': 'Pantheon', '81': 'Ezreal', '82': 'Mordekaiser', '83': 'Yorick', '84': 'Akali', '85': 'Kennen', '86': 'Garen', '89': 'Leona', '90': 'Malzahar', '91': 'Talon', '92': 'Riven', '96': 'KogMaw', '98': 'Shen', '99': 'Lux', '101': 'Xerath', '102': 'Shyvana', '103': 'Ahri', '104': 'Graves', '105': 'Fizz', '106': 'Volibear', '107': 'Rengar', '110': 'Varus', '111': 'Nautilus', '112': 'Viktor', '113': 'Sejuani', '114': 'Fiora', '115': 'Ziggs', '117': 'Lulu', '119': 'Draven', '120': 'Hecarim', '121': 'Khazix', '122': 'Darius', '126': 'Jayce', '127': 'Lissandra', '131': 'Diana', '133': 'Quinn', '134': 'Syndra', '136': 'AurelionSol', '141': 'Kayn', '142': 'Zoe', '143': 'Zyra', '145': 'Kaisa', '150': 'Gnar', '154': 'Zac', '157': 'Yasuo', '161': 'Velkoz', '163': 'Taliyah', '164': 'Camille', '201': 'Braum', '202': 'Jhin', '203': 'Kindred', '222': 'Jinx', '223': 'TahmKench', '236': 'Lucian', '238': 'Zed', '240': 'Kled', '245': 'Ekko', '246': 'Qiyana', '254': 'Vi', '266': 'Aatrox', '267': 'Nami', '268': 'Azir', '350': 'Yuumi', '412': 'Thresh', '420': 'Illaoi', '421': 'RekSai', '427': 'Ivern', '429': 'Kalista', '432': 'Bard', '497': 'Rakan', '498': 'Xayah', '516': 'Ornn', '517': 'Sylas', '518': 'Neeko', '523': 'Aphelios', '555': 'Pyke', '235': 'Senna', '875': 'Sett'
+		'1': 'Annie',
+		'2': 'Olaf',
+		'3': 'Galio',
+		'4': 'TwistedFate',
+		'5': 'XinZhao',
+		'6': 'Urgot',
+		'7': 'Leblanc',
+		'8': 'Vladimir',
+		'9': 'FiddleSticks',
+		'10': 'Kayle',
+		'11': 'MasterYi',
+		'12': 'Alistar',
+		'13': 'Ryze',
+		'14': 'Sion',
+		'15': 'Sivir',
+		'16': 'Soraka',
+		'17': 'Teemo',
+		'18': 'Tristana',
+		'19': 'Warwick',
+		'20': 'Nunu',
+		'21': 'MissFortune',
+		'22': 'Ashe',
+		'23': 'Tryndamere',
+		'24': 'Jax',
+		'25': 'Morgana',
+		'26': 'Zilean',
+		'27': 'Singed',
+		'28': 'Evelynn',
+		'29': 'Twitch',
+		'30': 'Karthus',
+		'31': 'Chogath',
+		'32': 'Amumu',
+		'33': 'Rammus',
+		'34': 'Anivia',
+		'35': 'Shaco',
+		'36': 'DrMundo',
+		'37': 'Sona',
+		'38': 'Kassadin',
+		'39': 'Irelia',
+		'40': 'Janna',
+		'41': 'Gangplank',
+		'42': 'Corki',
+		'43': 'Karma',
+		'44': 'Taric',
+		'45': 'Veigar',
+		'48': 'Trundle',
+		'50': 'Swain',
+		'51': 'Caitlyn',
+		'53': 'Blitzcrank',
+		'54': 'Malphite',
+		'55': 'Katarina',
+		'56': 'Nocturne',
+		'57': 'Maokai',
+		'58': 'Renekton',
+		'59': 'JarvanIV',
+		'60': 'Elise',
+		'61': 'Orianna',
+		'62': 'Wukong',
+		'63': 'Brand',
+		'64': 'LeeSin',
+		'67': 'Vayne',
+		'68': 'Rumble',
+		'69': 'Cassiopeia',
+		'72': 'Skarner',
+		'74': 'Heimerdinger',
+		'75': 'Nasus',
+		'76': 'Nidalee',
+		'77': 'Udyr',
+		'78': 'Poppy',
+		'79': 'Gragas',
+		'80': 'Pantheon', 
+		'81': 'Ezreal', 
+		'82': 'Mordekaiser', 
+		'83': 'Yorick', 
+		'84': 'Akali', 
+		'85': 'Kennen', 
+		'86': 'Garen', 
+		'89': 'Leona', 
+		'90': 'Malzahar', 
+		'91': 'Talon', 
+		'92': 'Riven', 
+		'96': 'KogMaw', 
+		'98': 'Shen', 
+		'99': 'Lux', 
+		'101': 'Xerath', 
+		'102': 'Shyvana', 
+		'103': 'Ahri', 
+		'104': 'Graves', 
+		'105': 'Fizz', 
+		'106': 'Volibear', 
+		'107': 'Rengar', 
+		'110': 'Varus', 
+		'111': 'Nautilus', 
+		'112': 'Viktor', 
+		'113': 'Sejuani', 
+		'114': 'Fiora', 
+		'115': 'Ziggs', 
+		'117': 'Lulu', 
+		'119': 'Draven', 
+		'120': 'Hecarim', 
+		'121': 'Khazix', 
+		'122': 'Darius', 
+		'126': 'Jayce', 
+		'127': 'Lissandra', 
+		'131': 'Diana', 
+		'133': 'Quinn', 
+		'134': 'Syndra', 
+		'136': 'AurelionSol', 
+		'141': 'Kayn', 
+		'142': 'Zoe', 
+		'143': 'Zyra', 
+		'145': 'Kaisa', 
+		'150': 'Gnar', 
+		'154': 'Zac', 
+		'157': 'Yasuo', 
+		'161': 'Velkoz', 
+		'163': 'Taliyah', 
+		'164': 'Camille', 
+		'201': 'Braum', 
+		'202': 'Jhin', 
+		'203': 'Kindred', 
+		'222': 'Jinx', 
+		'223': 'TahmKench', 
+		'236': 'Lucian', 
+		'238': 'Zed', 
+		'240': 'Kled', 
+		'245': 'Ekko', 
+		'246': 'Qiyana', 
+		'254': 'Vi', 
+		'266': 'Aatrox', 
+		'267': 'Nami', 
+		'268': 'Azir', 
+		'350': 'Yuumi', 		
+		'412': 'Thresh', 
+		'420': 'Illaoi', 
+		'421': 'RekSai', 
+		'427': 'Ivern', 
+		'429': 'Kalista', 
+		'432': 'Bard', 
+		'497': 'Rakan', 
+		'498': 'Xayah', 
+		'516': 'Ornn', 
+		'517': 'Sylas', 
+		'518': 'Neeko', 
+		'523': 'Aphelios', 
+		'555': 'Pyke', 
+		'235': 'Senna', 
+		'875': 'Sett'
 	}
 
 
@@ -506,25 +649,12 @@ client.on("message", async message => {
 		let leaguePos;
 		let championName;
 		let champEmoji;
-		let rankEmoji;
 		var i;
-
 		var players = new Array();
-
-
-		hotStreak = "";
-
 		var sum;
 		var regionID = "la2";
 
-		//build embed
-		const embed = new Discord.RichEmbed()
-
-			.setColor(0x26caf5);
-		//	.addField("________________________________", "**EQUIPO 1**");
-
-
-
+		const embed = new Discord.RichEmbed().setColor(0x26caf5);
 
 		//get summoner ID
 
@@ -551,21 +681,10 @@ client.on("message", async message => {
 			}
 
 
-			//data = JSON.parse(data); //??????????????????????????????????????
-
-
-
-
-
-
-
 		}
 
 
 		for (i = 0; i < 10; i++) {
-
-
-			hotStreak = "";
 
 
 			//get summoner ID
@@ -581,48 +700,11 @@ client.on("message", async message => {
 			//get ranks
 
 			try {
-				//console.log("SUMMMMM ID: "+sum.id);
+
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
-				/*
-				
-				
-				
-				
-								tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
-								rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-								lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
-								winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
-								lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-				
-								if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
-									hotStreak = ":fire:"
-				
-								}
-				
-								winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
-				
-				
-				
-				
-								if (tierSD.toString() != "Unranked") {
-				
-									lpSD = lpSD.toString() + " PL";
-				
-								}
-				
-				
-				
-				
-				
-								if (isNaN(winrateSD)) {
-									winrateSD = "ND";
-								} else {
-									winrateSD = winrateSD + "%";
-								}
-				*/
 
-				opgg = data.participants[i].summonerName.split(' ').join('+');
+				//	opgg = data.participants[i].summonerName.split(' ').join('+');
 				championName = getChampionName(data.participants[i].championId);
 				champEmoji = client.emojis.get(getChampionEmote(championName));
 
@@ -634,46 +716,7 @@ client.on("message", async message => {
 			}
 
 
-
-
-
-
-
-
-
-			/*	embed.addField(
-					"**" + data.participants[i].summonerName + "**" + " " + "(" + champEmoji + championName + ")",
-					tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD + " " + hotStreak + " [(OP.GG)](https://las.op.gg/summoner/userName=" + opgg + ") ");
-	
-	*/
-			/*.addBlankField(true)*/
-
-			//	console.log(data.participants[i].summonerName + "(" + getChampionName(data.participants[i].championId) + ")" + " " + tierSD + " " + rankSD + " " + lpSD + " | " + winrateSD);
-
-			/*
-			if (i == 4) {
-				embed.addField("________________________________", "**EQUIPO 2**");
-			}
-*/
-
 		}
-
-
-
-		/*
-		function Player(nick, champ, leaguePos) {
-			this.nick = nick;
-			this.champ = champ;
-			this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
-			this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-			this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
-			this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
-			this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-			this.winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
-		
-		}
-		
-		*/
 
 
 
@@ -686,11 +729,11 @@ client.on("message", async message => {
 			client.emojis.get(getChampionEmote(players[4].champ)) + " " + players[4].nick + " " + players[4].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
-			client.emojis.get(getEloEmote(players[0].tierSD)) + " " + players[0].tierSD + " " + players[0].rankSD + players[0].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[1].tierSD)) + " " + players[1].tierSD + " " + players[1].rankSD + players[1].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[2].tierSD)) + " " + players[2].tierSD + " " + players[2].rankSD + players[2].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[3].tierSD)) + " " + players[3].tierSD + " " + players[3].rankSD + players[3].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[4].tierSD)) + " " + players[4].tierSD + " " + players[4].rankSD + players[4].lpSD + "\n"
+			client.emojis.get(getEloEmote(players[0].tierSD)) + " " + players[0].tierSD + " " + players[0].rankSD + " " + players[0].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[1].tierSD)) + " " + players[1].tierSD + " " + players[1].rankSD + " " + players[1].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[2].tierSD)) + " " + players[2].tierSD + " " + players[2].rankSD + " " + players[2].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[3].tierSD)) + " " + players[3].tierSD + " " + players[3].rankSD + " " + players[3].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[4].tierSD)) + " " + players[4].tierSD + " " + players[4].rankSD + " " + players[4].lpSD + "\n"
 			, true);
 		embed.addField("Winrate",
 			"  " + players[0].winrateSD + "\n" +
@@ -709,11 +752,11 @@ client.on("message", async message => {
 			client.emojis.get(getChampionEmote(players[9].champ)) + " " + players[9].nick + " " + players[9].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
-			client.emojis.get(getEloEmote(players[5].tierSD)) + " " + players[5].tierSD + " " + players[5].rankSD + players[5].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[6].tierSD)) + " " + players[6].tierSD + " " + players[6].rankSD + players[6].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[7].tierSD)) + " " + players[7].tierSD + " " + players[7].rankSD + players[7].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[8].tierSD)) + " " + players[8].tierSD + " " + players[8].rankSD + players[8].lpSD + "\n" +
-			client.emojis.get(getEloEmote(players[9].tierSD)) + " " + players[9].tierSD + " " + players[9].rankSD + players[9].lpSD + "\n"
+			client.emojis.get(getEloEmote(players[5].tierSD)) + " " + players[5].tierSD + " " + players[5].rankSD + " " + players[5].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[6].tierSD)) + " " + players[6].tierSD + " " + players[6].rankSD + " " + players[6].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[7].tierSD)) + " " + players[7].tierSD + " " + players[7].rankSD + " " + players[7].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[8].tierSD)) + " " + players[8].tierSD + " " + players[8].rankSD + " " + players[8].lpSD + "\n" +
+			client.emojis.get(getEloEmote(players[9].tierSD)) + " " + players[9].tierSD + " " + players[9].rankSD + " " + players[9].lpSD + "\n"
 			, true);
 		embed.addField("Winrate",
 			"  " + players[5].winrateSD + "\n" +
@@ -729,20 +772,7 @@ client.on("message", async message => {
 
 
 
-
-
-
-
 });
-
-
-
-
-
-
-
-
-
 
 
 
