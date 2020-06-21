@@ -739,6 +739,8 @@ client.on("message", async message => {
 
 			} catch (err) {
 				console.log(err);
+				maestria = 0;
+
 			}
 
 
