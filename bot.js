@@ -466,7 +466,7 @@ client.on("message", async message => {
 
 
 			embed.setAuthor(username, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
-				.setColor(0x00AE86)
+				.setColor(0x26caf5)
 				.setDescription(
 					"**Solo/Duo:** " + tierSD + " " + rankSD + " " + lpSD + " **Winrate: **" + winrateSD +
 					"\n**Flex: **" + tierFlex + " " + rankFlex + " " + lpFlex + "** Winrate: **" + winrateFlex +
@@ -520,7 +520,7 @@ client.on("message", async message => {
 		//build embed
 		const embed = new Discord.RichEmbed()
 
-			.setColor(0x00AE86);
+			.setColor(0x26caf5);
 		//	.addField("________________________________", "**EQUIPO 1**");
 
 
