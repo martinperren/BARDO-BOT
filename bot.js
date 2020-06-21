@@ -722,7 +722,7 @@ client.on("message", async message => {
 				sumAux = sumAux.id;
 
 			} catch (err) {
-				console.log(err+"0");
+				console.log(err);
 			}
 
 
@@ -736,7 +736,8 @@ client.on("message", async message => {
 
 
 			} catch (err) {
-				console.log(err+"1");
+				console.log(err);
+				console.log(data.participants[i].summonerName);
 			}
 
 
@@ -756,7 +757,7 @@ client.on("message", async message => {
 				players.push(new Player(data.participants[i].summonerName, championName, leaguePos, maestria));
 
 			} catch (err) {
-				console.log(err+"2");
+				console.log(err);
 			}
 
 
