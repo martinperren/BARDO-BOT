@@ -773,13 +773,9 @@ client.on("message", async message => {
 			"  " + players[9].winrateSD + "\n"
 			, true);
 
-		embed.addField("Winrate",
-			"  " + players[5].winrateSD + "\n" +
-			"  " + players[6].winrateSD + "\n" +
-			"  " + players[7].winrateSD + "\n" +
-			"  " + players[8].winrateSD + "\n" +
-			"  " + players[9].winrateSD + "\n"
-			, false);
+
+
+
 
 
 
