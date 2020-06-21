@@ -35,11 +35,52 @@ client.on("ready", () => {
 
 
 
+function Player(nick, champ, leaguePos, maestria) {
+	this.nick = nick;
+	this.champ = champ;
+	this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+	this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+	this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+	this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+	this.winrateSD = round([this.winsSD / (this.winsSD + this.lossesSD)] * 100, 1);
+	this.hotStreak = "";
+	this.maestria = maestria;
+
+	if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
+		this.hotStreak = ":fire:"
+
+	}
+
+
+	if (this.tierSD.toString() != "Unranked") {
+
+
+
+		this.lpSD = "(" + this.lpSD.toString() + " PL)";
+
+	} else {
+		this.tierSD = "UNRANKED";
+	}
+
+
+	if (isNaN(this.winrateSD)) {
+		this.winrateSD = "ND";
+	} else {
+		this.winrateSD = this.winrateSD + "%";
+	}
+
+
+
+}
+
 
 function getMastriaEmote(key) {
 
 	var Emotes = {
 
+
+		'0': '724374456616615958',
 		'1': '724164725235253248',
 		'2': '724164725440643112',
 		'3': '724164725348499517',
@@ -263,45 +304,6 @@ function getChampionEmote(key) {
 
 
 
-
-function Player(nick, champ, leaguePos, maestria) {
-	this.nick = nick;
-	this.champ = champ;
-	this.tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
-	this.rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-	this.lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
-	this.winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
-	this.lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-	this.winrateSD = round([this.winsSD / (this.winsSD + this.lossesSD)] * 100, 1);
-	this.hotStreak = "";
-	this.maestria = maestria;
-
-	if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
-		this.hotStreak = ":fire:"
-
-	}
-
-
-	if (this.tierSD.toString() != "Unranked") {
-
-
-
-		this.lpSD = "(" + this.lpSD.toString() + " PL)";
-
-	} else {
-		this.tierSD = "UNRANKED";
-	}
-
-
-	if (isNaN(this.winrateSD)) {
-		this.winrateSD = "ND";
-	} else {
-		this.winrateSD = this.winrateSD + "%";
-	}
-
-
-
-}
 
 
 
@@ -737,8 +739,6 @@ client.on("message", async message => {
 
 			} catch (err) {
 				console.log(err);
-				console.log(data.participants[i].summonerName);
-				console.log(maestria.championLevel);
 			}
 
 
