@@ -783,8 +783,7 @@ client.on("message", async message => {
 			"  " + client.emojis.get(getChampionEmote(bannedChampions[6].championId)) + "\n" +
 			"  " + client.emojis.get(getChampionEmote(bannedChampions[7].championId)) + "\n" +
 			"  " + client.emojis.get(getChampionEmote(bannedChampions[8].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[9].championId)) + "\n" +
-			"  " + client.emojis.get(getChampionEmote(bannedChampions[10].championId)) + "\n"
+			"  " + client.emojis.get(getChampionEmote(bannedChampions[9].championId)) + "\n"
 			, true);
 
 
