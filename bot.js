@@ -88,7 +88,7 @@ function getChampionEmote(key) {
 
 	var Emotes = {
 
-		'NoBan': '724147103680692277',
+		'-1': '724147103680692277',
 		'Challenger': '723808761441157162',
 		'Diamond': '723809276841164811',
 		'Gold': '723809276920856578',
