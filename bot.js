@@ -512,7 +512,7 @@ function getQueue(key) {
 
 function toMins(time) {
 	var hr = ~~(time / 3600);
-	var min = ~~((time % 3600) / 60)+3;
+	var min = ~~((time % 3600) / 60)+3; //test
 	var sec = time % 60;
 	var sec_min = "";
 	if (hr > 0) {
