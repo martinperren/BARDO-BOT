@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const { Pyke } = require('pyke');
 const pyke = new Pyke(process.env.RIOT_API); // 10 seconds to cache
-var dia, flag, selector, players, turno = "", auxiliar = 0;
 
 let tierSD, rankSD, lpSD, winsSD, lossesSD, winrateSD, tierFlex, rankFlex, lpFlex, winsFlex, lossesFlex, winrateFlex, hotStreak, opgg;
 
@@ -513,7 +512,7 @@ function getQueue(key) {
 
 function toMins(time) {
 	var hr = ~~(time / 3600);
-	var min = ~~((time % 3600) / 60);
+	var min = ~~((time % 3600) / 60)+3;
 	var sec = time % 60;
 	var sec_min = "";
 	if (hr > 0) {
