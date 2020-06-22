@@ -512,7 +512,7 @@ function getQueue(key) {
 
 function toMins(time) {
 	var hr = ~~(time / 3600);
-	var min = ~~((time % 3600) / 60)+3; //test
+	var min = ~~((time % 3600) / 60) + 3; //test
 	var sec = time % 60;
 	var sec_min = "";
 	if (hr > 0) {
@@ -682,6 +682,8 @@ client.on("message", async message => {
 
 		//get summoner ID
 
+		console.log("GetSummonerId");
+
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
 
@@ -694,6 +696,8 @@ client.on("message", async message => {
 		//get current game info
 		try {
 
+
+			console.log("GetMatchInfo");
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 
 
@@ -722,6 +726,9 @@ client.on("message", async message => {
 				sumAux = await pyke.summoner.getBySummonerName(data.participants[i].summonerName, regionID);
 				sumAux = sumAux.id;
 
+				console.log("GetSummonerId " + i);
+
+
 			} catch (err) {
 				console.log(err);
 			}
@@ -733,7 +740,7 @@ client.on("message", async message => {
 				maestria = await pyke.masteries.getChampionMastery(sumAux, regionID, data.participants[i].championId);
 
 				maestria = maestria.championLevel;
-
+				console.log("GetMaestrias " + i);
 
 
 			} catch (err) {
@@ -747,7 +754,7 @@ client.on("message", async message => {
 			//get ranks
 
 			try {
-
+				console.log("GetRanksrias " + i);
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
 				//	opgg = data.participants[i].summonerName.split(' ').join('+');
