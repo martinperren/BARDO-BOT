@@ -682,7 +682,6 @@ client.on("message", async message => {
 
 		//get summoner ID
 
-		console.log("GetSummonerId");
 
 		try {
 			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
@@ -697,7 +696,7 @@ client.on("message", async message => {
 		try {
 
 
-			console.log("GetMatchInfo");
+
 			data = await pyke.spectator.getCurrentGameInfoBySummoner(sum.id, regionID);
 
 
@@ -733,7 +732,6 @@ client.on("message", async message => {
 				maestria = await pyke.masteries.getChampionMastery(sumAux, regionID, data.participants[i].championId);
 
 				maestria = maestria.championLevel;
-				console.log("GetMaestrias " + i);
 
 
 			} catch (err) {
@@ -747,7 +745,7 @@ client.on("message", async message => {
 			//get ranks
 
 			try {
-				console.log("GetRanksrias " + i);
+
 				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sumAux, regionID);
 
 				//	opgg = data.participants[i].summonerName.split(' ').join('+');
