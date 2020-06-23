@@ -665,7 +665,7 @@ client.on("message", async message => {
 
 		console.time();
 		let data;
-		let sumAux;
+		let sumAux, queue;
 		let args = message.content.substring(1).split(" ");
 		args.splice(0, 1);
 		const username = args.join(" ");
@@ -703,9 +703,13 @@ client.on("message", async message => {
 
 			//	console.log(bannedChampions);
 
+			if (data.gameType == "CUSTOM_GAME") {
+				queue = getQueue(0);
+			} else {
+				queue = getQueue(data.gameQueueConfigId);
+			}
 
-
-			embed.setTitle("Partida de " + username + " | " + getQueue(data.gameQueueConfigId) + " " + "(" + toMins(data.gameLength) + ")");
+			embed.setTitle("Partida de " + username + " | " + queue + " " + "(" + toMins(data.gameLength) + ")");
 
 		} catch (err) {
 
@@ -720,18 +724,7 @@ client.on("message", async message => {
 
 		for (i = 0; i < 10; i++) {
 
-			//get summoner ID
-
-			try {
-				sumAux = await pyke.summoner.getBySummonerName(data.participants[i].summonerName, regionID);
-				sumAux = sumAux.id;
-
-				console.log("GetSummonerId " + i);
-
-
-			} catch (err) {
-				console.log(err);
-			}
+			sumAux = data.participants[i].summonerId;
 
 
 			//test de maestria
