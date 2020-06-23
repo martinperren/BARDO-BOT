@@ -502,19 +502,7 @@ function getQueue(key) {
 
 
 
-function toMins(time) {
-	var hr = ~~(time / 3600);
-	var min = ~~((time % 3600) / 60) + 3; //test
-	var sec = time % 60;
-	var sec_min = "";
-	if (hr > 0) {
-		sec_min += "" + hrs + ":" + (min < 10 ? "0" : "");
-	}
-	sec_min += "" + min + ":" + (sec < 10 ? "0" : "");
-	sec_min += "" + sec;
-	return sec_min;
-}
-
+function toMins(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
 
 
 function round(value, precision) {
