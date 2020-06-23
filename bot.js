@@ -628,7 +628,7 @@ client.on("message", async message => {
 			message.channel.send({ embed });
 
 		} catch (err) {
-			console.log(err);
+		//	console.log(err);
 
 
 
@@ -737,7 +737,7 @@ client.on("message", async message => {
 				players.push(new Player(data.participants[i].summonerName, championName, leaguePos, maestria, opgg));
 
 			} catch (err) {
-				console.log(err);
+				//console.log(err);
 			}
 
 
