@@ -502,7 +502,7 @@ function getQueue(key) {
 
 
 
-function toMins(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
+function toMins(s) { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s }
 
 
 function round(value, precision) {
@@ -556,85 +556,86 @@ client.on("message", async message => {
 			}
 		}
 
+		if (typeof (sum) != "undefined") {
 
-		try {
+			try {
 
-			let leaguePos;
+				let leaguePos;
 
-			leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
-
-
-			tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
-			rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
-			lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
-			winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
-			lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
-			winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
+				leaguePos = await pyke.league.getAllLeaguePositionsForSummoner(sum.id, regionID);
 
 
-			tierFlex = leaguePos.all.RANKED_FLEX_SR.tier;
-			rankFlex = leaguePos.all.RANKED_FLEX_SR.rank;
-			lpFlex = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
-			winsFlex = leaguePos.all.RANKED_FLEX_SR.wins;
-			lossesFlex = leaguePos.all.RANKED_FLEX_SR.losses;
-			winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
+				tierSD = leaguePos.all.RANKED_SOLO_5x5.tier;
+				rankSD = leaguePos.all.RANKED_SOLO_5x5.rank;
+				lpSD = leaguePos.all.RANKED_SOLO_5x5.leaguePoints;
+				winsSD = leaguePos.all.RANKED_SOLO_5x5.wins;
+				lossesSD = leaguePos.all.RANKED_SOLO_5x5.losses;
+				winrateSD = round([winsSD / (winsSD + lossesSD)] * 100, 1);
 
 
-			if (tierSD.toString() != "Unranked") {
+				tierFlex = leaguePos.all.RANKED_FLEX_SR.tier;
+				rankFlex = leaguePos.all.RANKED_FLEX_SR.rank;
+				lpFlex = leaguePos.all.RANKED_FLEX_SR.leaguePoints;
+				winsFlex = leaguePos.all.RANKED_FLEX_SR.wins;
+				lossesFlex = leaguePos.all.RANKED_FLEX_SR.losses;
+				winrateFlex = round([winsFlex / (winsFlex + lossesFlex)] * 100, 1);
 
-				lpSD = lpSD.toString() + " PL";
+
+				if (tierSD.toString() != "Unranked") {
+
+					lpSD = lpSD.toString() + " PL";
+
+				}
+
+
+				if (tierFlex.toString() != "Unranked") {
+
+					lpFlex = lpFlex.toString() + " PL";
+
+				}
+
+				if (isNaN(winrateFlex)) {
+					winrateFlex = "ND";
+				} else {
+					winrateFlex = winrateFlex + "%";
+				}
+
+				if (isNaN(winrateSD)) {
+					winrateSD = "ND";
+				} else {
+					winrateSD = winrateSD + "%";
+				}
+
+
+
+				hotStreak = "";
+				if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
+					hotStreak = "Racha de victorias :fire:"
+				}
+
+
+
+				embed.setAuthor(username, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
+					.setColor(0x26caf5)
+					.setDescription(
+						"**Solo/Duo:** " + tierSD + " " + rankSD + " " + lpSD + " **Winrate: **" + winrateSD +
+						"\n**Flex: **" + tierFlex + " " + rankFlex + " " + lpFlex + "** Winrate: **" + winrateFlex +
+						"\n" + hotStreak)
+					.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png");
+
+
+
+
+				message.channel.send({ embed });
+
+			} catch (err) {
+				//	console.log(err);
+
+
 
 			}
-
-
-			if (tierFlex.toString() != "Unranked") {
-
-				lpFlex = lpFlex.toString() + " PL";
-
-			}
-
-			if (isNaN(winrateFlex)) {
-				winrateFlex = "ND";
-			} else {
-				winrateFlex = winrateFlex + "%";
-			}
-
-			if (isNaN(winrateSD)) {
-				winrateSD = "ND";
-			} else {
-				winrateSD = winrateSD + "%";
-			}
-
-
-
-			hotStreak = "";
-			if (leaguePos.all.RANKED_SOLO_5x5.hotStreak) {
-				hotStreak = "Racha de victorias :fire:"
-			}
-
-
-
-			embed.setAuthor(username, "http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png")
-				.setColor(0x26caf5)
-				.setDescription(
-					"**Solo/Duo:** " + tierSD + " " + rankSD + " " + lpSD + " **Winrate: **" + winrateSD +
-					"\n**Flex: **" + tierFlex + " " + rankFlex + " " + lpFlex + "** Winrate: **" + winrateFlex +
-					"\n" + hotStreak)
-				.setThumbnail("http://ddragon.leagueoflegends.com/cdn/10.12.1/img/profileicon/" + profileImage + ".png");
-
-
-
-
-			message.channel.send({ embed });
-
-		} catch (err) {
-		//	console.log(err);
-
-
 
 		}
-
-
 
 
 	}
@@ -700,7 +701,7 @@ client.on("message", async message => {
 
 		}
 
-
+		if (typeof(data) != "undefined"){
 		for (i = 0; i < 10; i++) {
 
 			sumAux = data.participants[i].summonerId;
@@ -747,11 +748,11 @@ client.on("message", async message => {
 
 
 		embed.addField(client.emojis.get("724061793147813990") + " Blue Team",
-			client.emojis.get(getMastriaEmote(players[0].maestria)) + " " + client.emojis.get(getChampionEmote(players[0].champ)) + " [" + players[0].nick + "]("+ players[0].opgg +") " + players[0].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[1].maestria)) + " " + client.emojis.get(getChampionEmote(players[1].champ)) + " [" + players[1].nick + "]("+ players[1].opgg +") " + players[1].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[2].maestria)) + " " + client.emojis.get(getChampionEmote(players[2].champ)) + " [" + players[2].nick + "]("+ players[2].opgg +") " + players[2].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[3].maestria)) + " " + client.emojis.get(getChampionEmote(players[3].champ)) + " [" + players[3].nick + "]("+ players[3].opgg +") " + players[3].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[4].maestria)) + " " + client.emojis.get(getChampionEmote(players[4].champ)) + " [" + players[4].nick + "]("+ players[4].opgg +") " + players[4].hotStreak + "\n"
+			client.emojis.get(getMastriaEmote(players[0].maestria)) + " " + client.emojis.get(getChampionEmote(players[0].champ)) + " [" + players[0].nick + "](" + players[0].opgg + ") " + players[0].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[1].maestria)) + " " + client.emojis.get(getChampionEmote(players[1].champ)) + " [" + players[1].nick + "](" + players[1].opgg + ") " + players[1].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[2].maestria)) + " " + client.emojis.get(getChampionEmote(players[2].champ)) + " [" + players[2].nick + "](" + players[2].opgg + ") " + players[2].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[3].maestria)) + " " + client.emojis.get(getChampionEmote(players[3].champ)) + " [" + players[3].nick + "](" + players[3].opgg + ") " + players[3].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[4].maestria)) + " " + client.emojis.get(getChampionEmote(players[4].champ)) + " [" + players[4].nick + "](" + players[4].opgg + ") " + players[4].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
 			client.emojis.get(getEloEmote(players[0].tierSD)) + " " + players[0].tierSD + " " + players[0].rankSD + " " + players[0].lpSD + "\n" +
@@ -769,12 +770,12 @@ client.on("message", async message => {
 			, true);
 
 
-			embed.addField(client.emojis.get("724060843670503474") + " Red Team",
-			client.emojis.get(getMastriaEmote(players[5].maestria)) + " " + client.emojis.get(getChampionEmote(players[5].champ)) + " [" + players[5].nick + "]("+ players[5].opgg +") " + players[5].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[6].maestria)) + " " + client.emojis.get(getChampionEmote(players[6].champ)) + " [" + players[6].nick + "]("+ players[6].opgg +") " + players[6].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[7].maestria)) + " " + client.emojis.get(getChampionEmote(players[7].champ)) + " [" + players[7].nick + "]("+ players[7].opgg +") " + players[7].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[8].maestria)) + " " + client.emojis.get(getChampionEmote(players[8].champ)) + " [" + players[8].nick + "]("+ players[8].opgg +") " + players[8].hotStreak + "\n" +
-			client.emojis.get(getMastriaEmote(players[9].maestria)) + " " + client.emojis.get(getChampionEmote(players[9].champ)) + " [" + players[9].nick + "]("+ players[9].opgg +") " + players[9].hotStreak + "\n"
+		embed.addField(client.emojis.get("724060843670503474") + " Red Team",
+			client.emojis.get(getMastriaEmote(players[5].maestria)) + " " + client.emojis.get(getChampionEmote(players[5].champ)) + " [" + players[5].nick + "](" + players[5].opgg + ") " + players[5].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[6].maestria)) + " " + client.emojis.get(getChampionEmote(players[6].champ)) + " [" + players[6].nick + "](" + players[6].opgg + ") " + players[6].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[7].maestria)) + " " + client.emojis.get(getChampionEmote(players[7].champ)) + " [" + players[7].nick + "](" + players[7].opgg + ") " + players[7].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[8].maestria)) + " " + client.emojis.get(getChampionEmote(players[8].champ)) + " [" + players[8].nick + "](" + players[8].opgg + ") " + players[8].hotStreak + "\n" +
+			client.emojis.get(getMastriaEmote(players[9].maestria)) + " " + client.emojis.get(getChampionEmote(players[9].champ)) + " [" + players[9].nick + "](" + players[9].opgg + ") " + players[9].hotStreak + "\n"
 			, true);
 		embed.addField("Rank",
 			client.emojis.get(getEloEmote(players[5].tierSD)) + " " + players[5].tierSD + " " + players[5].rankSD + " " + players[5].lpSD + "\n" +
@@ -810,7 +811,7 @@ client.on("message", async message => {
 		message.channel.send({ embed });
 	}
 
-
+	}
 
 	if (message.content.includes("huevo")) {
 		message.react("537716624296378399");
