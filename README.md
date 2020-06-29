@@ -5,7 +5,9 @@ Bot para discord que provee información de partidas en vivo y datos de jugadore
 COMANDOS
 
 !m jugador (muestra informacion de la partida en vivo de ese jugador)
+
 !elo jugador (muestra el rango del jugador)
+
 .
 .
 .
