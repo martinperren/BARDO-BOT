@@ -1,4 +1,4 @@
-# DISCORD-TRES
+# DISCORD-LOL
 
 Bot para discord que provee información de partidas en vivo y datos de jugadores de League of Legends región LAS.
 
