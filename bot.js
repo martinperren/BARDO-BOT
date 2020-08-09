@@ -289,7 +289,8 @@ function getChampionEmote(key) {
 		'Vladimir': '723806479181807666',
 		'Vayne': '723806479211167795',
 		'Teemo': '723806479307767843',
-		'Lillia' : '737445394686148649'
+		'Lillia' : '737445394686148649',
+		'Yone' : '742095571409567918'
 
 	}
 
@@ -453,7 +454,8 @@ function getChampionName(key) {
 		'555': 'Pyke',
 		'235': 'Senna',
 		'875': 'Sett',
-		'876' : 'Lillia'
+		'876' : 'Lillia',
+		'777' : 'Yone'
 	}
 
 
