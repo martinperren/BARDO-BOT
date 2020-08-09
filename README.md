@@ -1,4 +1,4 @@
-##COMANDOS
+#COMANDOS
 
 #####m jugador (muestra informacion de la partida en vivo de ese jugador)
 
