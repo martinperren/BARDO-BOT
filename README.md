@@ -8,9 +8,9 @@ COMANDOS
 
 !elo jugador (muestra el rango del jugador)
 
-.
-.
-.
+https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot
+
+
 
 
 
