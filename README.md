@@ -1,29 +1,23 @@
 
 
 
-<body>
-  <div class="container">
-    <header>
+
+   
       <img class="logo" src="images/bardo.png" alt="Bardo Logo" width="150" height="150">
       <h1>Bardo Bot</h1>
       <div class="subtitle">
         Bot de League of Legends para Discord
-      </div>
-    </header>
+  
 
-
-
-
-      <h2>
         <span class="circle g2"></span>
         Intuitive syntax highlighting
-      </h2>
-      <p>
+ 
+    
         I've meticulously designed <strong class="y">New Moon</strong> to be easy on the eyes with intuitive
         connections between related elements. It's pleasant for long coding hours in any language,
         and particularly well suited for <strong class="o">HTML</strong>, <strong class="strong">CSS</strong>,
         <strong class="r">Sass</strong>, <strong class="p">PHP</strong>, and <strong class="y">JavaScript</strong>.
-      </p>
+   
       <h3>HTML & CSS work together</h3>
       <p>In HTML, we can see tags are blue, attributes are yellow, and values are green.</p>
       <img src="./samples/html.png" alt="HTML Screenshot" width="430" height="114">
@@ -79,12 +73,6 @@
         <cite>&mdash; Monte</cite>
       </blockquote>
    
-
-   
-  </div>
-</body>
-
-
 
 
 
