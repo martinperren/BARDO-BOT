@@ -72,7 +72,7 @@ share-links-active:
 url-pretty: "Bardobot.me"
 
 # Create a "tags" index page and make tags on each post clickable
-link-tags: true
+link-tags: false
 
 # Excerpt Word Length - Truncates the excerpt to the specified number of words on the index page
 excerpt_length: 50
@@ -187,7 +187,14 @@ kramdown:
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
-
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true  # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
   -
     scope:
       path: "" # all files
