@@ -192,7 +192,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "page"
+      layout: "home"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
       readtime: false # add estimated reading time on all blog posts
