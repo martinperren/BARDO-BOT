@@ -520,11 +520,10 @@ client.on("message", async message => {
 
 
 
-	if (message.content.startsWith("!test")) {
-		//message.channel.send("www.elnortesa.com.ar");
+	if (message.content.startsWith("!help")) {
+	
 
-		const emojiList = message.guild.emojis.map((e, x) => (x + ' = ' + e) + ' | ' + e.name).join('\n');
-		console.log(emojiList);
+		message.channel.send("Informacion de partida en vivo !m jugador\nRango del invocador !elo jugador");
 
 
 
