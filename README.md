@@ -1,5 +1,7 @@
-![New Moon Icon](images/bardo.png){:height="50%" width="50%"}
 
+
+
+<img src="images/bardo.png" width="324" height="324">
 
 
 ## COMANDOS
