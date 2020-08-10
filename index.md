@@ -1,16 +1,19 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Bardo Bot
+subtitle: Discord League Of Legends Bot
 ---
 
-My name is Inigo Montoya. I have the following qualities:
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### Comandos
 
-What else do you need?
+- **!m jugador** (muestra informacion de la partida en vivo de ese jugador)
 
-### my history
+![Crepe](https://iili.io/dMDgDX.png){: .mx-auto.d-block :}
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+- **!elo jugador** (muestra el rango del jugador)
+
+![Crepe](https://iili.io/dMDUNt.png){: .mx-auto.d-block :}
+
+
+ [Agregar a tu servidor](https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot)
