@@ -1,4 +1,4 @@
-![New Moon Icon](images/bardo.png)
+![New Moon Icon](images/bardo.png){:height="50%" width="50%"}
 
 
 
