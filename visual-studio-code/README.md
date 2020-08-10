@@ -1,29 +1,34 @@
-![New Moon Icon](images/new-moon-thumbnail.svg)
+![New Moon Icon](https://github.com/taniarascia/new-moon-vscode/raw/master/images/new-moon-vector-thumbnail.png)
 
-# New Moon Theme
+# New Moon Syntax Theme
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Version](https://vsmarketplacebadge.apphb.com/version-short/taniarascia.new-moon-vscode.svg?color=blue)](https://marketplace.visualstudio.com/items?itemName=taniarascia.new-moon-vscode) [![Downloads](https://vsmarketplacebadge.apphb.com/downloads-short/taniarascia.new-moon-vscode.svg?color=blue)](https://marketplace.visualstudio.com/items?itemName=taniarascia.new-moon-vscode) ![Rating](https://vsmarketplacebadge.apphb.com/rating-star/taniarascia.new-moon-vscode.svg?color=blue)
+[![Version](https://vsmarketplacebadge.apphb.com/version-short/taniarascia.new-moon-vscode.svg?color=373277)](https://marketplace.visualstudio.com/items?itemName=taniarascia.new-moon-vscode) [![Downloads](https://vsmarketplacebadge.apphb.com/downloads-short/taniarascia.new-moon-vscode.svg?color=373277)](https://marketplace.visualstudio.com/items?itemName=taniarascia.new-moon-vscode) [![Rating](https://vsmarketplacebadge.apphb.com/rating-star/taniarascia.new-moon-vscode.svg?color=373277)](https://marketplace.visualstudio.com/items?itemName=taniarascia.new-moon-vscode) [![Downloads](https://badges.ml/dt/new-moon)](https://badges.ml/#new-moon) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-[New Moon](https://taniarascia.github.io/new-moon/) is the optimized dark theme for web development. It's intuitive, easy on the eyes, and consistent across your entire development environment. It's pleasant for long coding hours in any language, and particularly well suited for HTML, CSS, SCSS/LESS, PHP (WordPress), and JavaScript (React, Vue).
+The optimized dark theme for web development.
 
-- Intuitive connections between HTML and CSS
+- [New Moon Theme Website](https://taniarascia.github.io/new-moon/)
+
+## Intuitive Syntax Highlighting
+
+[New Moon](https://taniarascia.github.io/new-moon/) is the optimized dark theme for web development. It has been meticulously designed to be easy on the eyes and intuitive. It's pleasant for long coding hours in any language, and particularly well suited for HTML, CSS, SCSS/LESS, PHP (WordPress), and JavaScript (React, Vue).
+
+- HTML & CSS work together
+- Optimized for JSX and React
 - Clear distinctions between code and markup
-- Optimized for JSX/React, Vue, and PHP/WordPress
 
 ## Platforms
 
 New Moon is available for:
 
 - [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=taniarascia.new-moon-vscode)
-- [Chrome DevTools](https://chrome.google.com/webstore/detail/devtools-theme-new-moon/lndddploiofhfpdcoclegenegblkhlfk?hl=en)
+- [Chrome DevTools](https://github.com/taniarascia/new-moon-chrome-devtools)
+- [iTerm2](https://github.com/taniarascia/new-moon/tree/master/iterm2)
 - [Brackets](https://github.com/taniarascia/new-moon-brackets)
 - [Sublime Text](https://packagecontrol.io/packages/New%20Moon%20Color%20Scheme)
 - [Atom](https://github.atom.io/packages/new-moon-atom-syntax)
-- [iTerm2](https://github.com/taniarascia/new-moon/tree/master/iterm2)
-- [Terminal.app](https://github.com/taniarascia/new-moon/tree/master/Terminal.app)
 - [Hyper Term](https://github.com/Tmeister/hyperterm-new-moon-theme)
 - [Blink Shell](https://github.com/taniarascia/new-moon/tree/master/blink-shell)
-- [Vim](https://github.com/taniarascia/new-moon.vim)
+- [VIM](https://github.com/taniarascia/new-moon.vim)
 
 ## What Are People Saying?
 
@@ -67,40 +72,28 @@ New Moon is available for:
 
 ### Chrome DevTools
 
-![New Moon Screenshot Chrome DevTools](images/chromedevtools.png)
+![New Moon Screenshot Chrome DevTools](https://github.com/taniarascia/new-moon-vscode/raw/master/images/chromedevtools.png)
 
 ### iTerm2
 
-![New Moon Screenshot iTerm2](images/iterm2.png)
+![New Moon Screenshot iTerm2](https://github.com/taniarascia/new-moon-vscode/raw/master/images/iterm2.png)
 
 ### VSC: JavaScript/React
 
-![New Moon Screenshot JS](images/js.png)
+![New Moon Screenshot JS](https://github.com/taniarascia/new-moon-vscode/raw/master/images/js.png)
 
 ### VSC: CSS/SCSS
 
-![New Moon Screenshot CSS](images/css.png)
+![New Moon Screenshot CSS](https://github.com/taniarascia/new-moon-vscode/raw/master/images/css.png)
 
 ### VSC: PHP
 
-![New Moon Screenshot PHP](images/php.png)
-
-## Contributing
-
-New Moon themes for any app are welcome! To contribute:
-
-- Create a repo called `new-moon-app-name` based on [template-example](/template-example)
-- Add the code for your theme and update the README with a screenshot and installation instructions
-- Create an issue requesting to be added to the repository and link to your repo
-
-A git subtree will be added pulling your repo into the main `new-moon` repo.
-
-If your theme does not require you to maintain its own repository, simply create a pull request with the theme in a folder.
+![New Moon Screenshot PHP](https://github.com/taniarascia/new-moon-vscode/raw/master/images/php.png)
 
 ## Acknowledgements
 
 - Originally inspired by Twilight and [Tomorrow Night Eighties](https://github.com/chriskempson/tomorrow-theme).
-- Chrome DevTools theme forked from [Zero Base Themes](https://github.com/mauricecruz/zero-base-themes).
+- Chrome DevTools theme forked from [Zero Base Themes](https://github.com/mauricecruz/zero-base-themes)
 
 ## Author
 
