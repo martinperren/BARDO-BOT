@@ -1,4 +1,4 @@
-<img src="bardo.png" width="100" height="100">
+<img src="images/bardo.png" width="100" height="100">
 
 
 ## COMANDOS
