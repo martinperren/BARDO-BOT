@@ -9,12 +9,11 @@
   "dependencies": {
     "discord.js": "11.6.3",
     "node-rest-client": "^3.1.0",
-     "pyke":"3.1.1"
-
+    "pyke": "3.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
     "postcss-cli": "^7.1.1"
   }
-
+  
 }
