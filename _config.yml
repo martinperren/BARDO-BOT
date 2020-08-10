@@ -190,7 +190,7 @@ defaults:
   -
     scope:
       path: ""
-      type: "posts"
+      type: "home"
     values:
       layout: "home"
       comments: true  # add comments to all blog posts
