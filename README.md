@@ -3,9 +3,9 @@
 
 ## COMANDOS
 
-##### `!m jugador´ (muestra informacion de la partida en vivo de ese jugador)
+- !m jugador (muestra informacion de la partida en vivo de ese jugador)
 
-###### `!elo jugador´ (muestra el rango del jugador)
+- !elo jugador (muestra el rango del jugador)
 
 ## LINK
 
