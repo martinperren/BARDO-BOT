@@ -12,15 +12,6 @@
     </header>
 
 
-      <h2>
-        <span class="circle b2"></span>
-        One theme for all your apps
-      </h2>
-      <p>
-        New Moon is available for your <strong>text editor</strong> (VS Code, Brackets, Sublime, VIM, Atom), your
-        browser's <strong>DevTools</strong> (Chrome), and your
-        <strong>terminal</strong> (iTerm2, HyperTerm, Blink).
-      </p>
 
 
       <h2>
