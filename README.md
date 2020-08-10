@@ -1,5 +1,5 @@
-![BardoIcon](images/bardo.png){:height="50%" width="50%"}
 
+![BardoIcon](images/bardo.png){:height="50%" width="50%"}
 
 
 ## COMANDOS
