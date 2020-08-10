@@ -1,5 +1,5 @@
 {
-  "name": "DiscordBot",
+  "name": "discordbot",
   "description": "testing",
   "version": "0.0.0",
   "main": "bot.js",
@@ -15,5 +15,5 @@
     "autoprefixer": "^9.8.0",
     "postcss-cli": "^7.1.1"
   }
-  
+
 }
