@@ -4,9 +4,9 @@ title: Bardo Bot
 subtitle: Discord League Of Legends Bot
 ---
  
-
-<a href="https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot"><img src="https://iili.io/dMbshF.png" alt="RECON learn" width="25%"></a>
-
+<div style="width:100%;text-align:center;">
+<a href="https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot" target="_blank" ><img src="https://iili.io/dMbshF.png" alt="RECON learn" width="25%"></a>
+</div>
 
 
 
