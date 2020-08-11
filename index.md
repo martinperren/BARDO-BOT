@@ -7,7 +7,9 @@ subtitle: Discord League Of Legends Bot
  [Agregar a tu Servidor](https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot)
 
 
- {% include buttons.html %}
+![Crepe](https://iili.io/dMbIqJ.png)(https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot){: .mx-auto.d-block :}
+
+
 
 ### Comandos
 
