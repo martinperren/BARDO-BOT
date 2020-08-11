@@ -4,9 +4,6 @@ title: Bardo Bot
 subtitle: Discord League Of Legends Bot
 ---
 
-<div class="list-circles">
-<a href="https://reconlearn.org/"><img src="https://reconlearn.netlify.com/img/logo/learn.png" alt="RECON learn" width="50%"></a>
-</div>
 
 ### Comandos
 
