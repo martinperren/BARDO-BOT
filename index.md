@@ -6,7 +6,6 @@ subtitle: Bot de League of Legends para Discord
  
  
 
-<br/>
 
 <div style="width:100%;text-align:center;">
 <a href="https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot" target="_blank" ><img src="https://iili.io/dVgaQp.png" alt="RECON learn" width="30%"></a>
