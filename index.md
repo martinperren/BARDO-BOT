@@ -4,6 +4,7 @@ title: Bardo Bot
 subtitle: Discord League Of Legends Bot
 ---
 
+ [Agregar a tu Servidor](https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot)
 
 ### Comandos
 
@@ -16,4 +17,4 @@ subtitle: Discord League Of Legends Bot
 ![Crepe](https://iili.io/dMDUNt.png){: .mx-auto.d-block :}
 
 
- ![Crepe][Agregar a tu servidor](https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot)
+
