@@ -3,12 +3,12 @@ layout: page
 title: Bardo Bot
 subtitle: Discord League Of Legends Bot
 ---
+   {% include buttons.html %}
+
+<a href="https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot"><img src="https://iili.io/dMbIqJ.png" alt="RECON learn" width="25%"></a>
 
 
-<a href="https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot"><img src="https://iili.io/dMbIqJ.png" alt="RECON learn" width="15%"></a>
-
-
-
+ [https://discord.com/oauth2/authorize?client_id=692202081150304328&permissions=8&scope=bot text]
 
 
 ### Comandos
