@@ -6,7 +6,6 @@ subtitle: Bot de League of Legends para Discord
  
  El bot se encuentra en fase de desarrollo y es exclusivo para la region de LAS.
 
-<br/><br/><br/>
 <br/>
 
 <div style="width:100%;text-align:center;">
@@ -14,8 +13,7 @@ subtitle: Bot de League of Legends para Discord
 </div>
 
 <br/>
-<br/><br/>
-<br/>
+
 
 ### Comandos
 
