@@ -20,11 +20,11 @@ subtitle: Bot de League of Legends para Discord
 
 - **!m jugador** (muestra informacion de la partida en vivo de ese jugador)
 
-![Crepe](https://iili.io/dMDgDX.png){: .mx-auto.d-block :}
+![Crepe](https://iili.io/dMmREb.png){: .mx-auto.d-block :}
 
 - **!elo jugador** (muestra el rango del jugador)
 
-![Crepe](https://iili.io/dMDUNt.png){: .mx-auto.d-block :}
+![Crepe](https://iili.io/dMmACu.png){: .mx-auto.d-block :}
 
 
 
