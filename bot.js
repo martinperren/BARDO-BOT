@@ -470,28 +470,27 @@ function getChampionName(key) {
 function getQueue(key) {
 
 	var Queue = {
-
-		'0': 'Custom games',
-		'76': 'Ultra Rapid Fire | Grieta del invocador',
-		'78': 'One For All: Mirror Mode | Abismo de los lamentos',
-		'83': 'Co-op vs AI Ultra Rapid Fire | Grieta del invocador',
-		'100': 'ARAM | Butchers Bridge',
-		'325': 'All Random games | Grieta del invocador',
-		'400': '5v5 Draft Pick | Grieta del invocador',
-		'420': 'Ranked Solo | Grieta del invocador',
-		'430': 'Blind Pick | Grieta del invocador',
-		'440': 'Ranked Flex | Grieta del invocador',
-		'450': 'ARAM | Abismo de los lamentos',
-		'700': 'Clash | Grieta del invocador',
-		'830': 'Co-op vs. Bots | Grieta del invocador',
-		'840': 'Co-op vs. Bots | Grieta del invocador',
-		'850': 'Co-op vs. Bots | Grieta del invocador',
-		'900': 'URF | Grieta del invocador',
-		'1010': 'Snow ARURF | Grieta del invocador',
-		'1020': 'One for All | Grieta del invocador',
-		'2000': 'Tutorial 1 | Grieta del invocador',
-		'2010': 'Tutorial 2 | Grieta del invocador',
-		'2020': 'Tutorial 3 | Grieta del invocador'
+	'0': 'Custom games',
+		'76': 'Ultra Rapid Fire',
+		'78': 'One For All: Mirror Mode',
+		'83': 'Co-op vs AI Ultra Rapid Fire',
+		'100': 'ARAM',
+		'325': 'All Random games',
+		'400': 'Normal',
+		'420': 'Ranked Solo',
+		'430': 'Blind Pick',
+		'440': 'Ranked Flex',
+		'450': 'ARAM',
+		'700': 'Clash',
+		'830': 'Co-op vs. Bots',
+		'840': 'Co-op vs. Bots',
+		'850': 'Co-op vs. Bots',
+		'900': 'URF',
+		'1010': 'Snow ARURF',
+		'1020': 'One for All',
+		'2000': 'Tutorial 1',
+		'2010': 'Tutorial 2',
+		'2020': 'Tutorial 3'
 
 
 	}
@@ -595,7 +594,7 @@ client.on("message", async message => {
 	if (message.content.startsWith("!help")) {
 	
 
-		message.channel.send("Informacion de partida en vivo !m jugador\nRango del invocador !elo jugador");
+		message.channel.send("Informacion de partida en vivo !m jugador\nRango del invocador !elo jugador\n!h jugador Ultimas 10 partidas");
 
 
 
