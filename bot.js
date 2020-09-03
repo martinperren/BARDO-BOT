@@ -643,6 +643,252 @@ client.on("message", async message => {
 
 	}
 
+function PlayerMatches(champ, cs, kills, deaths, assists, win, lane, role) {
+	this.cs = cs;
+	this.kills = kills;
+	this.assists = assists;
+	this.deaths = deaths;
+	this.champ = champ;
+
+
+
+
+	switch (lane) {
+		case "MID":
+			this.lane = "Medio";
+			this.role = "";
+			break;
+		case "JUNGLE":
+			this.lane = "Jungla";
+			this.role = "";
+			break;
+
+		case "TOP":
+			this.lane = "Top";
+			this.role = "";
+			break;
+
+		case "BOTTOM":
+			switch (role) {
+				case "DUO_CARRY":
+					this.lane = "Adc";
+					this.role = "";
+					break;
+
+				case "SOLO":
+					this.lane = "Adc";
+					this.role = "";
+					break;
+
+				case "DUO_SUPPORT":
+					this.lane = "Soporte";
+					this.role = "";
+					break;
+
+				default:
+
+					this.lane = "N/D";
+					this.role = "";
+
+			}
+
+			break;
+
+
+
+
+		default:
+			this.lane = "N/D";
+			this.role = "";
+	}
+
+
+
+
+
+	if (win == true) {
+		this.win = "Victoria";
+	} else {
+		this.win = "Derrota";
+	}
+
+}
+
+
+client.on("message", async message => {
+
+
+
+	if (message.content.startsWith("!h")) {
+
+
+		let args = message.content.substring(1).split(" ");
+
+		args.splice(0, 1);
+		const username = args.join(" ");
+
+		var sum;
+		var regionID = "la2";
+		var matches;
+		var sumid;
+
+
+		const embed = new Discord.RichEmbed();
+		embed.setTitle("Partidas de " + username);
+
+
+
+		try {
+			sum = await pyke.summoner.getBySummonerName(String(username), regionID);
+
+
+		} catch (err) {
+			if (err.statuscode == 404) {
+
+				message.channel.send("el jugador " + username + " no existe en LAS. ")
+			}
+		}
+
+
+
+		sumid = sum.accountId;
+		//console.log(sumid);
+		matches = await pyke.match.getMatchlist(sum.accountId, regionID, null);
+
+		matches = matches.matches;
+		//console.log(matches);
+
+
+		var playerMatches = new Array();
+
+
+		if (typeof (matches) != "undefined") {
+			for (i = 0; i < 10; i++) {
+
+				gameId = matches[i].gameId;
+
+
+
+				try {
+
+					var match = await pyke.match.getMatch(gameId, regionID);
+					var notfound = true;
+					var j = 0;
+				
+					while (notfound) {
+
+						//console.log("sumid: " + sumid);
+						//console.log("sumyd: " + match.participantIdentities[j].player.accountId); //.player[i]
+
+
+						if (match.participantIdentities[j].player.currentAccountId == sumid) {
+							//console.log("YES");
+							//console.log("FOUND");
+							console.log(match.participantIdentities[j].player.summonerName);
+							playerId = match.participantIdentities[j].participantId;
+
+							console.log("PLAYER ID1: " + playerId);
+
+							notfound = false;
+						}
+						j++;
+					}
+
+					
+					playerId = playerId - 1;
+					kills = match.participants[playerId].stats.kills;
+					deaths = match.participants[playerId].stats.deaths;
+					assists = match.participants[playerId].stats.assists;
+					cs = match.participants[playerId].stats.totalMinionsKilled;
+					win = match.participants[playerId].stats.win;
+					champ = match.participants[playerId].championId;
+					lane = matches[i].lane;
+					role = matches[i].role;
+
+					console.log(lane);
+					console.log(role);
+					console.log("PLAYER ID2: " + match.participants[playerId].stats.participantId);
+
+
+
+
+					//console.log(cs);
+
+					playerMatches.push(new PlayerMatches(champ, cs, kills, deaths, assists, win, lane, role));
+				
+					//console.log(playerId);
+
+
+					//console.log(match.participantIdentities);
+
+				} catch (err) {
+
+					console.log(err);
+
+				}
+
+			}
+
+			embed.addField("Resultado/Campeon",
+
+				playerMatches[0].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[0].champ))) + " ** " + getChampionName(playerMatches[0].champ) + " ** (" + getQueue(matches[0].queue) + ")\n" +
+				playerMatches[1].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[1].champ))) + " ** " + getChampionName(playerMatches[1].champ) + " ** (" + getQueue(matches[1].queue) + ")\n" +
+				playerMatches[2].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[2].champ))) + " ** " + getChampionName(playerMatches[2].champ) + " ** (" + getQueue(matches[2].queue) + ")\n" +
+				playerMatches[3].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[3].champ))) + " ** " + getChampionName(playerMatches[3].champ) + " ** (" + getQueue(matches[3].queue) + ")\n" +
+				playerMatches[4].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[4].champ))) + " ** " + getChampionName(playerMatches[4].champ) + " ** (" + getQueue(matches[4].queue) + ")\n" +
+				playerMatches[5].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[5].champ))) + " ** " + getChampionName(playerMatches[5].champ) + " ** (" + getQueue(matches[5].queue) + ")\n" +
+				playerMatches[6].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[6].champ))) + " ** " + getChampionName(playerMatches[6].champ) + " ** (" + getQueue(matches[6].queue) + ")\n" +
+				playerMatches[7].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[7].champ))) + " ** " + getChampionName(playerMatches[7].champ) + " ** (" + getQueue(matches[7].queue) + ")\n" +
+				playerMatches[8].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[8].champ))) + " ** " + getChampionName(playerMatches[8].champ) + " ** (" + getQueue(matches[8].queue) + ")\n" +
+				playerMatches[9].win + " " + client.emojis.get(getChampionEmote(getChampionName(playerMatches[9].champ))) + " ** " + getChampionName(playerMatches[9].champ) + " ** (" + getQueue(matches[9].queue) + ") "
+
+
+				, true);
+
+
+
+			embed.addField("Linea",
+
+				playerMatches[0].lane + "\n" +
+				playerMatches[1].lane + "\n" +
+				playerMatches[2].lane + "\n" +
+				playerMatches[3].lane + "\n" +
+				playerMatches[4].lane + "\n" +
+				playerMatches[5].lane + "\n" +
+				playerMatches[6].lane + "\n" +
+				playerMatches[7].lane + "\n" +
+				playerMatches[8].lane + "\n" +
+				playerMatches[9].lane
+
+
+				, true);
+
+
+			embed.addField("KDA/CS",
+
+				" ** " + playerMatches[0].kills + " / " + playerMatches[0].deaths + " / " + playerMatches[0].assists + " ** (" + playerMatches[0].cs + " CS) " + "\n" +
+				" ** " + playerMatches[1].kills + " / " + playerMatches[1].deaths + " / " + playerMatches[1].assists + " ** (" + playerMatches[1].cs + " CS) " + "\n" +
+				" ** " + playerMatches[2].kills + " / " + playerMatches[2].deaths + " / " + playerMatches[2].assists + " ** (" + playerMatches[2].cs + " CS) " + "\n" +
+				" ** " + playerMatches[3].kills + " / " + playerMatches[3].deaths + " / " + playerMatches[3].assists + " ** (" + playerMatches[3].cs + " CS) " + "\n" +
+				" ** " + playerMatches[4].kills + " / " + playerMatches[4].deaths + " / " + playerMatches[4].assists + " ** (" + playerMatches[4].cs + " CS) " + "\n" +
+				" ** " + playerMatches[5].kills + " / " + playerMatches[5].deaths + " / " + playerMatches[5].assists + " ** (" + playerMatches[5].cs + " CS) " + "\n" +
+				" ** " + playerMatches[6].kills + " / " + playerMatches[6].deaths + " / " + playerMatches[6].assists + " ** (" + playerMatches[6].cs + " CS) " + "\n" +
+				" ** " + playerMatches[7].kills + " / " + playerMatches[7].deaths + " / " + playerMatches[7].assists + " ** (" + playerMatches[7].cs + " CS) " + "\n" +
+				" ** " + playerMatches[8].kills + " / " + playerMatches[8].deaths + " / " + playerMatches[8].assists + " ** (" + playerMatches[8].cs + " CS) " + "\n" +
+				" ** " + playerMatches[9].kills + " / " + playerMatches[9].deaths + " / " + playerMatches[9].assists + " ** (" + playerMatches[9].cs + " CS) "
+
+
+				, true);
+
+			message.channel.send({ embed });
+
+		}
+
+
+	}
+
+
+
 
 	if (message.content.startsWith("!m")) {
 
