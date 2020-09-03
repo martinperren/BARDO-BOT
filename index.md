@@ -25,13 +25,20 @@ subtitle: Bot de League of Legends para Discord
 
 ### Comandos
 
-- **!m jugador** (muestra informacion de la partida en vivo de ese jugador)
+- **!m jugador** (muestra informacion de la partida en vivo de ese invocador)
 
 ![Crepe](https://iili.io/dMmREb.png){: .mx-auto.d-block :}
 
-- **!elo jugador** (muestra el rango del jugador)
+- **!h jugador** (ultimas 10 partidas del invocador)
+
+![Crepe](https://iili.io/dmr41I.png){: .mx-auto.d-block :}
+
+- **!elo jugador** (muestra el rango del invocador)
 
 ![Crepe](https://iili.io/dMmACu.png){: .mx-auto.d-block :}
+
+
+
 
 
 
