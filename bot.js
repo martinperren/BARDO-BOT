@@ -515,6 +515,78 @@ function round(value, precision) {
 }
 
 
+function PlayerMatches(champ, cs, kills, deaths, assists, win, lane, role) {
+	this.cs = cs;
+	this.kills = kills;
+	this.assists = assists;
+	this.deaths = deaths;
+	this.champ = champ;
+
+
+
+
+	switch (lane) {
+		case "MID":
+			this.lane = "Medio";
+			this.role = "";
+			break;
+		case "JUNGLE":
+			this.lane = "Jungla";
+			this.role = "";
+			break;
+
+		case "TOP":
+			this.lane = "Top";
+			this.role = "";
+			break;
+
+		case "BOTTOM":
+			switch (role) {
+				case "DUO_CARRY":
+					this.lane = "Adc";
+					this.role = "";
+					break;
+
+				case "SOLO":
+					this.lane = "Adc";
+					this.role = "";
+					break;
+
+				case "DUO_SUPPORT":
+					this.lane = "Soporte";
+					this.role = "";
+					break;
+
+				default:
+
+					this.lane = "N/D";
+					this.role = "";
+
+			}
+
+			break;
+
+
+
+
+		default:
+			this.lane = "N/D";
+			this.role = "";
+	}
+
+
+
+
+
+	if (win == true) {
+		this.win = "Victoria";
+	} else {
+		this.win = "Derrota";
+	}
+
+}
+
+
 client.on("message", async message => {
 
 
@@ -643,79 +715,10 @@ client.on("message", async message => {
 
 	}
 
-function PlayerMatches(champ, cs, kills, deaths, assists, win, lane, role) {
-	this.cs = cs;
-	this.kills = kills;
-	this.assists = assists;
-	this.deaths = deaths;
-	this.champ = champ;
 
 
 
 
-	switch (lane) {
-		case "MID":
-			this.lane = "Medio";
-			this.role = "";
-			break;
-		case "JUNGLE":
-			this.lane = "Jungla";
-			this.role = "";
-			break;
-
-		case "TOP":
-			this.lane = "Top";
-			this.role = "";
-			break;
-
-		case "BOTTOM":
-			switch (role) {
-				case "DUO_CARRY":
-					this.lane = "Adc";
-					this.role = "";
-					break;
-
-				case "SOLO":
-					this.lane = "Adc";
-					this.role = "";
-					break;
-
-				case "DUO_SUPPORT":
-					this.lane = "Soporte";
-					this.role = "";
-					break;
-
-				default:
-
-					this.lane = "N/D";
-					this.role = "";
-
-			}
-
-			break;
-
-
-
-
-		default:
-			this.lane = "N/D";
-			this.role = "";
-	}
-
-
-
-
-
-	if (win == true) {
-		this.win = "Victoria";
-	} else {
-		this.win = "Derrota";
-	}
-
-}
-
-
-client.on("message", async message => {
 
 
 
