@@ -941,7 +941,14 @@ client.on("message", async message => {
 				queue = getQueue(queueId);
 			}
 
-			embed.setTitle("Partida de " + username + " | " + queue + " " + "(" + toMins(data.gameLength) + ")");
+if(data.gameLength<0){
+	embed.setTitle("Partida de " + username + " | " + queue + " " + "(0:00)");
+}else{
+	embed.setTitle("Partida de " + username + " | " + queue + " " + "(" + toMins(data.gameLength) + ")");
+}
+			
+
+		
 
 		} catch (err) {
 
