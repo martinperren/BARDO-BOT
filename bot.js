@@ -291,7 +291,8 @@ function getChampionEmote(key) {
 		'Teemo': '723806479307767843',
 		'Lillia' : '737445394686148649',
 		'Yone' : '742095392258129980',
-		'Samira' : '757841407632474142'
+		'Samira' : '757841407632474142',
+		'Seraphine': '774464896837746718'
 
 	}
 
@@ -457,7 +458,8 @@ function getChampionName(key) {
 		'875': 'Sett',
 		'876' : 'Lillia',
 		'777' : 'Yone',
-		'360' : 'Samira'
+		'360' : 'Samira',
+		'147' : 'Seraphine'
 	}
 
 
