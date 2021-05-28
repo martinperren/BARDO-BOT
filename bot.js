@@ -292,7 +292,11 @@ function getChampionEmote(key) {
 		'Lillia' : '737445394686148649',
 		'Yone' : '742095392258129980',
 		'Samira' : '757841407632474142',
-		'Seraphine': '774464896837746718'
+		'Seraphine': '774464896837746718',
+		'Rell': '808863051566284811',
+		'Viego': '808863052035391517',
+		'Gwen': '847947415138730014'
+
 
 	}
 
@@ -459,7 +463,11 @@ function getChampionName(key) {
 		'876' : 'Lillia',
 		'777' : 'Yone',
 		'360' : 'Samira',
-		'147' : 'Seraphine'
+		'147' : 'Seraphine',
+		'526' : 'Rell',
+		'234' : 'Viego',
+		'887' : 'Gwen'
+		
 	}
 
 
