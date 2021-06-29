@@ -170,7 +170,7 @@ function getEloEmote(key) {
 
 
 
-function getCurrentMatch(){
+async function getCurrentMatch(){
 
 console.time("livematch");
 let data;
