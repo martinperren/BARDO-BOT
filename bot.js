@@ -131,7 +131,7 @@ function getEloEmote(key) {
 
 async function getCurrentMatch(message){
 
-
+console.log("join");
 let data;
 let sumAux, queue;
 let args = message.content.substring(1).split(" ");
