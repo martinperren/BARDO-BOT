@@ -7,6 +7,5 @@ _site
 .DS_Store
 Thumbs.db
 ehthumbs.db
-
-
+package-lock.json
 beautiful-jekyll-theme-*.gem
