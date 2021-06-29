@@ -552,9 +552,8 @@ if (typeof data != "undefined") {
     );
   }
   console.timeEnd("livematch");
+  message.channel.send({ embed });
 
-  return embed;
- // message.channel.send({ embed });
 }
 
 }
@@ -1460,8 +1459,8 @@ client.on("message", async (message) => {
   }
 
   if (message.content.startsWith("!m")) {
-  var  response = getCurrentMatch(message);
-    message.channel.send({ response });
+  getCurrentMatch(message);
+
   }
 
   if (message.content.includes("huevo")) {
