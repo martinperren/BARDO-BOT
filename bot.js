@@ -1501,8 +1501,8 @@ client.on("message", async (message) => {
   }
 
   if (message.content.startsWith("!m")) {
-
-    message.channel.send({ getCurrentMatch() });
+   response = getCurrentMatch();
+    message.channel.send({ response });
   }
 
   if (message.content.includes("huevo")) {
