@@ -226,6 +226,7 @@ if (typeof data != "undefined") {
       //	opgg = data.participants[i].summonerName.split(' ').join('+');
 
       championName = getChampionName(data.participants[i].championId);
+      console.log(championName);
       champEmoji = client.emojis.get(getChampionEmote(championName));
       opgg =
         "https://las.op.gg/summoner/userName=" +
