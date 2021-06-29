@@ -187,7 +187,7 @@ var sum;
 var regionID = "la2";
 let maestria;
 
-const embed = new Discord.RichEmbed().setColor(0x26caf5);
+const embed = Discord.MessageEmbed().setColor(0x26caf5);
 
 //get summoner ID
 
