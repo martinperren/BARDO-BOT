@@ -170,7 +170,7 @@ function getEloEmote(key) {
 
 
 
-async function getCurrentMatch(){
+async function getCurrentMatch(message){
 
 console.time("livematch");
 let data;
@@ -1501,7 +1501,7 @@ client.on("message", async (message) => {
   }
 
   if (message.content.startsWith("!m")) {
-   response = getCurrentMatch();
+  var  response = getCurrentMatch(message);
     message.channel.send({ response });
   }
 
