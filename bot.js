@@ -131,7 +131,7 @@ function getEloEmote(key) {
 
 async function getCurrentMatch(message){
 
-console.time("livematch");
+
 let data;
 let sumAux, queue;
 let args = message.content.substring(1).split(" ");
@@ -551,7 +551,7 @@ if (typeof data != "undefined") {
       false
     );
   }
-  console.timeEnd("livematch");
+ 
   message.channel.send({ embed });
 
 }
