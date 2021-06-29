@@ -38,47 +38,6 @@ client.on("ready", () => {
 
 
 
-  client.api.applications(client.user.id).commands.post({
-    data: {
-      name: "partida",
-      description: "Información de la partida en curso de un invocador",
-      options: 
-        {
-            name: "nombre",
-            description: "El nombre del invocador",
-            type: 5, // 6 is type USER
-            required: true
-        }
-    },
-  });
-
-  client.api.applications(client.user.id).commands.post({
-    data: {
-      name: "elo",
-      description: "elo de un invocador",
-      options: 
-        {
-            name: "nombre",
-            description: "El nombre del invocador",
-            type: 6, // 6 is type USER
-            required: true
-        }
-    },
-  });
-
-  client.api.applications(client.user.id).commands.post({
-    data: {
-      name: "historial",
-      description: "Ultimas 10 partidas de un invocador",
-      options: 
-        {
-            name: "nombre",
-            description: "El nombre del invocador",
-            type: 7, // 6 is type USER
-            required: true
-        }
-    },
-  });
 
   client.ws.on("INTERACTION_CREATE", async (interaction) => {
     const command = interaction.data.name.toLowerCase();
