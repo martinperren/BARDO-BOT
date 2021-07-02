@@ -732,9 +732,7 @@ client.on("message", async (message) => {
           role = matches[i].role;
 
 		
-		console.log(client.emojis.get(
-            getChampionEmote(getChampionName(playerMatches[0].champ))
-          ));
+		
           console.log(lane);
           console.log(role);
           console.log(
@@ -764,6 +762,10 @@ client.on("message", async (message) => {
         }
       }
 
+	    
+	    console.log(client.emojis.get(
+            getChampionEmote(getChampionName(playerMatches[0].champ))
+          ));
       embed.addField(
         "Resultado/Campeon",
 
