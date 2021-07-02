@@ -731,6 +731,10 @@ client.on("message", async (message) => {
           lane = matches[i].lane;
           role = matches[i].role;
 
+		
+		console.log(client.emojis.get(
+            getChampionEmote(getChampionName(playerMatches[0].champ))
+          ));
           console.log(lane);
           console.log(role);
           console.log(
